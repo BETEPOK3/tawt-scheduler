@@ -1,0 +1,3 @@
+[submodule "services/tawt/tawt-rest-api"]
+	path = services/tawt/tawt-rest-api
+	url = https://github.com/jalexpr/tawt-rest-api
