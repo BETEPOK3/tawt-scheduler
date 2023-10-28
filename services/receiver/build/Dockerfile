@@ -5,6 +5,7 @@ WORKDIR /build
 COPY go.mod go.sum ./
 RUN go mod download
 
+
 # Копирование программы в контейнер.
 COPY cmd/main.go .
 ADD internal ./internal/

@@ -36,12 +36,14 @@ services:
       context: services/sender
       dockerfile: build/Dockerfile
     environment:
+      POSTGRES_URL: postgres://tawt_user:tawt_password@postgres:5432/tawt?sslmode=disable
       AMQP_SERVER_URL: amqp://guest:guest@message-broker:5672/
       AMQP_QUEUE_NAME: tawt-queue
     restart: always
     networks:
       - dev-network
     depends_on:
+      - postgres
       - message-broker
 
   # Сервис приёма запросов из брокера и их отправки в TAWT.
@@ -53,6 +55,7 @@ services:
       context: services/receiver
       dockerfile: build/Dockerfile
     environment:
+      POSTGRES_URL: postgres://tawt_user:tawt_password@postgres:5432/tawt?sslmode=disable
       AMQP_SERVER_URL: amqp://guest:guest@message-broker:5672/
       AMQP_QUEUE_NAME: tawt-queue
       TAWT_SERVER_URL: tawt:30002/
@@ -60,8 +63,24 @@ services:
     networks:
       - dev-network
     depends_on:
+      - postgres
       - message-broker
       - tawt
+
+  # База данных.
+  postgres:
+    container_name: postgres
+    image: postgres:16.0
+    environment:
+      POSTGRES_DB: tawt
+      POSTGRES_USER: tawt_user
+      POSTGRES_PASSWORD: tawt_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ${HOME}/dev-postgres/data/:/var/lib/postgres
+    networks:
+      - dev-network
 
 networks:
   dev-network:

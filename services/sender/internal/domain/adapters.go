@@ -4,5 +4,5 @@ import "context"
 
 // RabbitAdapter - интерфейс адаптера RabbitMQ.
 type RabbitAdapter interface {
-	SendRequest(ctx context.Context, req []byte) ([]byte, error)
+	SendRequest(ctx context.Context, req []byte) error
 }

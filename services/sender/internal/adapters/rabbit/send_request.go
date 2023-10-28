@@ -2,11 +2,12 @@ package rabbit
 
 import (
 	"context"
+	"github.com/pkg/errors"
 	"github.com/rabbitmq/amqp091-go"
 )
 
 // SendRequest - отправить запрос в очередь.
-func (a *adapterImpl) SendRequest(ctx context.Context, req []byte) ([]byte, error) {
+func (a *adapterImpl) SendRequest(ctx context.Context, req []byte) error {
 	corrId := "1"
 
 	// Отправка запроса.
@@ -18,22 +19,11 @@ func (a *adapterImpl) SendRequest(ctx context.Context, req []byte) ([]byte, erro
 		amqp091.Publishing{
 			ContentType:   "json/application",
 			CorrelationId: corrId,
-			ReplyTo:       a.queueReceive.Name,
 			Body:          req,
 		})
 	if err != nil {
-		return nil, err
+		return errors.Wrap(err, "publish message")
 	}
 
-	// Приём ответа.
-	var reply []byte
-
-	for msg := range a.messages {
-		if corrId == msg.CorrelationId {
-			reply = msg.Body
-			break
-		}
-	}
-
-	return reply, nil
+	return nil
 }
