@@ -2,26 +2,28 @@ package main
 
 import (
 	"context"
-	"database/sql"
 	"github.com/BETEPOK3/tawt-scheduler/receiver/internal/adapter/rabbit"
 	"github.com/BETEPOK3/tawt-scheduler/receiver/internal/adapter/tawt"
+	"github.com/BETEPOK3/tawt-scheduler/receiver/internal/repo"
 	"github.com/BETEPOK3/tawt-scheduler/receiver/internal/usecase/receiver"
 	_ "github.com/golang-migrate/migrate/v4/database/postgres"
 	"github.com/rabbitmq/amqp091-go"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 	"log"
 	"os"
 )
 
 func main() {
-	postgresServerUrl := os.Getenv("POSTGRES_URL")
+	postgresDsn := os.Getenv("POSTGRES_DSN")
 	amqpServerURL := os.Getenv("AMQP_SERVER_URL")
 	amqpQueueName := os.Getenv("AMQP_QUEUE_NAME")
 	tawtServerURL := os.Getenv("TAWT_SERVER_URL")
 
 	// Подключение к БД.
-	_, err := sql.Open("postgres", postgresServerUrl)
+	db, err := gorm.Open(postgres.Open(postgresDsn), &gorm.Config{})
 	if err != nil {
-		log.Fatalf("error connecting to db: %v\n", err)
+		log.Fatal(err)
 	}
 
 	// Подключение к сервису RabbitMQ.
@@ -56,9 +58,10 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
+	tasksRepo := repo.NewTasksRepo(db)
 	rabbitAdapter := rabbit.NewRabbitAdapter(channel, messages)
 	tawtAdapter := tawt.NewTawtAdapter(tawtServerURL)
-	receiverUsecase := receiver.NewReceiverUsecase(rabbitAdapter, tawtAdapter)
+	receiverUsecase := receiver.NewReceiverUsecase(tasksRepo, rabbitAdapter, tawtAdapter)
 
 	// Запуск сервсиса.
 	for {

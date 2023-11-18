@@ -2,21 +2,37 @@ package tawt
 
 import (
 	"context"
+	"encoding/json"
+	"github.com/BETEPOK3/tawt-scheduler/common/entities"
+	"github.com/BETEPOK3/tawt-scheduler/receiver/internal/domain"
 	"github.com/gofiber/fiber/v2"
 )
 
 const graphematicParserApi = "tawt-rest-api/api/gp/parser/text"
 
 // SendRequest - отправить запрос в TAWT.
-func (a *adapterImpl) SendRequest(ctx context.Context, data []byte) (int, []byte, error) {
-	agent := fiber.Post(a.tawtUrl + graphematicParserApi).ContentType("application/json")
-	agent.Body(data)
+func (a *adapterImpl) SendRequest(ctx context.Context, dto *domain.TawtRequestDto) (*domain.TawtResponseDto, error) {
+	var adr string
 
-	status, resp, errs := agent.Bytes()
+	resp := &domain.TawtResponseDto{}
 
-	if len(errs) > 0 {
-		return status, nil, errs[0]
+	switch dto.TaskType {
+	case entities.TaskTypeGraphematicalParser:
+		adr = graphematicParserApi
 	}
 
-	return status, resp, nil
+	agent := fiber.Post(a.tawtUrl + adr).ContentType("application/json")
+	agent.Body(dto.Data)
+
+	_, tawtResp, errs := agent.Bytes()
+	if len(errs) > 0 {
+		return nil, errs[0]
+	}
+
+	err := json.Unmarshal(tawtResp, resp)
+	if err != nil {
+		return nil, err
+	}
+
+	return resp, nil
 }

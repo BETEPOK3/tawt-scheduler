@@ -1,8 +1,11 @@
 package domain
 
-import "context"
+import (
+	"context"
+	"github.com/BETEPOK3/tawt-scheduler/common/entities"
+)
 
 // RabbitAdapter - интерфейс адаптера RabbitMQ.
 type RabbitAdapter interface {
-	SendRequest(ctx context.Context, req []byte) error
+	SendTask(ctx context.Context, task *entities.Task, priority uint8) error
 }

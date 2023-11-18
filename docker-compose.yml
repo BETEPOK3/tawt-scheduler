@@ -33,10 +33,10 @@ services:
     ports:
       - "8080:8080"
     build:
-      context: services/sender
-      dockerfile: build/Dockerfile
+      context: .
+      dockerfile: services/sender/build/Dockerfile
     environment:
-      POSTGRES_URL: postgres://tawt_user:tawt_password@postgres:5432/tawt?sslmode=disable
+      POSTGRES_DSN: user=tawt_user password=tawt_password dbname=tawt host=postgres port=5432 sslmode=disable
       AMQP_SERVER_URL: amqp://guest:guest@message-broker:5672/
       AMQP_QUEUE_NAME: tawt-queue
     restart: always
@@ -52,13 +52,13 @@ services:
     ports:
       - "8081:8081"
     build:
-      context: services/receiver
-      dockerfile: build/Dockerfile
+      context: .
+      dockerfile: services/receiver/build/Dockerfile
     environment:
-      POSTGRES_URL: postgres://tawt_user:tawt_password@postgres:5432/tawt?sslmode=disable
+      POSTGRES_DSN: user=tawt_user password=tawt_password dbname=tawt host=postgres port=5432 sslmode=disable
       AMQP_SERVER_URL: amqp://guest:guest@message-broker:5672/
       AMQP_QUEUE_NAME: tawt-queue
-      TAWT_SERVER_URL: tawt:30002/
+      TAWT_SERVER_URL: http://tawt:30002/
     restart: always
     networks:
       - dev-network
