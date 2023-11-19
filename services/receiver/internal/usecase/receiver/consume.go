@@ -39,7 +39,7 @@ func (u *Usecase) Consume(ctx context.Context) error {
 
 	_ = msg.Ack(false)
 
-	if false {
+	if !resp.Success {
 		err = u.tasksRepo.FinishWithError(ctx, task.Id, "error")
 		if err != nil {
 			return errors.Wrap(err, "can't finish task with error")
