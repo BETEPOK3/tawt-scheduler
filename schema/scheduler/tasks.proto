@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package scheduler;
+
+import "common/status.proto";
+import "scheduler/types.proto";
+
+option go_package = "github.com/BETEPOK3/tawt-scheduler/schema/gen/go/scheduler;scheduler";
+option java_multiple_files = true;
+option java_package = "tawt_scheduler.proto.scheduler";
+
+// TasksService - сервис по работе с задачами.
+service TasksService {
+    // GetTaskById - получить задачу по идентификатору.
+    rpc GetTaskById(GetTaskByIdRequest) returns(GetTaskByIdResponse);
+
+    // GetTaskStream - получить поток задач на обработку.
+    rpc GetTaskStream(GetTaskStreamRequest) returns(stream GetTaskStreamResponse);
+
+    // CreateTask - создать задачу.
+    rpc CreateTask(CreateTaskRequest) returns(CreateTaskResponse);
+
+    // EditTask - редактировать задачу.
+    rpc EditTask(EditTaskRequest) returns(EditTaskResponse);
+}
+
+// GetTaskByIdRequest - запрос на получение задачи по идентификатору.
+message GetTaskByIdRequest {
+    // task_id - идентификатор задачи.
+    string task_id = 1;
+}
+
+// GetTaskByIdResponse - ответ на GetTaskByIdRequest.
+message GetTaskByIdResponse {
+    // status - статус.
+    common.Status status = 1;
+    // task - задача.
+    Task task = 2;
+}
+
+// CreateTaskRequest - запрос на создание задачи.
+message CreateTaskRequest {
+    // dto - данные для создания задачи.
+    CreateTask dto = 1;
+}
+
+// CreateTaskResponse - ответ на CreateTaskRequest.
+message CreateTaskResponse {
+    // status - статус.
+    common.Status status = 1;
+    // task_id - идентификатор созданной задачи.
+    string task_id = 2;
+}
+
+// GetTaskStreamRequest - запрос на получение потока задач на обработку.
+message GetTaskStreamRequest {}
+
+// GetTaskStreamResponse - ответ на GetTaskStreamRequest.
+message GetTaskStreamResponse {
+    // status - статус.
+    common.Status status = 1;
+    // task - данные задачи.
+    TaskStreamData task = 2;
+}
+
+// EditTaskRequest - запрос на редактирования задачи.
+message EditTaskRequest {
+    // dto - данные для редактирования задачи.
+    EditTask dto = 1;
+}
+
+// EditTaskResponse - ответ на EditTaskRequest.
+message EditTaskResponse {
+    // status - статус.
+    common.Status status = 1;
+}

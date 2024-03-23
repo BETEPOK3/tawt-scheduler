@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package scheduler;
+
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/BETEPOK3/tawt-scheduler/schema/gen/go/scheduler;scheduler";
+option java_multiple_files = true;
+option java_package = "tawt_scheduler.proto.scheduler";
+
+// Task - сущность задачи.
+message Task {
+    // Status - статус задачи.
+    enum Status {
+        // TASK_STATUS_UNSPECIFIED - статус не указан.
+        TASK_STATUS_UNSPECIFIED = 0;
+        // QUEUED - статус "добавлена в очередь".
+        QUEUED = 1;
+        // IN_PROGRESS - статус "в процессе обработки".
+        IN_PROGRESS = 2;
+        // FINISHED - статус "заверешена".
+        FINISHED = 3;
+        // ERROR - статус "обработана с ошибкой".
+        ERROR = 4;
+    }
+
+    // id - идентификатор задачи.
+    string id = 1;
+    // type - тип задачи с параметрами.
+    TaskType type = 2;
+    // input - входные данные задачи.
+    google.protobuf.Struct input = 3;
+    // input - выходные данные задачи.
+    optional google.protobuf.Struct output = 4;
+    // created_at - дата и время создания задачи.
+    string created_at = 5;
+    // finished_at - дата и время окончания обработки задачи.
+    optional string finished_at = 6;
+    // status - статус задачи.
+    Status status = 7;
+    // error - описание возможной ошибки обработки.
+    optional string error = 8;
+}
+
+// TaskType - тип задачи.
+message TaskType {
+    // specific - определённый тип.
+    oneof specific {
+        // graphematical - тип задачи "графематический анализ".
+        TaskTypeGraphematical graphematical = 1;
+        // morphological - тип задачи "морфологический анализ".
+        TaskTypeMorphological morphological = 2;
+    }
+}
+
+// TaskTypeGraphematical - тип задачи "графематический анализ".
+message TaskTypeGraphematical {}
+
+// TaskTypeMorphological - тип задачи "морфологический анализ".
+message TaskTypeMorphological {}
+
+// CreateTask - DTO создания задачи.
+message CreateTask {
+    // type - тип задачи с параметрами.
+    TaskType type = 1;
+    // input - входные данные задачи.
+    google.protobuf.Struct input = 2;
+}
+
+// TaskStreamData - DTO данных задачи, необходимых для её обработки.
+message TaskStreamData {
+    // id - идентификатор задачи.
+    string task_id = 1;
+    // type - тип задачи с параметрами.
+    TaskType type = 2;
+    // input - входные данные задачи.
+    google.protobuf.Struct input = 3;
+}
+
+// EditTask - DTO редактирования данных задачи.
+message EditTask {
+    // id - идентификатор задачи.
+    string task_id = 1;
+    // output - выходные данные задачи.
+    optional google.protobuf.Struct output = 2;
+}
