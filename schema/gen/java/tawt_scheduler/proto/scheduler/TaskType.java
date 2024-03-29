@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     GRAPHEMATICAL(1),
-    MORPHOLOGICAL(2),
+    GAMMA(2),
     SPECIFIC_NOT_SET(0);
     private final int value;
     private SpecificCase(int value) {
@@ -71,7 +71,7 @@ private static final long serialVersionUID = 0L;
     public static SpecificCase forNumber(int value) {
       switch (value) {
         case 1: return GRAPHEMATICAL;
-        case 2: return MORPHOLOGICAL;
+        case 2: return GAMMA;
         case 0: return SPECIFIC_NOT_SET;
         default: return null;
       }
@@ -130,47 +130,47 @@ private static final long serialVersionUID = 0L;
     return tawt_scheduler.proto.scheduler.TaskTypeGraphematical.getDefaultInstance();
   }
 
-  public static final int MORPHOLOGICAL_FIELD_NUMBER = 2;
+  public static final int GAMMA_FIELD_NUMBER = 2;
   /**
    * <pre>
-   * morphological - тип задачи "морфологический анализ".
+   * gamma - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
-   * @return Whether the morphological field is set.
+   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+   * @return Whether the gamma field is set.
    */
   @java.lang.Override
-  public boolean hasMorphological() {
+  public boolean hasGamma() {
     return specificCase_ == 2;
   }
   /**
    * <pre>
-   * morphological - тип задачи "морфологический анализ".
+   * gamma - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
-   * @return The morphological.
+   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+   * @return The gamma.
    */
   @java.lang.Override
-  public tawt_scheduler.proto.scheduler.TaskTypeMorphological getMorphological() {
+  public tawt_scheduler.proto.scheduler.TaskTypeGamma getGamma() {
     if (specificCase_ == 2) {
-       return (tawt_scheduler.proto.scheduler.TaskTypeMorphological) specific_;
+       return (tawt_scheduler.proto.scheduler.TaskTypeGamma) specific_;
     }
-    return tawt_scheduler.proto.scheduler.TaskTypeMorphological.getDefaultInstance();
+    return tawt_scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
   }
   /**
    * <pre>
-   * morphological - тип задачи "морфологический анализ".
+   * gamma - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
+   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
    */
   @java.lang.Override
-  public tawt_scheduler.proto.scheduler.TaskTypeMorphologicalOrBuilder getMorphologicalOrBuilder() {
+  public tawt_scheduler.proto.scheduler.TaskTypeGammaOrBuilder getGammaOrBuilder() {
     if (specificCase_ == 2) {
-       return (tawt_scheduler.proto.scheduler.TaskTypeMorphological) specific_;
+       return (tawt_scheduler.proto.scheduler.TaskTypeGamma) specific_;
     }
-    return tawt_scheduler.proto.scheduler.TaskTypeMorphological.getDefaultInstance();
+    return tawt_scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(1, (tawt_scheduler.proto.scheduler.TaskTypeGraphematical) specific_);
     }
     if (specificCase_ == 2) {
-      output.writeMessage(2, (tawt_scheduler.proto.scheduler.TaskTypeMorphological) specific_);
+      output.writeMessage(2, (tawt_scheduler.proto.scheduler.TaskTypeGamma) specific_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -208,7 +208,7 @@ private static final long serialVersionUID = 0L;
     }
     if (specificCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, (tawt_scheduler.proto.scheduler.TaskTypeMorphological) specific_);
+        .computeMessageSize(2, (tawt_scheduler.proto.scheduler.TaskTypeGamma) specific_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -232,8 +232,8 @@ private static final long serialVersionUID = 0L;
             .equals(other.getGraphematical())) return false;
         break;
       case 2:
-        if (!getMorphological()
-            .equals(other.getMorphological())) return false;
+        if (!getGamma()
+            .equals(other.getGamma())) return false;
         break;
       case 0:
       default:
@@ -255,8 +255,8 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getGraphematical().hashCode();
         break;
       case 2:
-        hash = (37 * hash) + MORPHOLOGICAL_FIELD_NUMBER;
-        hash = (53 * hash) + getMorphological().hashCode();
+        hash = (37 * hash) + GAMMA_FIELD_NUMBER;
+        hash = (53 * hash) + getGamma().hashCode();
         break;
       case 0:
       default:
@@ -399,8 +399,8 @@ private static final long serialVersionUID = 0L;
       if (graphematicalBuilder_ != null) {
         graphematicalBuilder_.clear();
       }
-      if (morphologicalBuilder_ != null) {
-        morphologicalBuilder_.clear();
+      if (gammaBuilder_ != null) {
+        gammaBuilder_.clear();
       }
       specificCase_ = 0;
       specific_ = null;
@@ -448,8 +448,8 @@ private static final long serialVersionUID = 0L;
         result.specific_ = graphematicalBuilder_.build();
       }
       if (specificCase_ == 2 &&
-          morphologicalBuilder_ != null) {
-        result.specific_ = morphologicalBuilder_.build();
+          gammaBuilder_ != null) {
+        result.specific_ = gammaBuilder_.build();
       }
     }
 
@@ -470,8 +470,8 @@ private static final long serialVersionUID = 0L;
           mergeGraphematical(other.getGraphematical());
           break;
         }
-        case MORPHOLOGICAL: {
-          mergeMorphological(other.getMorphological());
+        case GAMMA: {
+          mergeGamma(other.getGamma());
           break;
         }
         case SPECIFIC_NOT_SET: {
@@ -513,7 +513,7 @@ private static final long serialVersionUID = 0L;
             } // case 10
             case 18: {
               input.readMessage(
-                  getMorphologicalFieldBuilder().getBuilder(),
+                  getGammaFieldBuilder().getBuilder(),
                   extensionRegistry);
               specificCase_ = 2;
               break;
@@ -729,91 +729,91 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.SingleFieldBuilder<
-        tawt_scheduler.proto.scheduler.TaskTypeMorphological, tawt_scheduler.proto.scheduler.TaskTypeMorphological.Builder, tawt_scheduler.proto.scheduler.TaskTypeMorphologicalOrBuilder> morphologicalBuilder_;
+        tawt_scheduler.proto.scheduler.TaskTypeGamma, tawt_scheduler.proto.scheduler.TaskTypeGamma.Builder, tawt_scheduler.proto.scheduler.TaskTypeGammaOrBuilder> gammaBuilder_;
     /**
      * <pre>
-     * morphological - тип задачи "морфологический анализ".
+     * gamma - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
-     * @return Whether the morphological field is set.
+     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+     * @return Whether the gamma field is set.
      */
     @java.lang.Override
-    public boolean hasMorphological() {
+    public boolean hasGamma() {
       return specificCase_ == 2;
     }
     /**
      * <pre>
-     * morphological - тип задачи "морфологический анализ".
+     * gamma - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
-     * @return The morphological.
+     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+     * @return The gamma.
      */
     @java.lang.Override
-    public tawt_scheduler.proto.scheduler.TaskTypeMorphological getMorphological() {
-      if (morphologicalBuilder_ == null) {
+    public tawt_scheduler.proto.scheduler.TaskTypeGamma getGamma() {
+      if (gammaBuilder_ == null) {
         if (specificCase_ == 2) {
-          return (tawt_scheduler.proto.scheduler.TaskTypeMorphological) specific_;
+          return (tawt_scheduler.proto.scheduler.TaskTypeGamma) specific_;
         }
-        return tawt_scheduler.proto.scheduler.TaskTypeMorphological.getDefaultInstance();
+        return tawt_scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
       } else {
         if (specificCase_ == 2) {
-          return morphologicalBuilder_.getMessage();
+          return gammaBuilder_.getMessage();
         }
-        return tawt_scheduler.proto.scheduler.TaskTypeMorphological.getDefaultInstance();
+        return tawt_scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
       }
     }
     /**
      * <pre>
-     * morphological - тип задачи "морфологический анализ".
+     * gamma - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
+     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
      */
-    public Builder setMorphological(tawt_scheduler.proto.scheduler.TaskTypeMorphological value) {
-      if (morphologicalBuilder_ == null) {
+    public Builder setGamma(tawt_scheduler.proto.scheduler.TaskTypeGamma value) {
+      if (gammaBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         specific_ = value;
         onChanged();
       } else {
-        morphologicalBuilder_.setMessage(value);
+        gammaBuilder_.setMessage(value);
       }
       specificCase_ = 2;
       return this;
     }
     /**
      * <pre>
-     * morphological - тип задачи "морфологический анализ".
+     * gamma - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
+     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
      */
-    public Builder setMorphological(
-        tawt_scheduler.proto.scheduler.TaskTypeMorphological.Builder builderForValue) {
-      if (morphologicalBuilder_ == null) {
+    public Builder setGamma(
+        tawt_scheduler.proto.scheduler.TaskTypeGamma.Builder builderForValue) {
+      if (gammaBuilder_ == null) {
         specific_ = builderForValue.build();
         onChanged();
       } else {
-        morphologicalBuilder_.setMessage(builderForValue.build());
+        gammaBuilder_.setMessage(builderForValue.build());
       }
       specificCase_ = 2;
       return this;
     }
     /**
      * <pre>
-     * morphological - тип задачи "морфологический анализ".
+     * gamma - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
+     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
      */
-    public Builder mergeMorphological(tawt_scheduler.proto.scheduler.TaskTypeMorphological value) {
-      if (morphologicalBuilder_ == null) {
+    public Builder mergeGamma(tawt_scheduler.proto.scheduler.TaskTypeGamma value) {
+      if (gammaBuilder_ == null) {
         if (specificCase_ == 2 &&
-            specific_ != tawt_scheduler.proto.scheduler.TaskTypeMorphological.getDefaultInstance()) {
-          specific_ = tawt_scheduler.proto.scheduler.TaskTypeMorphological.newBuilder((tawt_scheduler.proto.scheduler.TaskTypeMorphological) specific_)
+            specific_ != tawt_scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance()) {
+          specific_ = tawt_scheduler.proto.scheduler.TaskTypeGamma.newBuilder((tawt_scheduler.proto.scheduler.TaskTypeGamma) specific_)
               .mergeFrom(value).buildPartial();
         } else {
           specific_ = value;
@@ -821,9 +821,9 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } else {
         if (specificCase_ == 2) {
-          morphologicalBuilder_.mergeFrom(value);
+          gammaBuilder_.mergeFrom(value);
         } else {
-          morphologicalBuilder_.setMessage(value);
+          gammaBuilder_.setMessage(value);
         }
       }
       specificCase_ = 2;
@@ -831,13 +831,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * morphological - тип задачи "морфологический анализ".
+     * gamma - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
+     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
      */
-    public Builder clearMorphological() {
-      if (morphologicalBuilder_ == null) {
+    public Builder clearGamma() {
+      if (gammaBuilder_ == null) {
         if (specificCase_ == 2) {
           specificCase_ = 0;
           specific_ = null;
@@ -848,62 +848,62 @@ private static final long serialVersionUID = 0L;
           specificCase_ = 0;
           specific_ = null;
         }
-        morphologicalBuilder_.clear();
+        gammaBuilder_.clear();
       }
       return this;
     }
     /**
      * <pre>
-     * morphological - тип задачи "морфологический анализ".
+     * gamma - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
+     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
      */
-    public tawt_scheduler.proto.scheduler.TaskTypeMorphological.Builder getMorphologicalBuilder() {
-      return getMorphologicalFieldBuilder().getBuilder();
+    public tawt_scheduler.proto.scheduler.TaskTypeGamma.Builder getGammaBuilder() {
+      return getGammaFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * morphological - тип задачи "морфологический анализ".
+     * gamma - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
+     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
      */
     @java.lang.Override
-    public tawt_scheduler.proto.scheduler.TaskTypeMorphologicalOrBuilder getMorphologicalOrBuilder() {
-      if ((specificCase_ == 2) && (morphologicalBuilder_ != null)) {
-        return morphologicalBuilder_.getMessageOrBuilder();
+    public tawt_scheduler.proto.scheduler.TaskTypeGammaOrBuilder getGammaOrBuilder() {
+      if ((specificCase_ == 2) && (gammaBuilder_ != null)) {
+        return gammaBuilder_.getMessageOrBuilder();
       } else {
         if (specificCase_ == 2) {
-          return (tawt_scheduler.proto.scheduler.TaskTypeMorphological) specific_;
+          return (tawt_scheduler.proto.scheduler.TaskTypeGamma) specific_;
         }
-        return tawt_scheduler.proto.scheduler.TaskTypeMorphological.getDefaultInstance();
+        return tawt_scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
       }
     }
     /**
      * <pre>
-     * morphological - тип задачи "морфологический анализ".
+     * gamma - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
+     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        tawt_scheduler.proto.scheduler.TaskTypeMorphological, tawt_scheduler.proto.scheduler.TaskTypeMorphological.Builder, tawt_scheduler.proto.scheduler.TaskTypeMorphologicalOrBuilder> 
-        getMorphologicalFieldBuilder() {
-      if (morphologicalBuilder_ == null) {
+        tawt_scheduler.proto.scheduler.TaskTypeGamma, tawt_scheduler.proto.scheduler.TaskTypeGamma.Builder, tawt_scheduler.proto.scheduler.TaskTypeGammaOrBuilder> 
+        getGammaFieldBuilder() {
+      if (gammaBuilder_ == null) {
         if (!(specificCase_ == 2)) {
-          specific_ = tawt_scheduler.proto.scheduler.TaskTypeMorphological.getDefaultInstance();
+          specific_ = tawt_scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
         }
-        morphologicalBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            tawt_scheduler.proto.scheduler.TaskTypeMorphological, tawt_scheduler.proto.scheduler.TaskTypeMorphological.Builder, tawt_scheduler.proto.scheduler.TaskTypeMorphologicalOrBuilder>(
-                (tawt_scheduler.proto.scheduler.TaskTypeMorphological) specific_,
+        gammaBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            tawt_scheduler.proto.scheduler.TaskTypeGamma, tawt_scheduler.proto.scheduler.TaskTypeGamma.Builder, tawt_scheduler.proto.scheduler.TaskTypeGammaOrBuilder>(
+                (tawt_scheduler.proto.scheduler.TaskTypeGamma) specific_,
                 getParentForChildren(),
                 isClean());
         specific_ = null;
       }
       specificCase_ = 2;
       onChanged();
-      return morphologicalBuilder_;
+      return gammaBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:scheduler.TaskType)

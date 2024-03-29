@@ -7,6 +7,7 @@
 package scheduler
 
 import (
+	common "github.com/BETEPOK3/tawt-scheduler/schema/gen/go/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -76,7 +77,7 @@ type GetTaskByIdResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// status - статус.
-	Status *Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	Status *common.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	// task - задача.
 	Task *Task `protobuf:"bytes,2,opt,name=task,proto3" json:"task,omitempty"`
 }
@@ -113,7 +114,7 @@ func (*GetTaskByIdResponse) Descriptor() ([]byte, []int) {
 	return file_scheduler_tasks_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetTaskByIdResponse) GetStatus() *Status {
+func (x *GetTaskByIdResponse) GetStatus() *common.Status {
 	if x != nil {
 		return x.Status
 	}
@@ -183,7 +184,7 @@ type CreateTaskResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// status - статус.
-	Status *Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	Status *common.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	// task_id - идентификатор созданной задачи.
 	TaskId string `protobuf:"bytes,2,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
 }
@@ -220,7 +221,7 @@ func (*CreateTaskResponse) Descriptor() ([]byte, []int) {
 	return file_scheduler_tasks_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *CreateTaskResponse) GetStatus() *Status {
+func (x *CreateTaskResponse) GetStatus() *common.Status {
 	if x != nil {
 		return x.Status
 	}
@@ -280,7 +281,7 @@ type GetTaskStreamResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// status - статус.
-	Status *Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	Status *common.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	// task - данные задачи.
 	Task *TaskStreamData `protobuf:"bytes,2,opt,name=task,proto3" json:"task,omitempty"`
 }
@@ -317,7 +318,7 @@ func (*GetTaskStreamResponse) Descriptor() ([]byte, []int) {
 	return file_scheduler_tasks_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetTaskStreamResponse) GetStatus() *Status {
+func (x *GetTaskStreamResponse) GetStatus() *common.Status {
 	if x != nil {
 		return x.Status
 	}
@@ -387,7 +388,7 @@ type EditTaskResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// status - статус.
-	Status *Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	Status *common.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 }
 
 func (x *EditTaskResponse) Reset() {
@@ -422,7 +423,7 @@ func (*EditTaskResponse) Descriptor() ([]byte, []int) {
 	return file_scheduler_tasks_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *EditTaskResponse) GetStatus() *Status {
+func (x *EditTaskResponse) GetStatus() *common.Status {
 	if x != nil {
 		return x.Status
 	}
@@ -523,7 +524,7 @@ var file_scheduler_tasks_proto_goTypes = []interface{}{
 	(*GetTaskStreamResponse)(nil), // 5: scheduler.GetTaskStreamResponse
 	(*EditTaskRequest)(nil),       // 6: scheduler.EditTaskRequest
 	(*EditTaskResponse)(nil),      // 7: scheduler.EditTaskResponse
-	(*Status)(nil),                // 8: common.Status
+	(*common.Status)(nil),         // 8: common.Status
 	(*Task)(nil),                  // 9: scheduler.Task
 	(*CreateTask)(nil),            // 10: scheduler.CreateTask
 	(*TaskStreamData)(nil),        // 11: scheduler.TaskStreamData
@@ -558,7 +559,6 @@ func file_scheduler_tasks_proto_init() {
 	if File_scheduler_tasks_proto != nil {
 		return
 	}
-	file_common_status_proto_init()
 	file_scheduler_types_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_scheduler_tasks_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {

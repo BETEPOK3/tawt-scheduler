@@ -37,30 +37,30 @@ public interface TaskTypeOrBuilder extends
 
   /**
    * <pre>
-   * morphological - тип задачи "морфологический анализ".
+   * gamma - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
-   * @return Whether the morphological field is set.
+   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+   * @return Whether the gamma field is set.
    */
-  boolean hasMorphological();
+  boolean hasGamma();
   /**
    * <pre>
-   * morphological - тип задачи "морфологический анализ".
+   * gamma - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
-   * @return The morphological.
+   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+   * @return The gamma.
    */
-  tawt_scheduler.proto.scheduler.TaskTypeMorphological getMorphological();
+  tawt_scheduler.proto.scheduler.TaskTypeGamma getGamma();
   /**
    * <pre>
-   * morphological - тип задачи "морфологический анализ".
+   * gamma - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeMorphological morphological = 2 [json_name = "morphological"];</code>
+   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
    */
-  tawt_scheduler.proto.scheduler.TaskTypeMorphologicalOrBuilder getMorphologicalOrBuilder();
+  tawt_scheduler.proto.scheduler.TaskTypeGammaOrBuilder getGammaOrBuilder();
 
   tawt_scheduler.proto.scheduler.TaskType.SpecificCase getSpecificCase();
 }

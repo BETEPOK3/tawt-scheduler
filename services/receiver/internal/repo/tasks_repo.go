@@ -64,7 +64,7 @@ func (r *tasksRepo) Finish(ctx context.Context, id uuid.UUID, output []byte) err
 func (r *tasksRepo) FinishWithError(ctx context.Context, id uuid.UUID, errString string) error {
 	update := &dbstruct.DBUpdateTask{
 		Id:         id,
-		Status:     funcs.Ptr(string(entities.TaskStatusFailure)),
+		Status:     funcs.Ptr(string(entities.TaskStatusError)),
 		FinishedAt: funcs.Ptr(time.Now()),
 		Error:      &errString,
 	}

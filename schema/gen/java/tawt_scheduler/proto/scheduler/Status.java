@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Status() {
+    code_ = 0;
     error_ = "";
   }
 
@@ -46,6 +47,177 @@ private static final long serialVersionUID = 0L;
             tawt_scheduler.proto.scheduler.Status.class, tawt_scheduler.proto.scheduler.Status.Builder.class);
   }
 
+  /**
+   * <pre>
+   * Code - код статуса ответа.
+   * </pre>
+   *
+   * Protobuf enum {@code common.Status.Code}
+   */
+  public enum Code
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * CODE_UNSPECIFIED - статус не определён.
+     * </pre>
+     *
+     * <code>CODE_UNSPECIFIED = 0;</code>
+     */
+    CODE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * OK - успех.
+     * </pre>
+     *
+     * <code>OK = 200;</code>
+     */
+    OK(200),
+    /**
+     * <pre>
+     * NOT_FOUND - запись не найдена.
+     * </pre>
+     *
+     * <code>NOT_FOUND = 404;</code>
+     */
+    NOT_FOUND(404),
+    /**
+     * <pre>
+     * INTERNAL_ERROR - внутренняя ошибка (необработанная ошибка).
+     * </pre>
+     *
+     * <code>INTERNAL_ERROR = 500;</code>
+     */
+    INTERNAL_ERROR(500),
+    UNRECOGNIZED(-1),
+    ;
+
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 26,
+        /* patch= */ 0,
+        /* suffix= */ "",
+        Code.class.getName());
+    }
+    /**
+     * <pre>
+     * CODE_UNSPECIFIED - статус не определён.
+     * </pre>
+     *
+     * <code>CODE_UNSPECIFIED = 0;</code>
+     */
+    public static final int CODE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * OK - успех.
+     * </pre>
+     *
+     * <code>OK = 200;</code>
+     */
+    public static final int OK_VALUE = 200;
+    /**
+     * <pre>
+     * NOT_FOUND - запись не найдена.
+     * </pre>
+     *
+     * <code>NOT_FOUND = 404;</code>
+     */
+    public static final int NOT_FOUND_VALUE = 404;
+    /**
+     * <pre>
+     * INTERNAL_ERROR - внутренняя ошибка (необработанная ошибка).
+     * </pre>
+     *
+     * <code>INTERNAL_ERROR = 500;</code>
+     */
+    public static final int INTERNAL_ERROR_VALUE = 500;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Code valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Code forNumber(int value) {
+      switch (value) {
+        case 0: return CODE_UNSPECIFIED;
+        case 200: return OK;
+        case 404: return NOT_FOUND;
+        case 500: return INTERNAL_ERROR;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Code>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Code> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Code>() {
+            public Code findValueByNumber(int number) {
+              return Code.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return tawt_scheduler.proto.scheduler.Status.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Code[] VALUES = values();
+
+    public static Code valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Code(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:common.Status.Code)
+  }
+
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_ = 0;
   /**
@@ -53,12 +225,23 @@ private static final long serialVersionUID = 0L;
    * code - код статуса.
    * </pre>
    *
-   * <code>int32 code = 1 [json_name = "code"];</code>
+   * <code>.common.Status.Code code = 1 [json_name = "code"];</code>
+   * @return The enum numeric value on the wire for code.
+   */
+  @java.lang.Override public int getCodeValue() {
+    return code_;
+  }
+  /**
+   * <pre>
+   * code - код статуса.
+   * </pre>
+   *
+   * <code>.common.Status.Code code = 1 [json_name = "code"];</code>
    * @return The code.
    */
-  @java.lang.Override
-  public int getCode() {
-    return code_;
+  @java.lang.Override public tawt_scheduler.proto.scheduler.Status.Code getCode() {
+    tawt_scheduler.proto.scheduler.Status.Code result = tawt_scheduler.proto.scheduler.Status.Code.forNumber(code_);
+    return result == null ? tawt_scheduler.proto.scheduler.Status.Code.UNRECOGNIZED : result;
   }
 
   public static final int ERROR_FIELD_NUMBER = 2;
@@ -122,8 +305,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (code_ != 0) {
-      output.writeInt32(1, code_);
+    if (code_ != tawt_scheduler.proto.scheduler.Status.Code.CODE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(1, code_);
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(error_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 2, error_);
@@ -137,9 +320,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (code_ != 0) {
+    if (code_ != tawt_scheduler.proto.scheduler.Status.Code.CODE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, code_);
+        .computeEnumSize(1, code_);
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(error_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(2, error_);
@@ -159,8 +342,7 @@ private static final long serialVersionUID = 0L;
     }
     tawt_scheduler.proto.scheduler.Status other = (tawt_scheduler.proto.scheduler.Status) obj;
 
-    if (getCode()
-        != other.getCode()) return false;
+    if (code_ != other.code_) return false;
     if (!getError()
         .equals(other.getError())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -175,7 +357,7 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + CODE_FIELD_NUMBER;
-    hash = (53 * hash) + getCode();
+    hash = (53 * hash) + code_;
     hash = (37 * hash) + ERROR_FIELD_NUMBER;
     hash = (53 * hash) + getError().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -368,8 +550,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(tawt_scheduler.proto.scheduler.Status other) {
       if (other == tawt_scheduler.proto.scheduler.Status.getDefaultInstance()) return this;
-      if (other.getCode() != 0) {
-        setCode(other.getCode());
+      if (other.code_ != 0) {
+        setCodeValue(other.getCodeValue());
       }
       if (!other.getError().isEmpty()) {
         error_ = other.error_;
@@ -403,7 +585,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 8: {
-              code_ = input.readInt32();
+              code_ = input.readEnum();
               bitField0_ |= 0x00000001;
               break;
             } // case 8
@@ -429,17 +611,16 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int code_ ;
+    private int code_ = 0;
     /**
      * <pre>
      * code - код статуса.
      * </pre>
      *
-     * <code>int32 code = 1 [json_name = "code"];</code>
-     * @return The code.
+     * <code>.common.Status.Code code = 1 [json_name = "code"];</code>
+     * @return The enum numeric value on the wire for code.
      */
-    @java.lang.Override
-    public int getCode() {
+    @java.lang.Override public int getCodeValue() {
       return code_;
     }
     /**
@@ -447,12 +628,11 @@ private static final long serialVersionUID = 0L;
      * code - код статуса.
      * </pre>
      *
-     * <code>int32 code = 1 [json_name = "code"];</code>
-     * @param value The code to set.
+     * <code>.common.Status.Code code = 1 [json_name = "code"];</code>
+     * @param value The enum numeric value on the wire for code to set.
      * @return This builder for chaining.
      */
-    public Builder setCode(int value) {
-
+    public Builder setCodeValue(int value) {
       code_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
@@ -463,7 +643,38 @@ private static final long serialVersionUID = 0L;
      * code - код статуса.
      * </pre>
      *
-     * <code>int32 code = 1 [json_name = "code"];</code>
+     * <code>.common.Status.Code code = 1 [json_name = "code"];</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public tawt_scheduler.proto.scheduler.Status.Code getCode() {
+      tawt_scheduler.proto.scheduler.Status.Code result = tawt_scheduler.proto.scheduler.Status.Code.forNumber(code_);
+      return result == null ? tawt_scheduler.proto.scheduler.Status.Code.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * code - код статуса.
+     * </pre>
+     *
+     * <code>.common.Status.Code code = 1 [json_name = "code"];</code>
+     * @param value The code to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCode(tawt_scheduler.proto.scheduler.Status.Code value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000001;
+      code_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * code - код статуса.
+     * </pre>
+     *
+     * <code>.common.Status.Code code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCode() {

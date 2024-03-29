@@ -40,25 +40,18 @@ public interface CreateTaskOrBuilder extends
    * input - входные данные задачи.
    * </pre>
    *
-   * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
-   * @return Whether the input field is set.
-   */
-  boolean hasInput();
-  /**
-   * <pre>
-   * input - входные данные задачи.
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
+   * <code>bytes input = 2 [json_name = "input"];</code>
    * @return The input.
    */
-  com.google.protobuf.Struct getInput();
+  com.google.protobuf.ByteString getInput();
+
   /**
    * <pre>
-   * input - входные данные задачи.
+   * priority - приоритет задачи.
    * </pre>
    *
-   * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
+   * <code>uint32 priority = 3 [json_name = "priority"];</code>
+   * @return The priority.
    */
-  com.google.protobuf.StructOrBuilder getInputOrBuilder();
+  int getPriority();
 }

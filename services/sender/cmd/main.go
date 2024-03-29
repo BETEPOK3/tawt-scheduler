@@ -1,12 +1,11 @@
 package main
 
 import (
-	"github.com/BETEPOK3/tawt-scheduler/sender/internal/adapters/rabbit"
+	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/adapters/rabbit"
+	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/infra"
+	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/repo"
+	tasks_usecase "github.com/BETEPOK3/tawt-scheduler/scheduler/internal/usecase/tasks"
 	"github.com/BETEPOK3/tawt-scheduler/sender/internal/api/tasks"
-	"github.com/BETEPOK3/tawt-scheduler/sender/internal/infra"
-	"github.com/BETEPOK3/tawt-scheduler/sender/internal/repo"
-	tasks_usecase "github.com/BETEPOK3/tawt-scheduler/sender/internal/usecase/tasks"
-	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 	"github.com/rabbitmq/amqp091-go"

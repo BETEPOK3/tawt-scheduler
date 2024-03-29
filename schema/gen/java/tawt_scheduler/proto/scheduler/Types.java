@@ -40,10 +40,10 @@ public final class Types {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_scheduler_TaskTypeGraphematical_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_scheduler_TaskTypeMorphological_descriptor;
+    internal_static_scheduler_TaskTypeGamma_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_scheduler_TaskTypeMorphological_fieldAccessorTable;
+      internal_static_scheduler_TaskTypeGamma_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_scheduler_CreateTask_descriptor;
   static final 
@@ -69,35 +69,33 @@ public final class Types {
   static {
     java.lang.String[] descriptorData = {
       "\n\025scheduler/types.proto\022\tscheduler\032\034goog" +
-      "le/protobuf/struct.proto\"\266\003\n\004Task\022\016\n\002id\030" +
+      "le/protobuf/struct.proto\"\205\003\n\004Task\022\016\n\002id\030" +
       "\001 \001(\tR\002id\022\'\n\004type\030\002 \001(\0132\023.scheduler.Task" +
-      "TypeR\004type\022-\n\005input\030\003 \001(\0132\027.google.proto" +
-      "buf.StructR\005input\0224\n\006output\030\004 \001(\0132\027.goog" +
-      "le.protobuf.StructH\000R\006output\210\001\001\022\035\n\ncreat" +
-      "ed_at\030\005 \001(\tR\tcreatedAt\022$\n\013finished_at\030\006 " +
-      "\001(\tH\001R\nfinishedAt\210\001\001\022.\n\006status\030\007 \001(\0162\026.s" +
-      "cheduler.Task.StatusR\006status\022\031\n\005error\030\010 " +
-      "\001(\tH\002R\005error\210\001\001\"[\n\006Status\022\033\n\027TASK_STATUS" +
-      "_UNSPECIFIED\020\000\022\n\n\006QUEUED\020\001\022\017\n\013IN_PROGRES" +
-      "S\020\002\022\014\n\010FINISHED\020\003\022\t\n\005ERROR\020\004B\t\n\007_outputB" +
-      "\016\n\014_finished_atB\010\n\006_error\"\252\001\n\010TaskType\022H" +
-      "\n\rgraphematical\030\001 \001(\0132 .scheduler.TaskTy" +
-      "peGraphematicalH\000R\rgraphematical\022H\n\rmorp" +
-      "hological\030\002 \001(\0132 .scheduler.TaskTypeMorp" +
-      "hologicalH\000R\rmorphologicalB\n\n\010specific\"\027" +
-      "\n\025TaskTypeGraphematical\"\027\n\025TaskTypeMorph" +
-      "ological\"d\n\nCreateTask\022\'\n\004type\030\001 \001(\0132\023.s" +
-      "cheduler.TaskTypeR\004type\022-\n\005input\030\002 \001(\0132\027" +
-      ".google.protobuf.StructR\005input\"\201\001\n\016TaskS" +
-      "treamData\022\027\n\007task_id\030\001 \001(\tR\006taskId\022\'\n\004ty" +
-      "pe\030\002 \001(\0132\023.scheduler.TaskTypeR\004type\022-\n\005i" +
-      "nput\030\003 \001(\0132\027.google.protobuf.StructR\005inp" +
-      "ut\"d\n\010EditTask\022\027\n\007task_id\030\001 \001(\tR\006taskId\022" +
-      "4\n\006output\030\002 \001(\0132\027.google.protobuf.Struct" +
-      "H\000R\006output\210\001\001B\t\n\007_outputBh\n\036tawt_schedul" +
-      "er.proto.schedulerP\001ZDgithub.com/BETEPOK" +
-      "3/tawt-scheduler/schema/gen/go/scheduler" +
-      ";schedulerb\006proto3"
+      "TypeR\004type\022\024\n\005input\030\003 \001(\014R\005input\022\033\n\006outp" +
+      "ut\030\004 \001(\014H\000R\006output\210\001\001\022\035\n\ncreated_at\030\005 \001(" +
+      "\tR\tcreatedAt\022$\n\013finished_at\030\006 \001(\tH\001R\nfin" +
+      "ishedAt\210\001\001\022.\n\006status\030\007 \001(\0162\026.scheduler.T" +
+      "ask.StatusR\006status\022\031\n\005error\030\010 \001(\tH\002R\005err" +
+      "or\210\001\001\"\\\n\006Status\022\033\n\027TASK_STATUS_UNSPECIFI" +
+      "ED\020\000\022\n\n\006QUEUED\020\001\022\017\n\013IN_PROGRESS\020\002\022\r\n\tCOM" +
+      "PLETED\020\003\022\t\n\005ERROR\020\004B\t\n\007_outputB\016\n\014_finis" +
+      "hed_atB\010\n\006_error\"\222\001\n\010TaskType\022H\n\rgraphem" +
+      "atical\030\001 \001(\0132 .scheduler.TaskTypeGraphem" +
+      "aticalH\000R\rgraphematical\0220\n\005gamma\030\002 \001(\0132\030" +
+      ".scheduler.TaskTypeGammaH\000R\005gammaB\n\n\010spe" +
+      "cific\"\027\n\025TaskTypeGraphematical\"\017\n\rTaskTy" +
+      "peGamma\"g\n\nCreateTask\022\'\n\004type\030\001 \001(\0132\023.sc" +
+      "heduler.TaskTypeR\004type\022\024\n\005input\030\002 \001(\014R\005i" +
+      "nput\022\032\n\010priority\030\003 \001(\rR\010priority\"\201\001\n\016Tas" +
+      "kStreamData\022\027\n\007task_id\030\001 \001(\tR\006taskId\022\'\n\004" +
+      "type\030\002 \001(\0132\023.scheduler.TaskTypeR\004type\022-\n" +
+      "\005input\030\003 \001(\0132\027.google.protobuf.StructR\005i" +
+      "nput\"d\n\010EditTask\022\027\n\007task_id\030\001 \001(\tR\006taskI" +
+      "d\0224\n\006output\030\002 \001(\0132\027.google.protobuf.Stru" +
+      "ctH\000R\006output\210\001\001B\t\n\007_outputBh\n\036tawt_sched" +
+      "uler.proto.schedulerP\001ZDgithub.com/BETEP" +
+      "OK3/tawt-scheduler/schema/gen/go/schedul" +
+      "er;schedulerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -115,25 +113,25 @@ public final class Types {
     internal_static_scheduler_TaskType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_TaskType_descriptor,
-        new java.lang.String[] { "Graphematical", "Morphological", "Specific", });
+        new java.lang.String[] { "Graphematical", "Gamma", "Specific", });
     internal_static_scheduler_TaskTypeGraphematical_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_scheduler_TaskTypeGraphematical_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_TaskTypeGraphematical_descriptor,
         new java.lang.String[] { });
-    internal_static_scheduler_TaskTypeMorphological_descriptor =
+    internal_static_scheduler_TaskTypeGamma_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_scheduler_TaskTypeMorphological_fieldAccessorTable = new
+    internal_static_scheduler_TaskTypeGamma_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_scheduler_TaskTypeMorphological_descriptor,
+        internal_static_scheduler_TaskTypeGamma_descriptor,
         new java.lang.String[] { });
     internal_static_scheduler_CreateTask_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_scheduler_CreateTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_CreateTask_descriptor,
-        new java.lang.String[] { "Type", "Input", });
+        new java.lang.String[] { "Type", "Input", "Priority", });
     internal_static_scheduler_TaskStreamData_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_scheduler_TaskStreamData_fieldAccessorTable = new

@@ -4,6 +4,7 @@ package entities
 type TaskType string
 
 const (
-	TaskTypeUnspecified         TaskType = ""
-	TaskTypeGraphematicalParser TaskType = "GRAPHEMATICAL"
+	TaskTypeUnspecified   TaskType = ""
+	TaskTypeGraphematical TaskType = "GRAPHEMATICAL"
+	TaskTypeGamma         TaskType = "GAMMA"
 )

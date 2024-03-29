@@ -13,10 +13,19 @@ public interface StatusOrBuilder extends
    * code - код статуса.
    * </pre>
    *
-   * <code>int32 code = 1 [json_name = "code"];</code>
+   * <code>.common.Status.Code code = 1 [json_name = "code"];</code>
+   * @return The enum numeric value on the wire for code.
+   */
+  int getCodeValue();
+  /**
+   * <pre>
+   * code - код статуса.
+   * </pre>
+   *
+   * <code>.common.Status.Code code = 1 [json_name = "code"];</code>
    * @return The code.
    */
-  int getCode();
+  tawt_scheduler.proto.scheduler.Status.Code getCode();
 
   /**
    * <pre>

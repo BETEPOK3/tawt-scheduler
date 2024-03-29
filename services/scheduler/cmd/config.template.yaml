@@ -1,0 +1,22 @@
+# Конфигурация точки доступа.
+service:
+  grpc_endpoint: 9808
+
+# Конфигурация подключения к БД.
+postgres:
+  pg_host: postgres
+  pg_port: 5432
+  pg_user: tawt_user
+  pg_password: tawt_password
+  pg_name: tawt
+  pg_auto_migrate: true
+
+# Конфигуарция подключения к брокеру сообщений.
+rabbitmq:
+  url: amqp://guest:guest@message-broker:5672/
+
+# Перечисление названий очередей.
+queues:
+  slow: tawt_queue_slow
+  fast: tawt_queue_fast
+  dlx: tawt_dlx

@@ -2,7 +2,7 @@ package mappers
 
 import (
 	"github.com/BETEPOK3/tawt-scheduler/common/entities"
-	"github.com/BETEPOK3/tawt-scheduler/sender/internal/domain"
+	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/domain"
 	"github.com/google/uuid"
 )
 
@@ -12,7 +12,7 @@ var userId = uuid.MustParse("e9b3ddab-d3cc-4aad-9265-0b06edc3452c")
 func DecodeTaskInputDataGraphematic(data []byte) (*domain.CreateTaskDto, error) {
 	result := &domain.CreateTaskDto{
 		UserId:    userId,
-		Type:      entities.TaskTypeGraphematicalParser,
+		Type:      entities.TaskTypeGraphematical,
 		InputData: data,
 	}
 

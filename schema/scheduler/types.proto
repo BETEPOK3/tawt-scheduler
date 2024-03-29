@@ -18,8 +18,8 @@ message Task {
         QUEUED = 1;
         // IN_PROGRESS - статус "в процессе обработки".
         IN_PROGRESS = 2;
-        // FINISHED - статус "заверешена".
-        FINISHED = 3;
+        // COMPLETED - статус "заверешена".
+        COMPLETED = 3;
         // ERROR - статус "обработана с ошибкой".
         ERROR = 4;
     }
@@ -29,9 +29,9 @@ message Task {
     // type - тип задачи с параметрами.
     TaskType type = 2;
     // input - входные данные задачи.
-    google.protobuf.Struct input = 3;
+    bytes input = 3;
     // input - выходные данные задачи.
-    optional google.protobuf.Struct output = 4;
+    optional bytes output = 4;
     // created_at - дата и время создания задачи.
     string created_at = 5;
     // finished_at - дата и время окончания обработки задачи.
@@ -48,23 +48,25 @@ message TaskType {
     oneof specific {
         // graphematical - тип задачи "графематический анализ".
         TaskTypeGraphematical graphematical = 1;
-        // morphological - тип задачи "морфологический анализ".
-        TaskTypeMorphological morphological = 2;
+        // gamma - тип задачи "граф. + морфологический анализ".
+        TaskTypeGamma gamma = 2;
     }
 }
 
 // TaskTypeGraphematical - тип задачи "графематический анализ".
 message TaskTypeGraphematical {}
 
-// TaskTypeMorphological - тип задачи "морфологический анализ".
-message TaskTypeMorphological {}
+// TaskTypeGamma - тип задачи "граф. + морфологический анализ".
+message TaskTypeGamma {}
 
 // CreateTask - DTO создания задачи.
 message CreateTask {
     // type - тип задачи с параметрами.
     TaskType type = 1;
     // input - входные данные задачи.
-    google.protobuf.Struct input = 2;
+    bytes input = 2;
+    // priority - приоритет задачи.
+    uint32 priority = 3;
 }
 
 // TaskStreamData - DTO данных задачи, необходимых для её обработки.

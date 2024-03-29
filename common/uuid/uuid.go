@@ -35,3 +35,8 @@ func NewULID() UUID {
 func Nil() UUID {
 	return [16]byte{}
 }
+
+// MustParse - распарсить строку в uuid. В случае ошибки - паника.
+func MustParse(str string) uuid.UUID {
+	return uuid.MustParse(str)
+}

@@ -60,34 +60,17 @@ public interface TaskOrBuilder extends
    * input - входные данные задачи.
    * </pre>
    *
-   * <code>.google.protobuf.Struct input = 3 [json_name = "input"];</code>
-   * @return Whether the input field is set.
-   */
-  boolean hasInput();
-  /**
-   * <pre>
-   * input - входные данные задачи.
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct input = 3 [json_name = "input"];</code>
+   * <code>bytes input = 3 [json_name = "input"];</code>
    * @return The input.
    */
-  com.google.protobuf.Struct getInput();
-  /**
-   * <pre>
-   * input - входные данные задачи.
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct input = 3 [json_name = "input"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getInputOrBuilder();
+  com.google.protobuf.ByteString getInput();
 
   /**
    * <pre>
    * input - выходные данные задачи.
    * </pre>
    *
-   * <code>optional .google.protobuf.Struct output = 4 [json_name = "output"];</code>
+   * <code>optional bytes output = 4 [json_name = "output"];</code>
    * @return Whether the output field is set.
    */
   boolean hasOutput();
@@ -96,18 +79,10 @@ public interface TaskOrBuilder extends
    * input - выходные данные задачи.
    * </pre>
    *
-   * <code>optional .google.protobuf.Struct output = 4 [json_name = "output"];</code>
+   * <code>optional bytes output = 4 [json_name = "output"];</code>
    * @return The output.
    */
-  com.google.protobuf.Struct getOutput();
-  /**
-   * <pre>
-   * input - выходные данные задачи.
-   * </pre>
-   *
-   * <code>optional .google.protobuf.Struct output = 4 [json_name = "output"];</code>
-   */
-  com.google.protobuf.StructOrBuilder getOutputOrBuilder();
+  com.google.protobuf.ByteString getOutput();
 
   /**
    * <pre>

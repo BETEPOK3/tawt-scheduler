@@ -38,11 +38,14 @@ public final class StatusOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023common/status.proto\022\006common\"2\n\006Status\022" +
-      "\022\n\004code\030\001 \001(\005R\004code\022\024\n\005error\030\002 \001(\tR\005erro" +
-      "rBh\n\036tawt_scheduler.proto.schedulerP\001ZDg" +
-      "ithub.com/BETEPOK3/tawt-scheduler/schema" +
-      "/gen/go/scheduler;schedulerb\006proto3"
+      "\n\023common/status.proto\022\006common\"\223\001\n\006Status" +
+      "\022\'\n\004code\030\001 \001(\0162\023.common.Status.CodeR\004cod" +
+      "e\022\024\n\005error\030\002 \001(\tR\005error\"J\n\004Code\022\024\n\020CODE_" +
+      "UNSPECIFIED\020\000\022\007\n\002OK\020\310\001\022\016\n\tNOT_FOUND\020\224\003\022\023" +
+      "\n\016INTERNAL_ERROR\020\364\003Bb\n\036tawt_scheduler.pr" +
+      "oto.schedulerP\001Z>github.com/BETEPOK3/taw" +
+      "t-scheduler/schema/gen/go/common;commonb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

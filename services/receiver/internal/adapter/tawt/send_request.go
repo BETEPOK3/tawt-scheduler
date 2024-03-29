@@ -17,7 +17,7 @@ func (a *adapterImpl) SendRequest(ctx context.Context, dto *domain.TawtRequestDt
 	resp := &domain.TawtResponseDto{}
 
 	switch dto.TaskType {
-	case entities.TaskTypeGraphematicalParser:
+	case entities.TaskTypeGraphematical:
 		adr = graphematicParserApi
 	}
 

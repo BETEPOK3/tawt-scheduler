@@ -1,72 +1,6 @@
 version: "3.9"
 
 services:
-  # Брокер сообщений RabbitMQ.
-  message-broker:
-    image: rabbitmq:3-management-alpine
-    container_name: message-broker
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    volumes:
-      - ${HOME}/dev-rabbitmq/data/:/var/lib/rabbitmq
-      - ${HOME}/dev-rabbitmq/log/:/var/log/rabbitmq
-    restart: always
-    networks:
-      - dev-network
-
-  # Сервис обработки текста.
-  tawt:
-    container_name: tawt
-    ports:
-      - "30002:30002"
-    build:
-      context: services/tawt
-      dockerfile: build/Dockerfile
-    restart: always
-    networks:
-      - dev-network
-
-  # Сервис отправки запросов в брокер.
-  sender:
-    container_name: sender
-    ports:
-      - "8080:8080"
-    build:
-      context: .
-      dockerfile: services/sender/build/Dockerfile
-    environment:
-      POSTGRES_DSN: user=tawt_user password=tawt_password dbname=tawt host=postgres port=5432 sslmode=disable
-      AMQP_SERVER_URL: amqp://guest:guest@message-broker:5672/
-      AMQP_QUEUE_NAME: tawt-queue
-    restart: always
-    networks:
-      - dev-network
-    depends_on:
-      - postgres
-      - message-broker
-
-  # Сервис приёма запросов из брокера и их отправки в TAWT.
-  receiver:
-    container_name: receiver
-    ports:
-      - "8081:8081"
-    build:
-      context: .
-      dockerfile: services/receiver/build/Dockerfile
-    environment:
-      POSTGRES_DSN: user=tawt_user password=tawt_password dbname=tawt host=postgres port=5432 sslmode=disable
-      AMQP_SERVER_URL: amqp://guest:guest@message-broker:5672/
-      AMQP_QUEUE_NAME: tawt-queue
-      TAWT_SERVER_URL: http://tawt:30002/
-    restart: always
-    networks:
-      - dev-network
-    depends_on:
-      - postgres
-      - message-broker
-      - tawt
-
   # База данных.
   postgres:
     container_name: postgres
@@ -79,6 +13,34 @@ services:
       - "5432:5432"
     volumes:
       - ${HOME}/dev-postgres/data/:/var/lib/postgres
+    networks:
+      - dev-network
+
+  # Брокер сообщений RabbitMQ.
+  message-broker:
+    container_name: message-broker
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    build:
+      context: .
+      dockerfile: services/rabbitmq/build/Dockerfile
+    volumes:
+      - ${HOME}/dev-rabbitmq/data/:/var/lib/rabbitmq
+      - ${HOME}/dev-rabbitmq/log/:/var/log/rabbitmq
+    restart: no
+    networks:
+      - dev-network
+
+  # Сервис отправки запросов в брокер.
+  scheduler:
+    container_name: scheduler
+    ports:
+      - "9808:9808"
+    build:
+      context: .
+      dockerfile: services/scheduler/build/Dockerfile
+    restart: no
     networks:
       - dev-network
 

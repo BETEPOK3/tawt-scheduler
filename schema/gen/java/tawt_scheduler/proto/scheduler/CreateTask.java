@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CreateTask() {
+    input_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -85,41 +86,33 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INPUT_FIELD_NUMBER = 2;
-  private com.google.protobuf.Struct input_;
+  private com.google.protobuf.ByteString input_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * input - входные данные задачи.
    * </pre>
    *
-   * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
-   * @return Whether the input field is set.
-   */
-  @java.lang.Override
-  public boolean hasInput() {
-    return ((bitField0_ & 0x00000002) != 0);
-  }
-  /**
-   * <pre>
-   * input - входные данные задачи.
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
+   * <code>bytes input = 2 [json_name = "input"];</code>
    * @return The input.
    */
   @java.lang.Override
-  public com.google.protobuf.Struct getInput() {
-    return input_ == null ? com.google.protobuf.Struct.getDefaultInstance() : input_;
+  public com.google.protobuf.ByteString getInput() {
+    return input_;
   }
+
+  public static final int PRIORITY_FIELD_NUMBER = 3;
+  private int priority_ = 0;
   /**
    * <pre>
-   * input - входные данные задачи.
+   * priority - приоритет задачи.
    * </pre>
    *
-   * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
+   * <code>uint32 priority = 3 [json_name = "priority"];</code>
+   * @return The priority.
    */
   @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getInputOrBuilder() {
-    return input_ == null ? com.google.protobuf.Struct.getDefaultInstance() : input_;
+  public int getPriority() {
+    return priority_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -139,8 +132,11 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getType());
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
-      output.writeMessage(2, getInput());
+    if (!input_.isEmpty()) {
+      output.writeBytes(2, input_);
+    }
+    if (priority_ != 0) {
+      output.writeUInt32(3, priority_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -155,9 +151,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getType());
     }
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (!input_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getInput());
+        .computeBytesSize(2, input_);
+    }
+    if (priority_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt32Size(3, priority_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -179,11 +179,10 @@ private static final long serialVersionUID = 0L;
       if (!getType()
           .equals(other.getType())) return false;
     }
-    if (hasInput() != other.hasInput()) return false;
-    if (hasInput()) {
-      if (!getInput()
-          .equals(other.getInput())) return false;
-    }
+    if (!getInput()
+        .equals(other.getInput())) return false;
+    if (getPriority()
+        != other.getPriority()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -199,10 +198,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getType().hashCode();
     }
-    if (hasInput()) {
-      hash = (37 * hash) + INPUT_FIELD_NUMBER;
-      hash = (53 * hash) + getInput().hashCode();
-    }
+    hash = (37 * hash) + INPUT_FIELD_NUMBER;
+    hash = (53 * hash) + getInput().hashCode();
+    hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
+    hash = (53 * hash) + getPriority();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -338,7 +337,6 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessage
               .alwaysUseFieldBuilders) {
         getTypeFieldBuilder();
-        getInputFieldBuilder();
       }
     }
     @java.lang.Override
@@ -350,11 +348,8 @@ private static final long serialVersionUID = 0L;
         typeBuilder_.dispose();
         typeBuilder_ = null;
       }
-      input_ = null;
-      if (inputBuilder_ != null) {
-        inputBuilder_.dispose();
-        inputBuilder_ = null;
-      }
+      input_ = com.google.protobuf.ByteString.EMPTY;
+      priority_ = 0;
       return this;
     }
 
@@ -396,10 +391,10 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.input_ = inputBuilder_ == null
-            ? input_
-            : inputBuilder_.build();
-        to_bitField0_ |= 0x00000002;
+        result.input_ = input_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.priority_ = priority_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -419,8 +414,11 @@ private static final long serialVersionUID = 0L;
       if (other.hasType()) {
         mergeType(other.getType());
       }
-      if (other.hasInput()) {
-        mergeInput(other.getInput());
+      if (other.getInput() != com.google.protobuf.ByteString.EMPTY) {
+        setInput(other.getInput());
+      }
+      if (other.getPriority() != 0) {
+        setPriority(other.getPriority());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -456,12 +454,15 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 18: {
-              input.readMessage(
-                  getInputFieldBuilder().getBuilder(),
-                  extensionRegistry);
+              input_ = input.readBytes();
               bitField0_ |= 0x00000002;
               break;
             } // case 18
+            case 24: {
+              priority_ = input.readUInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -636,51 +637,31 @@ private static final long serialVersionUID = 0L;
       return typeBuilder_;
     }
 
-    private com.google.protobuf.Struct input_;
-    private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> inputBuilder_;
+    private com.google.protobuf.ByteString input_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * input - входные данные задачи.
      * </pre>
      *
-     * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
-     * @return Whether the input field is set.
-     */
-    public boolean hasInput() {
-      return ((bitField0_ & 0x00000002) != 0);
-    }
-    /**
-     * <pre>
-     * input - входные данные задачи.
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
+     * <code>bytes input = 2 [json_name = "input"];</code>
      * @return The input.
      */
-    public com.google.protobuf.Struct getInput() {
-      if (inputBuilder_ == null) {
-        return input_ == null ? com.google.protobuf.Struct.getDefaultInstance() : input_;
-      } else {
-        return inputBuilder_.getMessage();
-      }
+    @java.lang.Override
+    public com.google.protobuf.ByteString getInput() {
+      return input_;
     }
     /**
      * <pre>
      * input - входные данные задачи.
      * </pre>
      *
-     * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
+     * <code>bytes input = 2 [json_name = "input"];</code>
+     * @param value The input to set.
+     * @return This builder for chaining.
      */
-    public Builder setInput(com.google.protobuf.Struct value) {
-      if (inputBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        input_ = value;
-      } else {
-        inputBuilder_.setMessage(value);
-      }
+    public Builder setInput(com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      input_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
@@ -690,107 +671,58 @@ private static final long serialVersionUID = 0L;
      * input - входные данные задачи.
      * </pre>
      *
-     * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
-     */
-    public Builder setInput(
-        com.google.protobuf.Struct.Builder builderForValue) {
-      if (inputBuilder_ == null) {
-        input_ = builderForValue.build();
-      } else {
-        inputBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * input - входные данные задачи.
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
-     */
-    public Builder mergeInput(com.google.protobuf.Struct value) {
-      if (inputBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
-          input_ != null &&
-          input_ != com.google.protobuf.Struct.getDefaultInstance()) {
-          getInputBuilder().mergeFrom(value);
-        } else {
-          input_ = value;
-        }
-      } else {
-        inputBuilder_.mergeFrom(value);
-      }
-      if (input_ != null) {
-        bitField0_ |= 0x00000002;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * input - входные данные задачи.
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
+     * <code>bytes input = 2 [json_name = "input"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearInput() {
       bitField0_ = (bitField0_ & ~0x00000002);
-      input_ = null;
-      if (inputBuilder_ != null) {
-        inputBuilder_.dispose();
-        inputBuilder_ = null;
-      }
+      input_ = getDefaultInstance().getInput();
+      onChanged();
+      return this;
+    }
+
+    private int priority_ ;
+    /**
+     * <pre>
+     * priority - приоритет задачи.
+     * </pre>
+     *
+     * <code>uint32 priority = 3 [json_name = "priority"];</code>
+     * @return The priority.
+     */
+    @java.lang.Override
+    public int getPriority() {
+      return priority_;
+    }
+    /**
+     * <pre>
+     * priority - приоритет задачи.
+     * </pre>
+     *
+     * <code>uint32 priority = 3 [json_name = "priority"];</code>
+     * @param value The priority to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPriority(int value) {
+
+      priority_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * input - входные данные задачи.
+     * priority - приоритет задачи.
      * </pre>
      *
-     * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
+     * <code>uint32 priority = 3 [json_name = "priority"];</code>
+     * @return This builder for chaining.
      */
-    public com.google.protobuf.Struct.Builder getInputBuilder() {
-      bitField0_ |= 0x00000002;
+    public Builder clearPriority() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      priority_ = 0;
       onChanged();
-      return getInputFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * input - входные данные задачи.
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
-     */
-    public com.google.protobuf.StructOrBuilder getInputOrBuilder() {
-      if (inputBuilder_ != null) {
-        return inputBuilder_.getMessageOrBuilder();
-      } else {
-        return input_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : input_;
-      }
-    }
-    /**
-     * <pre>
-     * input - входные данные задачи.
-     * </pre>
-     *
-     * <code>.google.protobuf.Struct input = 2 [json_name = "input"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-        getInputFieldBuilder() {
-      if (inputBuilder_ == null) {
-        inputBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                getInput(),
-                getParentForChildren(),
-                isClean());
-        input_ = null;
-      }
-      return inputBuilder_;
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:scheduler.CreateTask)

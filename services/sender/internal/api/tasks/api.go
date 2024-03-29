@@ -1,7 +1,7 @@
 package tasks
 
 import (
-	"github.com/BETEPOK3/tawt-scheduler/sender/internal/domain"
+	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/domain"
 )
 
 type api struct {
