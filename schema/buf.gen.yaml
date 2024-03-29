@@ -10,3 +10,5 @@ plugins:
       - require_unimplemented_servers=false
   - name: java
     out: gen/java
+  - name: grpc-java
+    out: gen/java

@@ -7,10 +7,10 @@ import "scheduler/types.proto";
 
 option go_package = "github.com/BETEPOK3/tawt-scheduler/schema/gen/go/scheduler;scheduler";
 option java_multiple_files = true;
-option java_package = "tawt_scheduler.proto.scheduler";
+option java_package = "ru.textanalysis.tawt.scheduler.proto.scheduler";
 
-// TasksService - сервис по работе с задачами.
-service TasksService {
+// Tasks - сервис по работе с задачами.
+service Tasks {
     // GetTaskById - получить задачу по идентификатору.
     rpc GetTaskById(GetTaskByIdRequest) returns(GetTaskByIdResponse);
 

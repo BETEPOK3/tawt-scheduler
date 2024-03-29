@@ -41,6 +41,23 @@ services:
       context: .
       dockerfile: services/scheduler/build/Dockerfile
     restart: no
+    depends_on:
+      - postgres
+      - message-broker
+    networks:
+      - dev-network
+
+  # Сервис обработки текста.
+  tawt:
+    container_name: tawt
+    ports:
+      - "30002:30002"
+    build:
+      context: services/tawt
+      dockerfile: build/Dockerfile
+    restart: always
+    depends_on:
+      - scheduler
     networks:
       - dev-network
 

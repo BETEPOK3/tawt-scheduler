@@ -18,43 +18,43 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// TasksServiceClient is the client API for TasksService service.
+// TasksClient is the client API for Tasks service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TasksServiceClient interface {
+type TasksClient interface {
 	// GetTaskById - получить задачу по идентификатору.
 	GetTaskById(ctx context.Context, in *GetTaskByIdRequest, opts ...grpc.CallOption) (*GetTaskByIdResponse, error)
 	// GetTaskStream - получить поток задач на обработку.
-	GetTaskStream(ctx context.Context, in *GetTaskStreamRequest, opts ...grpc.CallOption) (TasksService_GetTaskStreamClient, error)
+	GetTaskStream(ctx context.Context, in *GetTaskStreamRequest, opts ...grpc.CallOption) (Tasks_GetTaskStreamClient, error)
 	// CreateTask - создать задачу.
 	CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*CreateTaskResponse, error)
 	// EditTask - редактировать задачу.
 	EditTask(ctx context.Context, in *EditTaskRequest, opts ...grpc.CallOption) (*EditTaskResponse, error)
 }
 
-type tasksServiceClient struct {
+type tasksClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewTasksServiceClient(cc grpc.ClientConnInterface) TasksServiceClient {
-	return &tasksServiceClient{cc}
+func NewTasksClient(cc grpc.ClientConnInterface) TasksClient {
+	return &tasksClient{cc}
 }
 
-func (c *tasksServiceClient) GetTaskById(ctx context.Context, in *GetTaskByIdRequest, opts ...grpc.CallOption) (*GetTaskByIdResponse, error) {
+func (c *tasksClient) GetTaskById(ctx context.Context, in *GetTaskByIdRequest, opts ...grpc.CallOption) (*GetTaskByIdResponse, error) {
 	out := new(GetTaskByIdResponse)
-	err := c.cc.Invoke(ctx, "/scheduler.TasksService/GetTaskById", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/scheduler.Tasks/GetTaskById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *tasksServiceClient) GetTaskStream(ctx context.Context, in *GetTaskStreamRequest, opts ...grpc.CallOption) (TasksService_GetTaskStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &TasksService_ServiceDesc.Streams[0], "/scheduler.TasksService/GetTaskStream", opts...)
+func (c *tasksClient) GetTaskStream(ctx context.Context, in *GetTaskStreamRequest, opts ...grpc.CallOption) (Tasks_GetTaskStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &Tasks_ServiceDesc.Streams[0], "/scheduler.Tasks/GetTaskStream", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &tasksServiceGetTaskStreamClient{stream}
+	x := &tasksGetTaskStreamClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -64,16 +64,16 @@ func (c *tasksServiceClient) GetTaskStream(ctx context.Context, in *GetTaskStrea
 	return x, nil
 }
 
-type TasksService_GetTaskStreamClient interface {
+type Tasks_GetTaskStreamClient interface {
 	Recv() (*GetTaskStreamResponse, error)
 	grpc.ClientStream
 }
 
-type tasksServiceGetTaskStreamClient struct {
+type tasksGetTaskStreamClient struct {
 	grpc.ClientStream
 }
 
-func (x *tasksServiceGetTaskStreamClient) Recv() (*GetTaskStreamResponse, error) {
+func (x *tasksGetTaskStreamClient) Recv() (*GetTaskStreamResponse, error) {
 	m := new(GetTaskStreamResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -81,165 +81,165 @@ func (x *tasksServiceGetTaskStreamClient) Recv() (*GetTaskStreamResponse, error)
 	return m, nil
 }
 
-func (c *tasksServiceClient) CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*CreateTaskResponse, error) {
+func (c *tasksClient) CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*CreateTaskResponse, error) {
 	out := new(CreateTaskResponse)
-	err := c.cc.Invoke(ctx, "/scheduler.TasksService/CreateTask", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/scheduler.Tasks/CreateTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *tasksServiceClient) EditTask(ctx context.Context, in *EditTaskRequest, opts ...grpc.CallOption) (*EditTaskResponse, error) {
+func (c *tasksClient) EditTask(ctx context.Context, in *EditTaskRequest, opts ...grpc.CallOption) (*EditTaskResponse, error) {
 	out := new(EditTaskResponse)
-	err := c.cc.Invoke(ctx, "/scheduler.TasksService/EditTask", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/scheduler.Tasks/EditTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// TasksServiceServer is the server API for TasksService service.
-// All implementations should embed UnimplementedTasksServiceServer
+// TasksServer is the server API for Tasks service.
+// All implementations should embed UnimplementedTasksServer
 // for forward compatibility
-type TasksServiceServer interface {
+type TasksServer interface {
 	// GetTaskById - получить задачу по идентификатору.
 	GetTaskById(context.Context, *GetTaskByIdRequest) (*GetTaskByIdResponse, error)
 	// GetTaskStream - получить поток задач на обработку.
-	GetTaskStream(*GetTaskStreamRequest, TasksService_GetTaskStreamServer) error
+	GetTaskStream(*GetTaskStreamRequest, Tasks_GetTaskStreamServer) error
 	// CreateTask - создать задачу.
 	CreateTask(context.Context, *CreateTaskRequest) (*CreateTaskResponse, error)
 	// EditTask - редактировать задачу.
 	EditTask(context.Context, *EditTaskRequest) (*EditTaskResponse, error)
 }
 
-// UnimplementedTasksServiceServer should be embedded to have forward compatible implementations.
-type UnimplementedTasksServiceServer struct {
+// UnimplementedTasksServer should be embedded to have forward compatible implementations.
+type UnimplementedTasksServer struct {
 }
 
-func (UnimplementedTasksServiceServer) GetTaskById(context.Context, *GetTaskByIdRequest) (*GetTaskByIdResponse, error) {
+func (UnimplementedTasksServer) GetTaskById(context.Context, *GetTaskByIdRequest) (*GetTaskByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTaskById not implemented")
 }
-func (UnimplementedTasksServiceServer) GetTaskStream(*GetTaskStreamRequest, TasksService_GetTaskStreamServer) error {
+func (UnimplementedTasksServer) GetTaskStream(*GetTaskStreamRequest, Tasks_GetTaskStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method GetTaskStream not implemented")
 }
-func (UnimplementedTasksServiceServer) CreateTask(context.Context, *CreateTaskRequest) (*CreateTaskResponse, error) {
+func (UnimplementedTasksServer) CreateTask(context.Context, *CreateTaskRequest) (*CreateTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
 }
-func (UnimplementedTasksServiceServer) EditTask(context.Context, *EditTaskRequest) (*EditTaskResponse, error) {
+func (UnimplementedTasksServer) EditTask(context.Context, *EditTaskRequest) (*EditTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EditTask not implemented")
 }
 
-// UnsafeTasksServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TasksServiceServer will
+// UnsafeTasksServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TasksServer will
 // result in compilation errors.
-type UnsafeTasksServiceServer interface {
-	mustEmbedUnimplementedTasksServiceServer()
+type UnsafeTasksServer interface {
+	mustEmbedUnimplementedTasksServer()
 }
 
-func RegisterTasksServiceServer(s grpc.ServiceRegistrar, srv TasksServiceServer) {
-	s.RegisterService(&TasksService_ServiceDesc, srv)
+func RegisterTasksServer(s grpc.ServiceRegistrar, srv TasksServer) {
+	s.RegisterService(&Tasks_ServiceDesc, srv)
 }
 
-func _TasksService_GetTaskById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Tasks_GetTaskById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTaskByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TasksServiceServer).GetTaskById(ctx, in)
+		return srv.(TasksServer).GetTaskById(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/scheduler.TasksService/GetTaskById",
+		FullMethod: "/scheduler.Tasks/GetTaskById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TasksServiceServer).GetTaskById(ctx, req.(*GetTaskByIdRequest))
+		return srv.(TasksServer).GetTaskById(ctx, req.(*GetTaskByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TasksService_GetTaskStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _Tasks_GetTaskStream_Handler(srv interface{}, stream grpc.ServerStream) error {
 	m := new(GetTaskStreamRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(TasksServiceServer).GetTaskStream(m, &tasksServiceGetTaskStreamServer{stream})
+	return srv.(TasksServer).GetTaskStream(m, &tasksGetTaskStreamServer{stream})
 }
 
-type TasksService_GetTaskStreamServer interface {
+type Tasks_GetTaskStreamServer interface {
 	Send(*GetTaskStreamResponse) error
 	grpc.ServerStream
 }
 
-type tasksServiceGetTaskStreamServer struct {
+type tasksGetTaskStreamServer struct {
 	grpc.ServerStream
 }
 
-func (x *tasksServiceGetTaskStreamServer) Send(m *GetTaskStreamResponse) error {
+func (x *tasksGetTaskStreamServer) Send(m *GetTaskStreamResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _TasksService_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Tasks_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TasksServiceServer).CreateTask(ctx, in)
+		return srv.(TasksServer).CreateTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/scheduler.TasksService/CreateTask",
+		FullMethod: "/scheduler.Tasks/CreateTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TasksServiceServer).CreateTask(ctx, req.(*CreateTaskRequest))
+		return srv.(TasksServer).CreateTask(ctx, req.(*CreateTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TasksService_EditTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Tasks_EditTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EditTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TasksServiceServer).EditTask(ctx, in)
+		return srv.(TasksServer).EditTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/scheduler.TasksService/EditTask",
+		FullMethod: "/scheduler.Tasks/EditTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TasksServiceServer).EditTask(ctx, req.(*EditTaskRequest))
+		return srv.(TasksServer).EditTask(ctx, req.(*EditTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// TasksService_ServiceDesc is the grpc.ServiceDesc for TasksService service.
+// Tasks_ServiceDesc is the grpc.ServiceDesc for Tasks service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var TasksService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "scheduler.TasksService",
-	HandlerType: (*TasksServiceServer)(nil),
+var Tasks_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "scheduler.Tasks",
+	HandlerType: (*TasksServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetTaskById",
-			Handler:    _TasksService_GetTaskById_Handler,
+			Handler:    _Tasks_GetTaskById_Handler,
 		},
 		{
 			MethodName: "CreateTask",
-			Handler:    _TasksService_CreateTask_Handler,
+			Handler:    _Tasks_CreateTask_Handler,
 		},
 		{
 			MethodName: "EditTask",
-			Handler:    _TasksService_EditTask_Handler,
+			Handler:    _Tasks_EditTask_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
 		{
 			StreamName:    "GetTaskStream",
-			Handler:       _TasksService_GetTaskStream_Handler,
+			Handler:       _Tasks_GetTaskStream_Handler,
 			ServerStreams: true,
 		},
 	},

@@ -22,6 +22,7 @@ func (a *Adapter) Send(ctx context.Context, dto *domain.SendTaskMessageDto) erro
 		amqp091.Publishing{
 			CorrelationId: dto.CorrId.String(),
 			Priority:      dto.Priority,
+			DeliveryMode:  amqp091.Persistent,
 		})
 	if err != nil {
 		return errors.Wrap(err, errors.ERR_ADAPTER, "conn.PublishWithContext")

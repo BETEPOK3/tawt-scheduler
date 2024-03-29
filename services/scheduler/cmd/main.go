@@ -51,7 +51,7 @@ func main() {
 	}
 
 	tasksApi := tasks.NewTasksApi(tasksUsecase)
-	schema.RegisterTasksServiceServer(grpcServer, tasksApi)
+	schema.RegisterTasksServer(grpcServer, tasksApi)
 
 	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", cfg.Service.GrpcEndpoint))
 	if err != nil {

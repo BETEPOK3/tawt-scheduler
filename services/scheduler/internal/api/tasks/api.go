@@ -6,7 +6,7 @@ import (
 )
 
 type apiImpl struct {
-	schema.UnimplementedTasksServiceServer
+	schema.UnimplementedTasksServer
 	usecase domain.TasksUsecase
 }
 
