@@ -20,8 +20,8 @@ service Tasks {
     // CreateTask - создать задачу.
     rpc CreateTask(CreateTaskRequest) returns(CreateTaskResponse);
 
-    // EditTask - редактировать задачу.
-    rpc EditTask(EditTaskRequest) returns(EditTaskResponse);
+    // FinishTask - завершить задачу.
+    rpc FinishTask(FinishTaskRequest) returns(FinishTaskResponse);
 }
 
 // GetTaskByIdRequest - запрос на получение задачи по идентификатору.
@@ -53,7 +53,10 @@ message CreateTaskResponse {
 }
 
 // GetTaskStreamRequest - запрос на получение потока задач на обработку.
-message GetTaskStreamRequest {}
+message GetTaskStreamRequest {
+    // queue_name - имя очереди.
+    string queue_name = 1;
+}
 
 // GetTaskStreamResponse - ответ на GetTaskStreamRequest.
 message GetTaskStreamResponse {
@@ -63,14 +66,14 @@ message GetTaskStreamResponse {
     TaskStreamData task = 2;
 }
 
-// EditTaskRequest - запрос на редактирования задачи.
-message EditTaskRequest {
-    // dto - данные для редактирования задачи.
-    EditTask dto = 1;
+// FinishTaskRequest - запрос на редактирования задачи.
+message FinishTaskRequest {
+    // dto - данные для завершения задачи.
+    FinishTask dto = 1;
 }
 
-// EditTaskResponse - ответ на EditTaskRequest.
-message EditTaskResponse {
+// FinishTaskResponse - ответ на FinishTaskRequest.
+message FinishTaskResponse {
     // status - статус.
     common.Status status = 1;
 }

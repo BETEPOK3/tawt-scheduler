@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CreateTask() {
-    input_ = com.google.protobuf.ByteString.EMPTY;
+    input_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -86,18 +86,50 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INPUT_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString input_ = com.google.protobuf.ByteString.EMPTY;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object input_ = "";
   /**
    * <pre>
-   * input - входные данные задачи.
+   * input - входные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>bytes input = 2 [json_name = "input"];</code>
+   * <code>string input = 2 [json_name = "input"];</code>
    * @return The input.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString getInput() {
-    return input_;
+  public java.lang.String getInput() {
+    java.lang.Object ref = input_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      input_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * input - входные данные задачи (в формате JSON).
+   * </pre>
+   *
+   * <code>string input = 2 [json_name = "input"];</code>
+   * @return The bytes for input.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getInputBytes() {
+    java.lang.Object ref = input_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      input_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int PRIORITY_FIELD_NUMBER = 3;
@@ -132,8 +164,8 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getType());
     }
-    if (!input_.isEmpty()) {
-      output.writeBytes(2, input_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(input_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 2, input_);
     }
     if (priority_ != 0) {
       output.writeUInt32(3, priority_);
@@ -151,9 +183,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getType());
     }
-    if (!input_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(2, input_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(input_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, input_);
     }
     if (priority_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -348,7 +379,7 @@ private static final long serialVersionUID = 0L;
         typeBuilder_.dispose();
         typeBuilder_ = null;
       }
-      input_ = com.google.protobuf.ByteString.EMPTY;
+      input_ = "";
       priority_ = 0;
       return this;
     }
@@ -414,8 +445,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasType()) {
         mergeType(other.getType());
       }
-      if (other.getInput() != com.google.protobuf.ByteString.EMPTY) {
-        setInput(other.getInput());
+      if (!other.getInput().isEmpty()) {
+        input_ = other.input_;
+        bitField0_ |= 0x00000002;
+        onChanged();
       }
       if (other.getPriority() != 0) {
         setPriority(other.getPriority());
@@ -454,7 +487,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 18: {
-              input_ = input.readBytes();
+              input_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000002;
               break;
             } // case 18
@@ -637,29 +670,59 @@ private static final long serialVersionUID = 0L;
       return typeBuilder_;
     }
 
-    private com.google.protobuf.ByteString input_ = com.google.protobuf.ByteString.EMPTY;
+    private java.lang.Object input_ = "";
     /**
      * <pre>
-     * input - входные данные задачи.
+     * input - входные данные задачи (в формате JSON).
      * </pre>
      *
-     * <code>bytes input = 2 [json_name = "input"];</code>
+     * <code>string input = 2 [json_name = "input"];</code>
      * @return The input.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getInput() {
-      return input_;
+    public java.lang.String getInput() {
+      java.lang.Object ref = input_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        input_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
      * <pre>
-     * input - входные данные задачи.
+     * input - входные данные задачи (в формате JSON).
      * </pre>
      *
-     * <code>bytes input = 2 [json_name = "input"];</code>
+     * <code>string input = 2 [json_name = "input"];</code>
+     * @return The bytes for input.
+     */
+    public com.google.protobuf.ByteString
+        getInputBytes() {
+      java.lang.Object ref = input_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        input_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * input - входные данные задачи (в формате JSON).
+     * </pre>
+     *
+     * <code>string input = 2 [json_name = "input"];</code>
      * @param value The input to set.
      * @return This builder for chaining.
      */
-    public Builder setInput(com.google.protobuf.ByteString value) {
+    public Builder setInput(
+        java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       input_ = value;
       bitField0_ |= 0x00000002;
@@ -668,15 +731,33 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * input - входные данные задачи.
+     * input - входные данные задачи (в формате JSON).
      * </pre>
      *
-     * <code>bytes input = 2 [json_name = "input"];</code>
+     * <code>string input = 2 [json_name = "input"];</code>
      * @return This builder for chaining.
      */
     public Builder clearInput() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       input_ = getDefaultInstance().getInput();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * input - входные данные задачи (в формате JSON).
+     * </pre>
+     *
+     * <code>string input = 2 [json_name = "input"];</code>
+     * @param value The bytes for input to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInputBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      input_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }

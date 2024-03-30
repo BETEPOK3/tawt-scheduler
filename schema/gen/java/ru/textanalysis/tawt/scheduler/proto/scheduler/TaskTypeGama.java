@@ -6,15 +6,15 @@ package ru.textanalysis.tawt.scheduler.proto.scheduler;
 
 /**
  * <pre>
- * TaskTypeGamma - тип задачи "граф. + морфологический анализ".
+ * TaskTypeGama - тип задачи "граф. + морфологический анализ".
  * </pre>
  *
- * Protobuf type {@code scheduler.TaskTypeGamma}
+ * Protobuf type {@code scheduler.TaskTypeGama}
  */
-public final class TaskTypeGamma extends
+public final class TaskTypeGama extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:scheduler.TaskTypeGamma)
-    TaskTypeGammaOrBuilder {
+    // @@protoc_insertion_point(message_implements:scheduler.TaskTypeGama)
+    TaskTypeGamaOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -23,26 +23,26 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 26,
       /* patch= */ 0,
       /* suffix= */ "",
-      TaskTypeGamma.class.getName());
+      TaskTypeGama.class.getName());
   }
-  // Use TaskTypeGamma.newBuilder() to construct.
-  private TaskTypeGamma(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use TaskTypeGama.newBuilder() to construct.
+  private TaskTypeGama(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private TaskTypeGamma() {
+  private TaskTypeGama() {
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGamma_descriptor;
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGama_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGamma_fieldAccessorTable
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGama_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.class, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.Builder.class);
+            ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.class, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.Builder.class);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -78,10 +78,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma)) {
+    if (!(obj instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama)) {
       return super.equals(obj);
     }
-    ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma other = (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) obj;
+    ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama other = (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) obj;
 
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
@@ -99,44 +99,44 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(byte[] data)
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(java.io.InputStream input)
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -144,26 +144,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseDelimitedFrom(java.io.InputStream input)
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseDelimitedFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -176,7 +176,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma prototype) {
+  public static Builder newBuilder(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -193,29 +193,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * TaskTypeGamma - тип задачи "граф. + морфологический анализ".
+   * TaskTypeGama - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * Protobuf type {@code scheduler.TaskTypeGamma}
+   * Protobuf type {@code scheduler.TaskTypeGama}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:scheduler.TaskTypeGamma)
-      ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGammaOrBuilder {
+      // @@protoc_insertion_point(builder_implements:scheduler.TaskTypeGama)
+      ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamaOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGamma_descriptor;
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGama_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGamma_fieldAccessorTable
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGama_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.class, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.Builder.class);
+              ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.class, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.Builder.class);
     }
 
-    // Construct using ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.newBuilder()
+    // Construct using ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.newBuilder()
     private Builder() {
 
     }
@@ -234,17 +234,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGamma_descriptor;
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_TaskTypeGama_descriptor;
     }
 
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma getDefaultInstanceForType() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama getDefaultInstanceForType() {
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance();
     }
 
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma build() {
-      ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma result = buildPartial();
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama build() {
+      ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -252,24 +252,24 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma buildPartial() {
-      ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma result = new ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma(this);
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama buildPartial() {
+      ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama result = new ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama(this);
       onBuilt();
       return result;
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) {
-        return mergeFrom((ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma)other);
+      if (other instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) {
+        return mergeFrom((ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma other) {
-      if (other == ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance()) return this;
+    public Builder mergeFrom(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama other) {
+      if (other == ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance()) return this;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -312,23 +312,23 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:scheduler.TaskTypeGamma)
+    // @@protoc_insertion_point(builder_scope:scheduler.TaskTypeGama)
   }
 
-  // @@protoc_insertion_point(class_scope:scheduler.TaskTypeGamma)
-  private static final ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:scheduler.TaskTypeGama)
+  private static final ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma();
+    DEFAULT_INSTANCE = new ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama();
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma getDefaultInstance() {
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<TaskTypeGamma>
-      PARSER = new com.google.protobuf.AbstractParser<TaskTypeGamma>() {
+  private static final com.google.protobuf.Parser<TaskTypeGama>
+      PARSER = new com.google.protobuf.AbstractParser<TaskTypeGama>() {
     @java.lang.Override
-    public TaskTypeGamma parsePartialFrom(
+    public TaskTypeGama parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -347,17 +347,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<TaskTypeGamma> parser() {
+  public static com.google.protobuf.Parser<TaskTypeGama> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<TaskTypeGamma> getParserForType() {
+  public com.google.protobuf.Parser<TaskTypeGama> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma getDefaultInstanceForType() {
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

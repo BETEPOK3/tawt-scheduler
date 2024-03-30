@@ -6,6 +6,8 @@ type TaskStatus string
 const (
 	// TaskStatusUnspecified - статус не указан.
 	TaskStatusUnspecified TaskStatus = ""
+	// TaskStatusCreated - статус "создана".
+	TaskStatusCreated TaskStatus = "CREATED"
 	// TaskStatusQueued - статус "в очереди".
 	TaskStatusQueued TaskStatus = "QUEUED"
 	// TaskStatusInProgress - статус "в обработке".
@@ -13,5 +15,5 @@ const (
 	// TaskStatusCompleted - статус "завершена".
 	TaskStatusCompleted TaskStatus = "COMPLETED"
 	// TaskStatusError - статус "завершена в ошибкой".
-	TaskStatusError = "ERROR"
+	TaskStatusError TaskStatus = "ERROR"
 )

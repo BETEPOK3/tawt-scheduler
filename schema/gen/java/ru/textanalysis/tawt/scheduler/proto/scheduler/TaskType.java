@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     GRAPHEMATICAL(1),
-    GAMMA(2),
+    GAMA(2),
     SPECIFIC_NOT_SET(0);
     private final int value;
     private SpecificCase(int value) {
@@ -71,7 +71,7 @@ private static final long serialVersionUID = 0L;
     public static SpecificCase forNumber(int value) {
       switch (value) {
         case 1: return GRAPHEMATICAL;
-        case 2: return GAMMA;
+        case 2: return GAMA;
         case 0: return SPECIFIC_NOT_SET;
         default: return null;
       }
@@ -130,47 +130,47 @@ private static final long serialVersionUID = 0L;
     return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGraphematical.getDefaultInstance();
   }
 
-  public static final int GAMMA_FIELD_NUMBER = 2;
+  public static final int GAMA_FIELD_NUMBER = 2;
   /**
    * <pre>
-   * gamma - тип задачи "граф. + морфологический анализ".
+   * gama - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
-   * @return Whether the gamma field is set.
+   * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
+   * @return Whether the gama field is set.
    */
   @java.lang.Override
-  public boolean hasGamma() {
+  public boolean hasGama() {
     return specificCase_ == 2;
   }
   /**
    * <pre>
-   * gamma - тип задачи "граф. + морфологический анализ".
+   * gama - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
-   * @return The gamma.
+   * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
+   * @return The gama.
    */
   @java.lang.Override
-  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma getGamma() {
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama getGama() {
     if (specificCase_ == 2) {
-       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) specific_;
+       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_;
     }
-    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance();
   }
   /**
    * <pre>
-   * gamma - тип задачи "граф. + морфологический анализ".
+   * gama - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+   * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
    */
   @java.lang.Override
-  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGammaOrBuilder getGammaOrBuilder() {
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamaOrBuilder getGamaOrBuilder() {
     if (specificCase_ == 2) {
-       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) specific_;
+       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_;
     }
-    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(1, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGraphematical) specific_);
     }
     if (specificCase_ == 2) {
-      output.writeMessage(2, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) specific_);
+      output.writeMessage(2, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -208,7 +208,7 @@ private static final long serialVersionUID = 0L;
     }
     if (specificCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) specific_);
+        .computeMessageSize(2, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -232,8 +232,8 @@ private static final long serialVersionUID = 0L;
             .equals(other.getGraphematical())) return false;
         break;
       case 2:
-        if (!getGamma()
-            .equals(other.getGamma())) return false;
+        if (!getGama()
+            .equals(other.getGama())) return false;
         break;
       case 0:
       default:
@@ -255,8 +255,8 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getGraphematical().hashCode();
         break;
       case 2:
-        hash = (37 * hash) + GAMMA_FIELD_NUMBER;
-        hash = (53 * hash) + getGamma().hashCode();
+        hash = (37 * hash) + GAMA_FIELD_NUMBER;
+        hash = (53 * hash) + getGama().hashCode();
         break;
       case 0:
       default:
@@ -399,8 +399,8 @@ private static final long serialVersionUID = 0L;
       if (graphematicalBuilder_ != null) {
         graphematicalBuilder_.clear();
       }
-      if (gammaBuilder_ != null) {
-        gammaBuilder_.clear();
+      if (gamaBuilder_ != null) {
+        gamaBuilder_.clear();
       }
       specificCase_ = 0;
       specific_ = null;
@@ -448,8 +448,8 @@ private static final long serialVersionUID = 0L;
         result.specific_ = graphematicalBuilder_.build();
       }
       if (specificCase_ == 2 &&
-          gammaBuilder_ != null) {
-        result.specific_ = gammaBuilder_.build();
+          gamaBuilder_ != null) {
+        result.specific_ = gamaBuilder_.build();
       }
     }
 
@@ -470,8 +470,8 @@ private static final long serialVersionUID = 0L;
           mergeGraphematical(other.getGraphematical());
           break;
         }
-        case GAMMA: {
-          mergeGamma(other.getGamma());
+        case GAMA: {
+          mergeGama(other.getGama());
           break;
         }
         case SPECIFIC_NOT_SET: {
@@ -513,7 +513,7 @@ private static final long serialVersionUID = 0L;
             } // case 10
             case 18: {
               input.readMessage(
-                  getGammaFieldBuilder().getBuilder(),
+                  getGamaFieldBuilder().getBuilder(),
                   extensionRegistry);
               specificCase_ = 2;
               break;
@@ -729,91 +729,91 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.SingleFieldBuilder<
-        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGammaOrBuilder> gammaBuilder_;
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamaOrBuilder> gamaBuilder_;
     /**
      * <pre>
-     * gamma - тип задачи "граф. + морфологический анализ".
+     * gama - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
-     * @return Whether the gamma field is set.
+     * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
+     * @return Whether the gama field is set.
      */
     @java.lang.Override
-    public boolean hasGamma() {
+    public boolean hasGama() {
       return specificCase_ == 2;
     }
     /**
      * <pre>
-     * gamma - тип задачи "граф. + морфологический анализ".
+     * gama - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
-     * @return The gamma.
+     * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
+     * @return The gama.
      */
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma getGamma() {
-      if (gammaBuilder_ == null) {
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama getGama() {
+      if (gamaBuilder_ == null) {
         if (specificCase_ == 2) {
-          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) specific_;
+          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_;
         }
-        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance();
       } else {
         if (specificCase_ == 2) {
-          return gammaBuilder_.getMessage();
+          return gamaBuilder_.getMessage();
         }
-        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance();
       }
     }
     /**
      * <pre>
-     * gamma - тип задачи "граф. + морфологический анализ".
+     * gama - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+     * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
      */
-    public Builder setGamma(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma value) {
-      if (gammaBuilder_ == null) {
+    public Builder setGama(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama value) {
+      if (gamaBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         specific_ = value;
         onChanged();
       } else {
-        gammaBuilder_.setMessage(value);
+        gamaBuilder_.setMessage(value);
       }
       specificCase_ = 2;
       return this;
     }
     /**
      * <pre>
-     * gamma - тип задачи "граф. + морфологический анализ".
+     * gama - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+     * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
      */
-    public Builder setGamma(
-        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.Builder builderForValue) {
-      if (gammaBuilder_ == null) {
+    public Builder setGama(
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.Builder builderForValue) {
+      if (gamaBuilder_ == null) {
         specific_ = builderForValue.build();
         onChanged();
       } else {
-        gammaBuilder_.setMessage(builderForValue.build());
+        gamaBuilder_.setMessage(builderForValue.build());
       }
       specificCase_ = 2;
       return this;
     }
     /**
      * <pre>
-     * gamma - тип задачи "граф. + морфологический анализ".
+     * gama - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+     * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
      */
-    public Builder mergeGamma(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma value) {
-      if (gammaBuilder_ == null) {
+    public Builder mergeGama(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama value) {
+      if (gamaBuilder_ == null) {
         if (specificCase_ == 2 &&
-            specific_ != ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance()) {
-          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.newBuilder((ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) specific_)
+            specific_ != ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance()) {
+          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.newBuilder((ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_)
               .mergeFrom(value).buildPartial();
         } else {
           specific_ = value;
@@ -821,9 +821,9 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } else {
         if (specificCase_ == 2) {
-          gammaBuilder_.mergeFrom(value);
+          gamaBuilder_.mergeFrom(value);
         } else {
-          gammaBuilder_.setMessage(value);
+          gamaBuilder_.setMessage(value);
         }
       }
       specificCase_ = 2;
@@ -831,13 +831,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * gamma - тип задачи "граф. + морфологический анализ".
+     * gama - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+     * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
      */
-    public Builder clearGamma() {
-      if (gammaBuilder_ == null) {
+    public Builder clearGama() {
+      if (gamaBuilder_ == null) {
         if (specificCase_ == 2) {
           specificCase_ = 0;
           specific_ = null;
@@ -848,62 +848,62 @@ private static final long serialVersionUID = 0L;
           specificCase_ = 0;
           specific_ = null;
         }
-        gammaBuilder_.clear();
+        gamaBuilder_.clear();
       }
       return this;
     }
     /**
      * <pre>
-     * gamma - тип задачи "граф. + морфологический анализ".
+     * gama - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+     * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
      */
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.Builder getGammaBuilder() {
-      return getGammaFieldBuilder().getBuilder();
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.Builder getGamaBuilder() {
+      return getGamaFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * gamma - тип задачи "граф. + морфологический анализ".
+     * gama - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+     * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
      */
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGammaOrBuilder getGammaOrBuilder() {
-      if ((specificCase_ == 2) && (gammaBuilder_ != null)) {
-        return gammaBuilder_.getMessageOrBuilder();
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamaOrBuilder getGamaOrBuilder() {
+      if ((specificCase_ == 2) && (gamaBuilder_ != null)) {
+        return gamaBuilder_.getMessageOrBuilder();
       } else {
         if (specificCase_ == 2) {
-          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) specific_;
+          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_;
         }
-        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance();
       }
     }
     /**
      * <pre>
-     * gamma - тип задачи "граф. + морфологический анализ".
+     * gama - тип задачи "граф. + морфологический анализ".
      * </pre>
      *
-     * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+     * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGammaOrBuilder> 
-        getGammaFieldBuilder() {
-      if (gammaBuilder_ == null) {
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamaOrBuilder> 
+        getGamaFieldBuilder() {
+      if (gamaBuilder_ == null) {
         if (!(specificCase_ == 2)) {
-          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.getDefaultInstance();
+          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance();
         }
-        gammaBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGammaOrBuilder>(
-                (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma) specific_,
+        gamaBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamaOrBuilder>(
+                (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_,
                 getParentForChildren(),
                 isClean());
         specific_ = null;
       }
       specificCase_ = 2;
       onChanged();
-      return gammaBuilder_;
+      return gamaBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:scheduler.TaskType)

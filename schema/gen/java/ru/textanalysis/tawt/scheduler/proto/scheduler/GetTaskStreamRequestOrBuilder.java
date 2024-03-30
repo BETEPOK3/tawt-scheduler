@@ -7,4 +7,24 @@ package ru.textanalysis.tawt.scheduler.proto.scheduler;
 public interface GetTaskStreamRequestOrBuilder extends
     // @@protoc_insertion_point(interface_extends:scheduler.GetTaskStreamRequest)
     com.google.protobuf.MessageOrBuilder {
+
+  /**
+   * <pre>
+   * queue_name - имя очереди.
+   * </pre>
+   *
+   * <code>string queue_name = 1 [json_name = "queueName"];</code>
+   * @return The queueName.
+   */
+  java.lang.String getQueueName();
+  /**
+   * <pre>
+   * queue_name - имя очереди.
+   * </pre>
+   *
+   * <code>string queue_name = 1 [json_name = "queueName"];</code>
+   * @return The bytes for queueName.
+   */
+  com.google.protobuf.ByteString
+      getQueueNameBytes();
 }

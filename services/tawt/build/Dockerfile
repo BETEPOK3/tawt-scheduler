@@ -1,10 +1,12 @@
-FROM maven:3.5.0-jdk-8-alpine as builder
+FROM maven:3.8.3-openjdk-17 as builder
+ARG path=services/tawt
 
 WORKDIR /build
-ADD tawt-scheduler/. .
-RUN mvn clean install
+ADD $path/tawt-scheduler/. .
+ADD schema/gen/java/. src/main/java/.
+RUN mvn clean dependency:copy-dependencies compile jar:jar
 
-FROM openjdk:8-jre-alpine
+FROM openjdk:23-slim-bullseye
 
-COPY --from=builder ["/build/target/tawt-scheduler-0.1.jar", "/"]
-CMD ["java", "-jar", "tawt-scheduler-0.1.jar"]
+COPY --from=builder ["/build/target", "/target/."]
+CMD ["java", "-jar", "target/tawt-scheduler-0.1.jar"]

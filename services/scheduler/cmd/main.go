@@ -45,6 +45,13 @@ func main() {
 		}
 	}
 
+	processorUsecase, err := builder.BuildProcessorUsecase()
+	if err != nil {
+		log.Fatalf("error building ProcessorUsecase: %v", err)
+	}
+
+	processorUsecase.RunAgingMechanism(ctx)
+
 	tasksUsecase, err := builder.BuildTasksUsecase()
 	if err != nil {
 		log.Fatalf("error building TasksUsecase: %v", err)

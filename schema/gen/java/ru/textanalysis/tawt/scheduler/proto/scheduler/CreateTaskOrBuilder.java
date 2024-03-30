@@ -37,13 +37,23 @@ public interface CreateTaskOrBuilder extends
 
   /**
    * <pre>
-   * input - входные данные задачи.
+   * input - входные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>bytes input = 2 [json_name = "input"];</code>
+   * <code>string input = 2 [json_name = "input"];</code>
    * @return The input.
    */
-  com.google.protobuf.ByteString getInput();
+  java.lang.String getInput();
+  /**
+   * <pre>
+   * input - входные данные задачи (в формате JSON).
+   * </pre>
+   *
+   * <code>string input = 2 [json_name = "input"];</code>
+   * @return The bytes for input.
+   */
+  com.google.protobuf.ByteString
+      getInputBytes();
 
   /**
    * <pre>

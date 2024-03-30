@@ -2,6 +2,7 @@ package mappers
 
 import (
 	"github.com/BETEPOK3/tawt-scheduler/common/entities"
+	"github.com/BETEPOK3/tawt-scheduler/common/funcs"
 	"github.com/BETEPOK3/tawt-scheduler/common/mappers"
 	"github.com/BETEPOK3/tawt-scheduler/common/utils"
 	schema "github.com/BETEPOK3/tawt-scheduler/schema/gen/go/scheduler"
@@ -9,16 +10,21 @@ import (
 
 // TaskEntityToPb - преобразование доменной сущности задачи в сущность схемы.
 func TaskEntityToPb(src *entities.Task) *schema.Task {
-	return &schema.Task{
+	result := &schema.Task{
 		Id:         src.Id.String(),
 		Type:       mappers.TaskTypeToPb(src),
-		Input:      src.Input,
-		Output:     src.Output,
+		Input:      string(src.Input),
 		CreatedAt:  utils.TimeToPb(src.CreatedAt),
 		FinishedAt: utils.PtrTimeToPb(src.FinishedAt),
 		Status:     testStatusToPb(src.Status),
 		Error:      src.Error,
 	}
+
+	if len(src.Output) > 0 {
+		result.Output = funcs.Ptr(string(src.Output))
+	}
+
+	return result
 }
 
 func testStatusToPb(src entities.TaskStatus) schema.Task_Status {

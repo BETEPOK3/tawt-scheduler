@@ -55,15 +55,15 @@ public final class TasksOuterClass {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_scheduler_GetTaskStreamResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_scheduler_EditTaskRequest_descriptor;
+    internal_static_scheduler_FinishTaskRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_scheduler_EditTaskRequest_fieldAccessorTable;
+      internal_static_scheduler_FinishTaskRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_scheduler_EditTaskResponse_descriptor;
+    internal_static_scheduler_FinishTaskResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_scheduler_EditTaskResponse_fieldAccessorTable;
+      internal_static_scheduler_FinishTaskResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -82,24 +82,25 @@ public final class TasksOuterClass {
       "equest\022\'\n\003dto\030\001 \001(\0132\025.scheduler.CreateTa" +
       "skR\003dto\"U\n\022CreateTaskResponse\022&\n\006status\030" +
       "\001 \001(\0132\016.common.StatusR\006status\022\027\n\007task_id" +
-      "\030\002 \001(\tR\006taskId\"\026\n\024GetTaskStreamRequest\"n" +
-      "\n\025GetTaskStreamResponse\022&\n\006status\030\001 \001(\0132" +
-      "\016.common.StatusR\006status\022-\n\004task\030\002 \001(\0132\031." +
-      "scheduler.TaskStreamDataR\004task\"8\n\017EditTa" +
-      "skRequest\022%\n\003dto\030\001 \001(\0132\023.scheduler.EditT" +
-      "askR\003dto\":\n\020EditTaskResponse\022&\n\006status\030\001" +
-      " \001(\0132\016.common.StatusR\006status2\273\002\n\005Tasks\022L" +
-      "\n\013GetTaskById\022\035.scheduler.GetTaskByIdReq" +
-      "uest\032\036.scheduler.GetTaskByIdResponse\022T\n\r" +
-      "GetTaskStream\022\037.scheduler.GetTaskStreamR" +
-      "equest\032 .scheduler.GetTaskStreamResponse" +
-      "0\001\022I\n\nCreateTask\022\034.scheduler.CreateTaskR" +
-      "equest\032\035.scheduler.CreateTaskResponse\022C\n" +
-      "\010EditTask\022\032.scheduler.EditTaskRequest\032\033." +
-      "scheduler.EditTaskResponseBx\n.ru.textana" +
-      "lysis.tawt.scheduler.proto.schedulerP\001ZD" +
-      "github.com/BETEPOK3/tawt-scheduler/schem" +
-      "a/gen/go/scheduler;schedulerb\006proto3"
+      "\030\002 \001(\tR\006taskId\"5\n\024GetTaskStreamRequest\022\035" +
+      "\n\nqueue_name\030\001 \001(\tR\tqueueName\"n\n\025GetTask" +
+      "StreamResponse\022&\n\006status\030\001 \001(\0132\016.common." +
+      "StatusR\006status\022-\n\004task\030\002 \001(\0132\031.scheduler" +
+      ".TaskStreamDataR\004task\"<\n\021FinishTaskReque" +
+      "st\022\'\n\003dto\030\001 \001(\0132\025.scheduler.FinishTaskR\003" +
+      "dto\"<\n\022FinishTaskResponse\022&\n\006status\030\001 \001(" +
+      "\0132\016.common.StatusR\006status2\301\002\n\005Tasks\022L\n\013G" +
+      "etTaskById\022\035.scheduler.GetTaskByIdReques" +
+      "t\032\036.scheduler.GetTaskByIdResponse\022T\n\rGet" +
+      "TaskStream\022\037.scheduler.GetTaskStreamRequ" +
+      "est\032 .scheduler.GetTaskStreamResponse0\001\022" +
+      "I\n\nCreateTask\022\034.scheduler.CreateTaskRequ" +
+      "est\032\035.scheduler.CreateTaskResponse\022I\n\nFi" +
+      "nishTask\022\034.scheduler.FinishTaskRequest\032\035" +
+      ".scheduler.FinishTaskResponseBx\n.ru.text" +
+      "analysis.tawt.scheduler.proto.schedulerP" +
+      "\001ZDgithub.com/BETEPOK3/tawt-scheduler/sc" +
+      "hema/gen/go/scheduler;schedulerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -136,24 +137,24 @@ public final class TasksOuterClass {
     internal_static_scheduler_GetTaskStreamRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_GetTaskStreamRequest_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "QueueName", });
     internal_static_scheduler_GetTaskStreamResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_scheduler_GetTaskStreamResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_GetTaskStreamResponse_descriptor,
         new java.lang.String[] { "Status", "Task", });
-    internal_static_scheduler_EditTaskRequest_descriptor =
+    internal_static_scheduler_FinishTaskRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_scheduler_EditTaskRequest_fieldAccessorTable = new
+    internal_static_scheduler_FinishTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_scheduler_EditTaskRequest_descriptor,
+        internal_static_scheduler_FinishTaskRequest_descriptor,
         new java.lang.String[] { "Dto", });
-    internal_static_scheduler_EditTaskResponse_descriptor =
+    internal_static_scheduler_FinishTaskResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_scheduler_EditTaskResponse_fieldAccessorTable = new
+    internal_static_scheduler_FinishTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_scheduler_EditTaskResponse_descriptor,
+        internal_static_scheduler_FinishTaskResponse_descriptor,
         new java.lang.String[] { "Status", });
     descriptor.resolveAllFeaturesImmutable();
     ru.textanalysis.tawt.scheduler.proto.common.StatusOuterClass.getDescriptor();

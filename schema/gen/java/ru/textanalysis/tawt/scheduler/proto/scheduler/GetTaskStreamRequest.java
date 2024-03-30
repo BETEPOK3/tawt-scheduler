@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetTaskStreamRequest() {
+    queueName_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -43,6 +44,53 @@ private static final long serialVersionUID = 0L;
     return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_GetTaskStreamRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest.class, ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest.Builder.class);
+  }
+
+  public static final int QUEUE_NAME_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object queueName_ = "";
+  /**
+   * <pre>
+   * queue_name - имя очереди.
+   * </pre>
+   *
+   * <code>string queue_name = 1 [json_name = "queueName"];</code>
+   * @return The queueName.
+   */
+  @java.lang.Override
+  public java.lang.String getQueueName() {
+    java.lang.Object ref = queueName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      queueName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * queue_name - имя очереди.
+   * </pre>
+   *
+   * <code>string queue_name = 1 [json_name = "queueName"];</code>
+   * @return The bytes for queueName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getQueueNameBytes() {
+    java.lang.Object ref = queueName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      queueName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -59,6 +107,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(queueName_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, queueName_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -68,6 +119,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(queueName_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, queueName_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -83,6 +137,8 @@ private static final long serialVersionUID = 0L;
     }
     ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest other = (ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest) obj;
 
+    if (!getQueueName()
+        .equals(other.getQueueName())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -94,6 +150,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + QUEUE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getQueueName().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -228,6 +286,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      queueName_ = "";
       return this;
     }
 
@@ -254,8 +314,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest buildPartial() {
       ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest result = new ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.queueName_ = queueName_;
+      }
     }
 
     @java.lang.Override
@@ -270,6 +338,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest other) {
       if (other == ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest.getDefaultInstance()) return this;
+      if (!other.getQueueName().isEmpty()) {
+        queueName_ = other.queueName_;
+        bitField0_ |= 0x00000001;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -296,6 +369,11 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
+            case 10: {
+              queueName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -309,6 +387,99 @@ private static final long serialVersionUID = 0L;
       } finally {
         onChanged();
       } // finally
+      return this;
+    }
+    private int bitField0_;
+
+    private java.lang.Object queueName_ = "";
+    /**
+     * <pre>
+     * queue_name - имя очереди.
+     * </pre>
+     *
+     * <code>string queue_name = 1 [json_name = "queueName"];</code>
+     * @return The queueName.
+     */
+    public java.lang.String getQueueName() {
+      java.lang.Object ref = queueName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        queueName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * queue_name - имя очереди.
+     * </pre>
+     *
+     * <code>string queue_name = 1 [json_name = "queueName"];</code>
+     * @return The bytes for queueName.
+     */
+    public com.google.protobuf.ByteString
+        getQueueNameBytes() {
+      java.lang.Object ref = queueName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        queueName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * queue_name - имя очереди.
+     * </pre>
+     *
+     * <code>string queue_name = 1 [json_name = "queueName"];</code>
+     * @param value The queueName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQueueName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      queueName_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * queue_name - имя очереди.
+     * </pre>
+     *
+     * <code>string queue_name = 1 [json_name = "queueName"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearQueueName() {
+      queueName_ = getDefaultInstance().getQueueName();
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * queue_name - имя очереди.
+     * </pre>
+     *
+     * <code>string queue_name = 1 [json_name = "queueName"];</code>
+     * @param value The bytes for queueName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQueueNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      queueName_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
 

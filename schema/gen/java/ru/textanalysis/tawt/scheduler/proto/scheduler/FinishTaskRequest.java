@@ -6,15 +6,15 @@ package ru.textanalysis.tawt.scheduler.proto.scheduler;
 
 /**
  * <pre>
- * EditTaskRequest - запрос на редактирования задачи.
+ * FinishTaskRequest - запрос на редактирования задачи.
  * </pre>
  *
- * Protobuf type {@code scheduler.EditTaskRequest}
+ * Protobuf type {@code scheduler.FinishTaskRequest}
  */
-public final class EditTaskRequest extends
+public final class FinishTaskRequest extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:scheduler.EditTaskRequest)
-    EditTaskRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:scheduler.FinishTaskRequest)
+    FinishTaskRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -23,37 +23,37 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 26,
       /* patch= */ 0,
       /* suffix= */ "",
-      EditTaskRequest.class.getName());
+      FinishTaskRequest.class.getName());
   }
-  // Use EditTaskRequest.newBuilder() to construct.
-  private EditTaskRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use FinishTaskRequest.newBuilder() to construct.
+  private FinishTaskRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private EditTaskRequest() {
+  private FinishTaskRequest() {
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_EditTaskRequest_descriptor;
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_FinishTaskRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_EditTaskRequest_fieldAccessorTable
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_FinishTaskRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest.class, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest.Builder.class);
+            ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest.class, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest.Builder.class);
   }
 
   private int bitField0_;
   public static final int DTO_FIELD_NUMBER = 1;
-  private ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask dto_;
+  private ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask dto_;
   /**
    * <pre>
-   * dto - данные для редактирования задачи.
+   * dto - данные для завершения задачи.
    * </pre>
    *
-   * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+   * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
    * @return Whether the dto field is set.
    */
   @java.lang.Override
@@ -62,26 +62,26 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * dto - данные для редактирования задачи.
+   * dto - данные для завершения задачи.
    * </pre>
    *
-   * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+   * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
    * @return The dto.
    */
   @java.lang.Override
-  public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask getDto() {
-    return dto_ == null ? ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.getDefaultInstance() : dto_;
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask getDto() {
+    return dto_ == null ? ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.getDefaultInstance() : dto_;
   }
   /**
    * <pre>
-   * dto - данные для редактирования задачи.
+   * dto - данные для завершения задачи.
    * </pre>
    *
-   * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+   * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
    */
   @java.lang.Override
-  public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskOrBuilder getDtoOrBuilder() {
-    return dto_ == null ? ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.getDefaultInstance() : dto_;
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskOrBuilder getDtoOrBuilder() {
+    return dto_ == null ? ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.getDefaultInstance() : dto_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -124,10 +124,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest)) {
+    if (!(obj instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest)) {
       return super.equals(obj);
     }
-    ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest other = (ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest) obj;
+    ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest other = (ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest) obj;
 
     if (hasDto() != other.hasDto()) return false;
     if (hasDto()) {
@@ -154,44 +154,44 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(byte[] data)
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(java.io.InputStream input)
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -199,26 +199,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseDelimitedFrom(java.io.InputStream input)
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseDelimitedFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -231,7 +231,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest prototype) {
+  public static Builder newBuilder(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -248,29 +248,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * EditTaskRequest - запрос на редактирования задачи.
+   * FinishTaskRequest - запрос на редактирования задачи.
    * </pre>
    *
-   * Protobuf type {@code scheduler.EditTaskRequest}
+   * Protobuf type {@code scheduler.FinishTaskRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:scheduler.EditTaskRequest)
-      ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:scheduler.FinishTaskRequest)
+      ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_EditTaskRequest_descriptor;
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_FinishTaskRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_EditTaskRequest_fieldAccessorTable
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_FinishTaskRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest.class, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest.Builder.class);
+              ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest.class, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest.Builder.class);
     }
 
-    // Construct using ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest.newBuilder()
+    // Construct using ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -301,17 +301,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_EditTaskRequest_descriptor;
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.TasksOuterClass.internal_static_scheduler_FinishTaskRequest_descriptor;
     }
 
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest getDefaultInstanceForType() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest.getDefaultInstance();
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest getDefaultInstanceForType() {
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest build() {
-      ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest result = buildPartial();
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest build() {
+      ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -319,14 +319,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest buildPartial() {
-      ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest result = new ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest(this);
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest buildPartial() {
+      ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest result = new ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest result) {
+    private void buildPartial0(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -340,16 +340,16 @@ private static final long serialVersionUID = 0L;
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest) {
-        return mergeFrom((ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest)other);
+      if (other instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest) {
+        return mergeFrom((ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest other) {
-      if (other == ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest other) {
+      if (other == ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest.getDefaultInstance()) return this;
       if (other.hasDto()) {
         mergeDto(other.getDto());
       }
@@ -403,15 +403,15 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask dto_;
+    private ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask dto_;
     private com.google.protobuf.SingleFieldBuilder<
-        ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskOrBuilder> dtoBuilder_;
+        ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskOrBuilder> dtoBuilder_;
     /**
      * <pre>
-     * dto - данные для редактирования задачи.
+     * dto - данные для завершения задачи.
      * </pre>
      *
-     * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+     * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
      * @return Whether the dto field is set.
      */
     public boolean hasDto() {
@@ -419,27 +419,27 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * dto - данные для редактирования задачи.
+     * dto - данные для завершения задачи.
      * </pre>
      *
-     * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+     * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
      * @return The dto.
      */
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask getDto() {
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask getDto() {
       if (dtoBuilder_ == null) {
-        return dto_ == null ? ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.getDefaultInstance() : dto_;
+        return dto_ == null ? ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.getDefaultInstance() : dto_;
       } else {
         return dtoBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * dto - данные для редактирования задачи.
+     * dto - данные для завершения задачи.
      * </pre>
      *
-     * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+     * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
      */
-    public Builder setDto(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask value) {
+    public Builder setDto(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask value) {
       if (dtoBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -454,13 +454,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * dto - данные для редактирования задачи.
+     * dto - данные для завершения задачи.
      * </pre>
      *
-     * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+     * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
      */
     public Builder setDto(
-        ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.Builder builderForValue) {
+        ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.Builder builderForValue) {
       if (dtoBuilder_ == null) {
         dto_ = builderForValue.build();
       } else {
@@ -472,16 +472,16 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * dto - данные для редактирования задачи.
+     * dto - данные для завершения задачи.
      * </pre>
      *
-     * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+     * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
      */
-    public Builder mergeDto(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask value) {
+    public Builder mergeDto(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask value) {
       if (dtoBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
           dto_ != null &&
-          dto_ != ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.getDefaultInstance()) {
+          dto_ != ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.getDefaultInstance()) {
           getDtoBuilder().mergeFrom(value);
         } else {
           dto_ = value;
@@ -497,10 +497,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * dto - данные для редактирования задачи.
+     * dto - данные для завершения задачи.
      * </pre>
      *
-     * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+     * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
      */
     public Builder clearDto() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -514,44 +514,44 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * dto - данные для редактирования задачи.
+     * dto - данные для завершения задачи.
      * </pre>
      *
-     * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+     * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
      */
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.Builder getDtoBuilder() {
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.Builder getDtoBuilder() {
       bitField0_ |= 0x00000001;
       onChanged();
       return getDtoFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * dto - данные для редактирования задачи.
+     * dto - данные для завершения задачи.
      * </pre>
      *
-     * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+     * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
      */
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskOrBuilder getDtoOrBuilder() {
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskOrBuilder getDtoOrBuilder() {
       if (dtoBuilder_ != null) {
         return dtoBuilder_.getMessageOrBuilder();
       } else {
         return dto_ == null ?
-            ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.getDefaultInstance() : dto_;
+            ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.getDefaultInstance() : dto_;
       }
     }
     /**
      * <pre>
-     * dto - данные для редактирования задачи.
+     * dto - данные для завершения задачи.
      * </pre>
      *
-     * <code>.scheduler.EditTask dto = 1 [json_name = "dto"];</code>
+     * <code>.scheduler.FinishTask dto = 1 [json_name = "dto"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
-        ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskOrBuilder> 
+        ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskOrBuilder> 
         getDtoFieldBuilder() {
       if (dtoBuilder_ == null) {
         dtoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskOrBuilder>(
+            ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskOrBuilder>(
                 getDto(),
                 getParentForChildren(),
                 isClean());
@@ -560,23 +560,23 @@ private static final long serialVersionUID = 0L;
       return dtoBuilder_;
     }
 
-    // @@protoc_insertion_point(builder_scope:scheduler.EditTaskRequest)
+    // @@protoc_insertion_point(builder_scope:scheduler.FinishTaskRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:scheduler.EditTaskRequest)
-  private static final ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:scheduler.FinishTaskRequest)
+  private static final ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest();
+    DEFAULT_INSTANCE = new ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest();
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest getDefaultInstance() {
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<EditTaskRequest>
-      PARSER = new com.google.protobuf.AbstractParser<EditTaskRequest>() {
+  private static final com.google.protobuf.Parser<FinishTaskRequest>
+      PARSER = new com.google.protobuf.AbstractParser<FinishTaskRequest>() {
     @java.lang.Override
-    public EditTaskRequest parsePartialFrom(
+    public FinishTaskRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -595,17 +595,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<EditTaskRequest> parser() {
+  public static com.google.protobuf.Parser<FinishTaskRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<EditTaskRequest> getParserForType() {
+  public com.google.protobuf.Parser<FinishTaskRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest getDefaultInstanceForType() {
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

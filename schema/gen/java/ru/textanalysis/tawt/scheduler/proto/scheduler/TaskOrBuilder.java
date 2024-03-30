@@ -57,32 +57,52 @@ public interface TaskOrBuilder extends
 
   /**
    * <pre>
-   * input - входные данные задачи.
+   * input - входные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>bytes input = 3 [json_name = "input"];</code>
+   * <code>string input = 3 [json_name = "input"];</code>
    * @return The input.
    */
-  com.google.protobuf.ByteString getInput();
+  java.lang.String getInput();
+  /**
+   * <pre>
+   * input - входные данные задачи (в формате JSON).
+   * </pre>
+   *
+   * <code>string input = 3 [json_name = "input"];</code>
+   * @return The bytes for input.
+   */
+  com.google.protobuf.ByteString
+      getInputBytes();
 
   /**
    * <pre>
-   * input - выходные данные задачи.
+   * input - выходные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>optional bytes output = 4 [json_name = "output"];</code>
+   * <code>optional string output = 4 [json_name = "output"];</code>
    * @return Whether the output field is set.
    */
   boolean hasOutput();
   /**
    * <pre>
-   * input - выходные данные задачи.
+   * input - выходные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>optional bytes output = 4 [json_name = "output"];</code>
+   * <code>optional string output = 4 [json_name = "output"];</code>
    * @return The output.
    */
-  com.google.protobuf.ByteString getOutput();
+  java.lang.String getOutput();
+  /**
+   * <pre>
+   * input - выходные данные задачи (в формате JSON).
+   * </pre>
+   *
+   * <code>optional string output = 4 [json_name = "output"];</code>
+   * @return The bytes for output.
+   */
+  com.google.protobuf.ByteString
+      getOutputBytes();
 
   /**
    * <pre>

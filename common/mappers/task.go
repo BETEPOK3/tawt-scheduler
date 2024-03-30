@@ -12,9 +12,9 @@ func TaskTypeToPb(src *entities.Task) *schema.TaskType {
 		return &schema.TaskType{
 			Specific: &schema.TaskType_Graphematical{Graphematical: &schema.TaskTypeGraphematical{}},
 		}
-	case entities.TaskTypeGamma:
+	case entities.TaskTypeGama:
 		return &schema.TaskType{
-			Specific: &schema.TaskType_Gamma{Gamma: &schema.TaskTypeGamma{}},
+			Specific: &schema.TaskType_Gama{Gama: &schema.TaskTypeGama{}},
 		}
 	default:
 		return nil
@@ -26,8 +26,8 @@ func TaskTypeFromPb(src *schema.TaskType) (entities.TaskType, []byte) {
 	switch src.Specific.(type) {
 	case *schema.TaskType_Graphematical:
 		return entities.TaskTypeGraphematical, nil
-	case *schema.TaskType_Gamma:
-		return entities.TaskTypeGamma, nil
+	case *schema.TaskType_Gama:
+		return entities.TaskTypeGama, nil
 	default:
 		return entities.TaskTypeUnspecified, nil
 	}

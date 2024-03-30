@@ -7,11 +7,11 @@ import (
 	"github.com/rabbitmq/amqp091-go"
 )
 
-// Send - отправить задачу в очередь.
-func (a *Adapter) Send(ctx context.Context, dto *domain.SendTaskMessageDto) error {
-	channel, err := a.conn.Channel()
+// SendTask - отправить задачу в очередь.
+func (a *Adapter) SendTask(ctx context.Context, dto *domain.SendTaskMessageDto) error {
+	channel, err := a.newChannel()
 	if err != nil {
-		return errors.Wrap(err, errors.ERR_ADAPTER, "conn.Channel")
+		return err
 	}
 
 	err = channel.PublishWithContext(ctx,
@@ -20,12 +20,13 @@ func (a *Adapter) Send(ctx context.Context, dto *domain.SendTaskMessageDto) erro
 		false,
 		false,
 		amqp091.Publishing{
-			CorrelationId: dto.CorrId.String(),
-			Priority:      dto.Priority,
-			DeliveryMode:  amqp091.Persistent,
-		})
+			MessageId:    dto.TaskId.String(),
+			Priority:     dto.Priority,
+			DeliveryMode: amqp091.Persistent,
+		},
+	)
 	if err != nil {
-		return errors.Wrap(err, errors.ERR_ADAPTER, "conn.PublishWithContext")
+		return errors.Wrap(err, errors.ERR_ADAPTER, "rabbitMqConnection.PublishWithContext")
 	}
 
 	return nil

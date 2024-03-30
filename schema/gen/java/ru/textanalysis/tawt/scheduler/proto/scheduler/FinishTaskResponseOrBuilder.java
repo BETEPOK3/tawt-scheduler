@@ -4,8 +4,8 @@
 // Protobuf Java Version: 4.26.0
 package ru.textanalysis.tawt.scheduler.proto.scheduler;
 
-public interface EditTaskResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:scheduler.EditTaskResponse)
+public interface FinishTaskResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:scheduler.FinishTaskResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

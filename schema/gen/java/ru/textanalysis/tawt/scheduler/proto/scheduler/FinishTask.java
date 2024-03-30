@@ -6,15 +6,15 @@ package ru.textanalysis.tawt.scheduler.proto.scheduler;
 
 /**
  * <pre>
- * EditTask - DTO редактирования данных задачи.
+ * FinishTask - DTO завершения задачи.
  * </pre>
  *
- * Protobuf type {@code scheduler.EditTask}
+ * Protobuf type {@code scheduler.FinishTask}
  */
-public final class EditTask extends
+public final class FinishTask extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:scheduler.EditTask)
-    EditTaskOrBuilder {
+    // @@protoc_insertion_point(message_implements:scheduler.FinishTask)
+    FinishTaskOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -23,27 +23,29 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 26,
       /* patch= */ 0,
       /* suffix= */ "",
-      EditTask.class.getName());
+      FinishTask.class.getName());
   }
-  // Use EditTask.newBuilder() to construct.
-  private EditTask(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use FinishTask.newBuilder() to construct.
+  private FinishTask(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private EditTask() {
+  private FinishTask() {
     taskId_ = "";
+    output_ = "";
+    error_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_EditTask_descriptor;
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_FinishTask_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_EditTask_fieldAccessorTable
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_FinishTask_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.class, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.Builder.class);
+            ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.class, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.Builder.class);
   }
 
   private int bitField0_;
@@ -95,13 +97,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OUTPUT_FIELD_NUMBER = 2;
-  private com.google.protobuf.Struct output_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object output_ = "";
   /**
    * <pre>
-   * output - выходные данные задачи.
+   * output - выходные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+   * <code>optional string output = 2 [json_name = "output"];</code>
    * @return Whether the output field is set.
    */
   @java.lang.Override
@@ -110,26 +113,105 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * output - выходные данные задачи.
+   * output - выходные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+   * <code>optional string output = 2 [json_name = "output"];</code>
    * @return The output.
    */
   @java.lang.Override
-  public com.google.protobuf.Struct getOutput() {
-    return output_ == null ? com.google.protobuf.Struct.getDefaultInstance() : output_;
+  public java.lang.String getOutput() {
+    java.lang.Object ref = output_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      output_ = s;
+      return s;
+    }
   }
   /**
    * <pre>
-   * output - выходные данные задачи.
+   * output - выходные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+   * <code>optional string output = 2 [json_name = "output"];</code>
+   * @return The bytes for output.
    */
   @java.lang.Override
-  public com.google.protobuf.StructOrBuilder getOutputOrBuilder() {
-    return output_ == null ? com.google.protobuf.Struct.getDefaultInstance() : output_;
+  public com.google.protobuf.ByteString
+      getOutputBytes() {
+    java.lang.Object ref = output_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      output_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ERROR_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object error_ = "";
+  /**
+   * <pre>
+   * error - сообщение об ошибке.
+   * </pre>
+   *
+   * <code>optional string error = 3 [json_name = "error"];</code>
+   * @return Whether the error field is set.
+   */
+  @java.lang.Override
+  public boolean hasError() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * error - сообщение об ошибке.
+   * </pre>
+   *
+   * <code>optional string error = 3 [json_name = "error"];</code>
+   * @return The error.
+   */
+  @java.lang.Override
+  public java.lang.String getError() {
+    java.lang.Object ref = error_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      error_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * error - сообщение об ошибке.
+   * </pre>
+   *
+   * <code>optional string error = 3 [json_name = "error"];</code>
+   * @return The bytes for error.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getErrorBytes() {
+    java.lang.Object ref = error_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      error_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -150,7 +232,10 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.GeneratedMessage.writeString(output, 1, taskId_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeMessage(2, getOutput());
+      com.google.protobuf.GeneratedMessage.writeString(output, 2, output_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 3, error_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -165,8 +250,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.GeneratedMessage.computeStringSize(1, taskId_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getOutput());
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, output_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, error_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -178,10 +265,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask)) {
+    if (!(obj instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask)) {
       return super.equals(obj);
     }
-    ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask other = (ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask) obj;
+    ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask other = (ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask) obj;
 
     if (!getTaskId()
         .equals(other.getTaskId())) return false;
@@ -189,6 +276,11 @@ private static final long serialVersionUID = 0L;
     if (hasOutput()) {
       if (!getOutput()
           .equals(other.getOutput())) return false;
+    }
+    if (hasError() != other.hasError()) return false;
+    if (hasError()) {
+      if (!getError()
+          .equals(other.getError())) return false;
     }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
@@ -207,49 +299,53 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OUTPUT_FIELD_NUMBER;
       hash = (53 * hash) + getOutput().hashCode();
     }
+    if (hasError()) {
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(byte[] data)
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(java.io.InputStream input)
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -257,26 +353,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseDelimitedFrom(java.io.InputStream input)
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseDelimitedFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask parseFrom(
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -289,7 +385,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask prototype) {
+  public static Builder newBuilder(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -306,71 +402,62 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * EditTask - DTO редактирования данных задачи.
+   * FinishTask - DTO завершения задачи.
    * </pre>
    *
-   * Protobuf type {@code scheduler.EditTask}
+   * Protobuf type {@code scheduler.FinishTask}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:scheduler.EditTask)
-      ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskOrBuilder {
+      // @@protoc_insertion_point(builder_implements:scheduler.FinishTask)
+      ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_EditTask_descriptor;
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_FinishTask_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_EditTask_fieldAccessorTable
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_FinishTask_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.class, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.Builder.class);
+              ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.class, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.Builder.class);
     }
 
-    // Construct using ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.newBuilder()
+    // Construct using ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessage
-              .alwaysUseFieldBuilders) {
-        getOutputFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
       taskId_ = "";
-      output_ = null;
-      if (outputBuilder_ != null) {
-        outputBuilder_.dispose();
-        outputBuilder_ = null;
-      }
+      output_ = "";
+      error_ = "";
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_EditTask_descriptor;
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.Types.internal_static_scheduler_FinishTask_descriptor;
     }
 
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask getDefaultInstanceForType() {
-      return ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.getDefaultInstance();
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask getDefaultInstanceForType() {
+      return ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.getDefaultInstance();
     }
 
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask build() {
-      ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask result = buildPartial();
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask build() {
+      ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -378,47 +465,56 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask buildPartial() {
-      ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask result = new ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask(this);
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask buildPartial() {
+      ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask result = new ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask result) {
+    private void buildPartial0(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.taskId_ = taskId_;
       }
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.output_ = outputBuilder_ == null
-            ? output_
-            : outputBuilder_.build();
+        result.output_ = output_;
         to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.error_ = error_;
+        to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask) {
-        return mergeFrom((ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask)other);
+      if (other instanceof ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask) {
+        return mergeFrom((ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask other) {
-      if (other == ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask.getDefaultInstance()) return this;
+    public Builder mergeFrom(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask other) {
+      if (other == ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask.getDefaultInstance()) return this;
       if (!other.getTaskId().isEmpty()) {
         taskId_ = other.taskId_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasOutput()) {
-        mergeOutput(other.getOutput());
+        output_ = other.output_;
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
+      if (other.hasError()) {
+        error_ = other.error_;
+        bitField0_ |= 0x00000004;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -452,12 +548,15 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 18: {
-              input.readMessage(
-                  getOutputFieldBuilder().getBuilder(),
-                  extensionRegistry);
+              output_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000002;
               break;
             } // case 18
+            case 26: {
+              error_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -567,15 +666,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Struct output_;
-    private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> outputBuilder_;
+    private java.lang.Object output_ = "";
     /**
      * <pre>
-     * output - выходные данные задачи.
+     * output - выходные данные задачи (в формате JSON).
      * </pre>
      *
-     * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+     * <code>optional string output = 2 [json_name = "output"];</code>
      * @return Whether the output field is set.
      */
     public boolean hasOutput() {
@@ -583,164 +680,215 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * output - выходные данные задачи.
+     * output - выходные данные задачи (в формате JSON).
      * </pre>
      *
-     * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+     * <code>optional string output = 2 [json_name = "output"];</code>
      * @return The output.
      */
-    public com.google.protobuf.Struct getOutput() {
-      if (outputBuilder_ == null) {
-        return output_ == null ? com.google.protobuf.Struct.getDefaultInstance() : output_;
+    public java.lang.String getOutput() {
+      java.lang.Object ref = output_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        output_ = s;
+        return s;
       } else {
-        return outputBuilder_.getMessage();
+        return (java.lang.String) ref;
       }
     }
     /**
      * <pre>
-     * output - выходные данные задачи.
+     * output - выходные данные задачи (в формате JSON).
      * </pre>
      *
-     * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+     * <code>optional string output = 2 [json_name = "output"];</code>
+     * @return The bytes for output.
      */
-    public Builder setOutput(com.google.protobuf.Struct value) {
-      if (outputBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        output_ = value;
+    public com.google.protobuf.ByteString
+        getOutputBytes() {
+      java.lang.Object ref = output_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        output_ = b;
+        return b;
       } else {
-        outputBuilder_.setMessage(value);
+        return (com.google.protobuf.ByteString) ref;
       }
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
     }
     /**
      * <pre>
-     * output - выходные данные задачи.
+     * output - выходные данные задачи (в формате JSON).
      * </pre>
      *
-     * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+     * <code>optional string output = 2 [json_name = "output"];</code>
+     * @param value The output to set.
+     * @return This builder for chaining.
      */
     public Builder setOutput(
-        com.google.protobuf.Struct.Builder builderForValue) {
-      if (outputBuilder_ == null) {
-        output_ = builderForValue.build();
-      } else {
-        outputBuilder_.setMessage(builderForValue.build());
-      }
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      output_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * output - выходные данные задачи.
+     * output - выходные данные задачи (в формате JSON).
      * </pre>
      *
-     * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
-     */
-    public Builder mergeOutput(com.google.protobuf.Struct value) {
-      if (outputBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
-          output_ != null &&
-          output_ != com.google.protobuf.Struct.getDefaultInstance()) {
-          getOutputBuilder().mergeFrom(value);
-        } else {
-          output_ = value;
-        }
-      } else {
-        outputBuilder_.mergeFrom(value);
-      }
-      if (output_ != null) {
-        bitField0_ |= 0x00000002;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * output - выходные данные задачи.
-     * </pre>
-     *
-     * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+     * <code>optional string output = 2 [json_name = "output"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearOutput() {
+      output_ = getDefaultInstance().getOutput();
       bitField0_ = (bitField0_ & ~0x00000002);
-      output_ = null;
-      if (outputBuilder_ != null) {
-        outputBuilder_.dispose();
-        outputBuilder_ = null;
-      }
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * output - выходные данные задачи.
+     * output - выходные данные задачи (в формате JSON).
      * </pre>
      *
-     * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+     * <code>optional string output = 2 [json_name = "output"];</code>
+     * @param value The bytes for output to set.
+     * @return This builder for chaining.
      */
-    public com.google.protobuf.Struct.Builder getOutputBuilder() {
+    public Builder setOutputBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      output_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
-      return getOutputFieldBuilder().getBuilder();
+      return this;
+    }
+
+    private java.lang.Object error_ = "";
+    /**
+     * <pre>
+     * error - сообщение об ошибке.
+     * </pre>
+     *
+     * <code>optional string error = 3 [json_name = "error"];</code>
+     * @return Whether the error field is set.
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * output - выходные данные задачи.
+     * error - сообщение об ошибке.
      * </pre>
      *
-     * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+     * <code>optional string error = 3 [json_name = "error"];</code>
+     * @return The error.
      */
-    public com.google.protobuf.StructOrBuilder getOutputOrBuilder() {
-      if (outputBuilder_ != null) {
-        return outputBuilder_.getMessageOrBuilder();
+    public java.lang.String getError() {
+      java.lang.Object ref = error_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        error_ = s;
+        return s;
       } else {
-        return output_ == null ?
-            com.google.protobuf.Struct.getDefaultInstance() : output_;
+        return (java.lang.String) ref;
       }
     }
     /**
      * <pre>
-     * output - выходные данные задачи.
+     * error - сообщение об ошибке.
      * </pre>
      *
-     * <code>optional .google.protobuf.Struct output = 2 [json_name = "output"];</code>
+     * <code>optional string error = 3 [json_name = "error"];</code>
+     * @return The bytes for error.
      */
-    private com.google.protobuf.SingleFieldBuilder<
-        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
-        getOutputFieldBuilder() {
-      if (outputBuilder_ == null) {
-        outputBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
-                getOutput(),
-                getParentForChildren(),
-                isClean());
-        output_ = null;
+    public com.google.protobuf.ByteString
+        getErrorBytes() {
+      java.lang.Object ref = error_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        error_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
       }
-      return outputBuilder_;
+    }
+    /**
+     * <pre>
+     * error - сообщение об ошибке.
+     * </pre>
+     *
+     * <code>optional string error = 3 [json_name = "error"];</code>
+     * @param value The error to set.
+     * @return This builder for chaining.
+     */
+    public Builder setError(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      error_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * error - сообщение об ошибке.
+     * </pre>
+     *
+     * <code>optional string error = 3 [json_name = "error"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearError() {
+      error_ = getDefaultInstance().getError();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * error - сообщение об ошибке.
+     * </pre>
+     *
+     * <code>optional string error = 3 [json_name = "error"];</code>
+     * @param value The bytes for error to set.
+     * @return This builder for chaining.
+     */
+    public Builder setErrorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      error_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:scheduler.EditTask)
+    // @@protoc_insertion_point(builder_scope:scheduler.FinishTask)
   }
 
-  // @@protoc_insertion_point(class_scope:scheduler.EditTask)
-  private static final ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:scheduler.FinishTask)
+  private static final ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask();
+    DEFAULT_INSTANCE = new ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask();
   }
 
-  public static ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask getDefaultInstance() {
+  public static ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<EditTask>
-      PARSER = new com.google.protobuf.AbstractParser<EditTask>() {
+  private static final com.google.protobuf.Parser<FinishTask>
+      PARSER = new com.google.protobuf.AbstractParser<FinishTask>() {
     @java.lang.Override
-    public EditTask parsePartialFrom(
+    public FinishTask parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -759,17 +907,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<EditTask> parser() {
+  public static com.google.protobuf.Parser<FinishTask> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<EditTask> getParserForType() {
+  public com.google.protobuf.Parser<FinishTask> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTask getDefaultInstanceForType() {
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTask getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

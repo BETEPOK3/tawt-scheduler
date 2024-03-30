@@ -12,6 +12,7 @@ require (
 	github.com/golang-migrate/migrate/v4 v4.17.0
 	github.com/rabbitmq/amqp091-go v1.9.0
 	google.golang.org/grpc v1.62.1
+	gorm.io/gorm v1.25.8
 )
 
 require (
@@ -35,5 +36,4 @@ require (
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/postgres v1.5.7 // indirect
-	gorm.io/gorm v1.25.8 // indirect
 )

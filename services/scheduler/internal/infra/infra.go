@@ -8,6 +8,7 @@ import (
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/config"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/domain"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/repo"
+	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/usecase/processor"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/usecase/tasks"
 	"github.com/rabbitmq/amqp091-go"
 )
@@ -65,14 +66,24 @@ func (b *builder) BuildTasksUsecase() (domain.TasksUsecase, error) {
 	return tasks.NewTasksUsecase(tasksRepo, transactor, rabbitmqAdapter, b.cfg.Queues), nil
 }
 
+// BuildProcessorUsecase - создать Usecase для обработки фоновых задач.
+func (b *builder) BuildProcessorUsecase() (domain.ProcessorUsecase, error) {
+	rabbitmqAdapter, err := b.BuildRabbitmqAdapter()
+	if err != nil {
+		return nil, errors.Wrap(err, errors.ERR_INFRA, "BuildRabbitmqAdapter")
+	}
+
+	return processor.NewProcessorUsecase(rabbitmqAdapter, b.cfg.RabbitMQ, b.cfg.Queues), nil
+}
+
 // BuildRabbitmqAdapter - создать адаптер для работы с RabbitMQ.
 func (b *builder) BuildRabbitmqAdapter() (*rabbitmq_adapter.Adapter, error) {
 	rabbitmqConn, err := b.RabbitmqConnection()
 	if err != nil {
-		return nil, errors.Wrap(err, errors.ERR_INFRA, "open RabbitmqConnection")
+		return nil, errors.Wrap(err, errors.ERR_INFRA, "RabbitmqConnection")
 	}
 
-	return rabbitmq_adapter.NewRabbitAdapter(rabbitmqConn), nil
+	return rabbitmq_adapter.NewRabbitAdapter(b.cfg.RabbitMQ, rabbitmqConn), nil
 }
 
 // RabbitmqConnection - подключится к RabbitMQ или вернуть текущее подключение.

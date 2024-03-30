@@ -57,28 +57,21 @@ public interface TaskStreamDataOrBuilder extends
 
   /**
    * <pre>
-   * input - входные данные задачи.
+   * input - входные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>.google.protobuf.Struct input = 3 [json_name = "input"];</code>
-   * @return Whether the input field is set.
-   */
-  boolean hasInput();
-  /**
-   * <pre>
-   * input - входные данные задачи.
-   * </pre>
-   *
-   * <code>.google.protobuf.Struct input = 3 [json_name = "input"];</code>
+   * <code>string input = 3 [json_name = "input"];</code>
    * @return The input.
    */
-  com.google.protobuf.Struct getInput();
+  java.lang.String getInput();
   /**
    * <pre>
-   * input - входные данные задачи.
+   * input - входные данные задачи (в формате JSON).
    * </pre>
    *
-   * <code>.google.protobuf.Struct input = 3 [json_name = "input"];</code>
+   * <code>string input = 3 [json_name = "input"];</code>
+   * @return The bytes for input.
    */
-  com.google.protobuf.StructOrBuilder getInputOrBuilder();
+  com.google.protobuf.ByteString
+      getInputBytes();
 }

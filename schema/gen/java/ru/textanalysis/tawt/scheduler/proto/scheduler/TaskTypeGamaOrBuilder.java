@@ -4,7 +4,7 @@
 // Protobuf Java Version: 4.26.0
 package ru.textanalysis.tawt.scheduler.proto.scheduler;
 
-public interface TaskTypeGammaOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:scheduler.TaskTypeGamma)
+public interface TaskTypeGamaOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:scheduler.TaskTypeGama)
     com.google.protobuf.MessageOrBuilder {
 }

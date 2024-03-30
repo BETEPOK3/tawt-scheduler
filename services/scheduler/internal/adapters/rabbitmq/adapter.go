@@ -1,19 +1,23 @@
 package rabbitmq
 
 import (
+	"github.com/BETEPOK3/tawt-scheduler/common/config"
 	"github.com/rabbitmq/amqp091-go"
 )
 
 // Adapter - структура для доступа к брокеру очередей RabbitMQ.
 type Adapter struct {
-	conn *amqp091.Connection
+	cfg                *config.RabbitMQConfig
+	rabbitMqConnection *amqp091.Connection
 }
 
 // NewRabbitAdapter - конструктор Adapter.
 func NewRabbitAdapter(
-	conn *amqp091.Connection,
+	cfg *config.RabbitMQConfig,
+	rabbitMqConnection *amqp091.Connection,
 ) *Adapter {
 	return &Adapter{
-		conn: conn,
+		cfg:                cfg,
+		rabbitMqConnection: rabbitMqConnection,
 	}
 }

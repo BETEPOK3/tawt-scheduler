@@ -6,5 +6,5 @@ type TaskType string
 const (
 	TaskTypeUnspecified   TaskType = ""
 	TaskTypeGraphematical TaskType = "GRAPHEMATICAL"
-	TaskTypeGamma         TaskType = "GAMMA"
+	TaskTypeGama          TaskType = "GAMA"
 )

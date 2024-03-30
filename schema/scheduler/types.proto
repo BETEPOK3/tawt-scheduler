@@ -28,10 +28,10 @@ message Task {
     string id = 1;
     // type - тип задачи с параметрами.
     TaskType type = 2;
-    // input - входные данные задачи.
-    bytes input = 3;
-    // input - выходные данные задачи.
-    optional bytes output = 4;
+    // input - входные данные задачи (в формате JSON).
+    string input = 3;
+    // input - выходные данные задачи (в формате JSON).
+    optional string output = 4;
     // created_at - дата и время создания задачи.
     string created_at = 5;
     // finished_at - дата и время окончания обработки задачи.
@@ -48,23 +48,23 @@ message TaskType {
     oneof specific {
         // graphematical - тип задачи "графематический анализ".
         TaskTypeGraphematical graphematical = 1;
-        // gamma - тип задачи "граф. + морфологический анализ".
-        TaskTypeGamma gamma = 2;
+        // gama - тип задачи "граф. + морфологический анализ".
+        TaskTypeGama gama = 2;
     }
 }
 
 // TaskTypeGraphematical - тип задачи "графематический анализ".
 message TaskTypeGraphematical {}
 
-// TaskTypeGamma - тип задачи "граф. + морфологический анализ".
-message TaskTypeGamma {}
+// TaskTypeGama - тип задачи "граф. + морфологический анализ".
+message TaskTypeGama {}
 
 // CreateTask - DTO создания задачи.
 message CreateTask {
     // type - тип задачи с параметрами.
     TaskType type = 1;
-    // input - входные данные задачи.
-    bytes input = 2;
+    // input - входные данные задачи (в формате JSON).
+    string input = 2;
     // priority - приоритет задачи.
     uint32 priority = 3;
 }
@@ -75,14 +75,16 @@ message TaskStreamData {
     string task_id = 1;
     // type - тип задачи с параметрами.
     TaskType type = 2;
-    // input - входные данные задачи.
-    google.protobuf.Struct input = 3;
+    // input - входные данные задачи (в формате JSON).
+    string input = 3;
 }
 
-// EditTask - DTO редактирования данных задачи.
-message EditTask {
+// FinishTask - DTO завершения задачи.
+message FinishTask {
     // id - идентификатор задачи.
     string task_id = 1;
-    // output - выходные данные задачи.
-    optional google.protobuf.Struct output = 2;
+    // output - выходные данные задачи (в формате JSON).
+    optional string output = 2;
+    // error - сообщение об ошибке.
+    optional string error = 3;
 }

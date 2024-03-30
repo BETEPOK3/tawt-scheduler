@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/BETEPOK3/tawt-scheduler/common/config"
 	"github.com/BETEPOK3/tawt-scheduler/common/errors"
+	"golang.org/x/net/context"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -24,4 +25,28 @@ func NewDBPostgres(cfg *config.PostgresConfig) (*DB, error) {
 	}
 
 	return &DB{DB: db}, nil
+}
+
+// WithDefaultOptions - использовать опции по умолчанию.
+func (d *DB) WithDefaultOptions(ctx context.Context) *DB {
+	return MaybeTransaction(ctx).apply(d)
+}
+
+type gormDbKey struct{}
+
+func dbToContext(ctx context.Context, db *DB) context.Context {
+	return context.WithValue(ctx, gormDbKey{}, db)
+}
+
+func dbFromContext(ctx context.Context) *DB {
+	val := ctx.Value(gormDbKey{})
+	if val == nil {
+		return nil
+	}
+
+	if res, ok := val.(*DB); ok {
+		return res
+	}
+
+	return nil
 }

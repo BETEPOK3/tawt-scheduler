@@ -37,30 +37,30 @@ public interface TaskTypeOrBuilder extends
 
   /**
    * <pre>
-   * gamma - тип задачи "граф. + морфологический анализ".
+   * gama - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
-   * @return Whether the gamma field is set.
+   * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
+   * @return Whether the gama field is set.
    */
-  boolean hasGamma();
+  boolean hasGama();
   /**
    * <pre>
-   * gamma - тип задачи "граф. + морфологический анализ".
+   * gama - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
-   * @return The gamma.
+   * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
+   * @return The gama.
    */
-  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamma getGamma();
+  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama getGama();
   /**
    * <pre>
-   * gamma - тип задачи "граф. + морфологический анализ".
+   * gama - тип задачи "граф. + морфологический анализ".
    * </pre>
    *
-   * <code>.scheduler.TaskTypeGamma gamma = 2 [json_name = "gamma"];</code>
+   * <code>.scheduler.TaskTypeGama gama = 2 [json_name = "gama"];</code>
    */
-  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGammaOrBuilder getGammaOrBuilder();
+  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamaOrBuilder getGamaOrBuilder();
 
   ru.textanalysis.tawt.scheduler.proto.scheduler.TaskType.SpecificCase getSpecificCase();
 }

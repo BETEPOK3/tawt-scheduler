@@ -12,7 +12,7 @@ func CreateTaskDtoFromPb(src *schema.CreateTask) *entities.CreateTaskDto {
 
 	return &entities.CreateTaskDto{
 		Type:     tp,
-		Input:    src.Input,
+		Input:    []byte(src.Input),
 		Priority: uint8(src.Priority),
 	}
 }

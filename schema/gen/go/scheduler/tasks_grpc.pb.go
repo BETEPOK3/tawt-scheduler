@@ -28,8 +28,8 @@ type TasksClient interface {
 	GetTaskStream(ctx context.Context, in *GetTaskStreamRequest, opts ...grpc.CallOption) (Tasks_GetTaskStreamClient, error)
 	// CreateTask - создать задачу.
 	CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*CreateTaskResponse, error)
-	// EditTask - редактировать задачу.
-	EditTask(ctx context.Context, in *EditTaskRequest, opts ...grpc.CallOption) (*EditTaskResponse, error)
+	// FinishTask - завершить задачу.
+	FinishTask(ctx context.Context, in *FinishTaskRequest, opts ...grpc.CallOption) (*FinishTaskResponse, error)
 }
 
 type tasksClient struct {
@@ -90,9 +90,9 @@ func (c *tasksClient) CreateTask(ctx context.Context, in *CreateTaskRequest, opt
 	return out, nil
 }
 
-func (c *tasksClient) EditTask(ctx context.Context, in *EditTaskRequest, opts ...grpc.CallOption) (*EditTaskResponse, error) {
-	out := new(EditTaskResponse)
-	err := c.cc.Invoke(ctx, "/scheduler.Tasks/EditTask", in, out, opts...)
+func (c *tasksClient) FinishTask(ctx context.Context, in *FinishTaskRequest, opts ...grpc.CallOption) (*FinishTaskResponse, error) {
+	out := new(FinishTaskResponse)
+	err := c.cc.Invoke(ctx, "/scheduler.Tasks/FinishTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -109,8 +109,8 @@ type TasksServer interface {
 	GetTaskStream(*GetTaskStreamRequest, Tasks_GetTaskStreamServer) error
 	// CreateTask - создать задачу.
 	CreateTask(context.Context, *CreateTaskRequest) (*CreateTaskResponse, error)
-	// EditTask - редактировать задачу.
-	EditTask(context.Context, *EditTaskRequest) (*EditTaskResponse, error)
+	// FinishTask - завершить задачу.
+	FinishTask(context.Context, *FinishTaskRequest) (*FinishTaskResponse, error)
 }
 
 // UnimplementedTasksServer should be embedded to have forward compatible implementations.
@@ -126,8 +126,8 @@ func (UnimplementedTasksServer) GetTaskStream(*GetTaskStreamRequest, Tasks_GetTa
 func (UnimplementedTasksServer) CreateTask(context.Context, *CreateTaskRequest) (*CreateTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
 }
-func (UnimplementedTasksServer) EditTask(context.Context, *EditTaskRequest) (*EditTaskResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method EditTask not implemented")
+func (UnimplementedTasksServer) FinishTask(context.Context, *FinishTaskRequest) (*FinishTaskResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FinishTask not implemented")
 }
 
 // UnsafeTasksServer may be embedded to opt out of forward compatibility for this service.
@@ -198,20 +198,20 @@ func _Tasks_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Tasks_EditTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EditTaskRequest)
+func _Tasks_FinishTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TasksServer).EditTask(ctx, in)
+		return srv.(TasksServer).FinishTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/scheduler.Tasks/EditTask",
+		FullMethod: "/scheduler.Tasks/FinishTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TasksServer).EditTask(ctx, req.(*EditTaskRequest))
+		return srv.(TasksServer).FinishTask(ctx, req.(*FinishTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -232,8 +232,8 @@ var Tasks_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Tasks_CreateTask_Handler,
 		},
 		{
-			MethodName: "EditTask",
-			Handler:    _Tasks_EditTask_Handler,
+			MethodName: "FinishTask",
+			Handler:    _Tasks_FinishTask_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

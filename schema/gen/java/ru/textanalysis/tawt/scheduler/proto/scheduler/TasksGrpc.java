@@ -111,35 +111,35 @@ public final class TasksGrpc {
     return getCreateTaskMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest,
-      ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse> getEditTaskMethod;
+  private static volatile io.grpc.MethodDescriptor<ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest,
+      ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse> getFinishTaskMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "EditTask",
-      requestType = ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest.class,
-      responseType = ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "FinishTask",
+      requestType = ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest.class,
+      responseType = ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest,
-      ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse> getEditTaskMethod() {
-    io.grpc.MethodDescriptor<ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse> getEditTaskMethod;
-    if ((getEditTaskMethod = TasksGrpc.getEditTaskMethod) == null) {
+  public static io.grpc.MethodDescriptor<ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest,
+      ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse> getFinishTaskMethod() {
+    io.grpc.MethodDescriptor<ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse> getFinishTaskMethod;
+    if ((getFinishTaskMethod = TasksGrpc.getFinishTaskMethod) == null) {
       synchronized (TasksGrpc.class) {
-        if ((getEditTaskMethod = TasksGrpc.getEditTaskMethod) == null) {
-          TasksGrpc.getEditTaskMethod = getEditTaskMethod =
-              io.grpc.MethodDescriptor.<ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest, ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse>newBuilder()
+        if ((getFinishTaskMethod = TasksGrpc.getFinishTaskMethod) == null) {
+          TasksGrpc.getFinishTaskMethod = getFinishTaskMethod =
+              io.grpc.MethodDescriptor.<ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest, ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "EditTask"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "FinishTask"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest.getDefaultInstance()))
+                  ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TasksMethodDescriptorSupplier("EditTask"))
+                  ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TasksMethodDescriptorSupplier("FinishTask"))
               .build();
         }
       }
     }
-    return getEditTaskMethod;
+    return getFinishTaskMethod;
   }
 
   /**
@@ -225,12 +225,12 @@ public final class TasksGrpc {
 
     /**
      * <pre>
-     * EditTask - редактировать задачу.
+     * FinishTask - завершить задачу.
      * </pre>
      */
-    default void editTask(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest request,
-        io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEditTaskMethod(), responseObserver);
+    default void finishTask(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest request,
+        io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFinishTaskMethod(), responseObserver);
     }
   }
 
@@ -302,13 +302,13 @@ public final class TasksGrpc {
 
     /**
      * <pre>
-     * EditTask - редактировать задачу.
+     * FinishTask - завершить задачу.
      * </pre>
      */
-    public void editTask(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest request,
-        io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse> responseObserver) {
+    public void finishTask(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest request,
+        io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getEditTaskMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getFinishTaskMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -364,12 +364,12 @@ public final class TasksGrpc {
 
     /**
      * <pre>
-     * EditTask - редактировать задачу.
+     * FinishTask - завершить задачу.
      * </pre>
      */
-    public ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse editTask(ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest request) {
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse finishTask(ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getEditTaskMethod(), getCallOptions(), request);
+          getChannel(), getFinishTaskMethod(), getCallOptions(), request);
     }
   }
 
@@ -416,20 +416,20 @@ public final class TasksGrpc {
 
     /**
      * <pre>
-     * EditTask - редактировать задачу.
+     * FinishTask - завершить задачу.
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse> editTask(
-        ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse> finishTask(
+        ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getEditTaskMethod(), getCallOptions()), request);
+          getChannel().newCall(getFinishTaskMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_GET_TASK_BY_ID = 0;
   private static final int METHODID_GET_TASK_STREAM = 1;
   private static final int METHODID_CREATE_TASK = 2;
-  private static final int METHODID_EDIT_TASK = 3;
+  private static final int METHODID_FINISH_TASK = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -460,9 +460,9 @@ public final class TasksGrpc {
           serviceImpl.createTask((ru.textanalysis.tawt.scheduler.proto.scheduler.CreateTaskRequest) request,
               (io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.CreateTaskResponse>) responseObserver);
           break;
-        case METHODID_EDIT_TASK:
-          serviceImpl.editTask((ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest) request,
-              (io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse>) responseObserver);
+        case METHODID_FINISH_TASK:
+          serviceImpl.finishTask((ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest) request,
+              (io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -504,12 +504,12 @@ public final class TasksGrpc {
               ru.textanalysis.tawt.scheduler.proto.scheduler.CreateTaskResponse>(
                 service, METHODID_CREATE_TASK)))
         .addMethod(
-          getEditTaskMethod(),
+          getFinishTaskMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskRequest,
-              ru.textanalysis.tawt.scheduler.proto.scheduler.EditTaskResponse>(
-                service, METHODID_EDIT_TASK)))
+              ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskRequest,
+              ru.textanalysis.tawt.scheduler.proto.scheduler.FinishTaskResponse>(
+                service, METHODID_FINISH_TASK)))
         .build();
   }
 
@@ -561,7 +561,7 @@ public final class TasksGrpc {
               .addMethod(getGetTaskByIdMethod())
               .addMethod(getGetTaskStreamMethod())
               .addMethod(getCreateTaskMethod())
-              .addMethod(getEditTaskMethod())
+              .addMethod(getFinishTaskMethod())
               .build();
         }
       }
