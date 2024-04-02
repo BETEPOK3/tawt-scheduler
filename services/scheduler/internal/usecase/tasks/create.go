@@ -2,6 +2,7 @@ package tasks
 
 import (
 	"context"
+	"fmt"
 	"github.com/BETEPOK3/tawt-scheduler/common/entities"
 	"github.com/BETEPOK3/tawt-scheduler/common/errors"
 	"github.com/BETEPOK3/tawt-scheduler/common/funcs"
@@ -21,6 +22,9 @@ func (u *usecase) Create(ctx context.Context, dto *entities.CreateTaskDto) (uuid
 			Id:     id,
 			Status: funcs.Ptr(entities.TaskStatusQueued),
 		})
+		if err != nil {
+			return errors.Wrap(err, errors.ERR_USECASE, "tasksRepo.Edit")
+		}
 
 		err = u.rabbitAdapter.SendTask(ctx, &domain.SendTaskMessageDto{
 			QueueName: u.chooseQueue(dto.Priority),
@@ -34,7 +38,7 @@ func (u *usecase) Create(ctx context.Context, dto *entities.CreateTaskDto) (uuid
 		return nil
 	})
 	if err != nil {
-		return uuid.Nil(), errors.Wrap(err, errors.ERR_USECASE, "transactor.Transaction")
+		return id, errors.Wrap(err, errors.ERR_USECASE, "transactor.Transaction")
 	}
 
 	return id, nil
@@ -46,5 +50,5 @@ func (u *usecase) chooseQueue(priority uint8) string {
 		return u.queuesConfig.Slow
 	}
 
-	return u.queuesConfig.Fast
+	return fmt.Sprintf("%s_%02d", u.queuesConfig.Fast, priority)
 }

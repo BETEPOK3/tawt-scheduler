@@ -19,37 +19,36 @@ func (u *usecase) GetStream(ctx context.Context, queueName string, stream domain
 	for msg := range msgs {
 		sendForProcessing := false
 
-		err := u.transactor.
-			Transaction(ctx, func(ctx context.Context) error {
-				taskId := uuid.MustParse(msg.MessageId)
+		err := u.transactor.Transaction(ctx, func(ctx context.Context) error {
+			taskId := uuid.MustParse(msg.MessageId)
 
-				task, err := u.tasksRepo.GetByIdWithLock(ctx, taskId)
-				if err != nil {
-					return errors.Wrap(err, errors.ERR_USECASE, "tasksRepo.GetByIdWithLock")
-				}
+			task, err := u.tasksRepo.GetByIdWithLock(ctx, taskId)
+			if err != nil {
+				return errors.Wrap(err, errors.ERR_USECASE, "tasksRepo.GetByIdWithLock")
+			}
 
-				if task.Status != entities.TaskStatusQueued {
-					sendForProcessing = true
-					return nil
-				}
-
-				err = u.tasksRepo.Edit(ctx, &domain.EditTaskDto{
-					Id:     taskId,
-					Status: funcs.Ptr(entities.TaskStatusInProgress),
-				})
-				if err != nil {
-					return errors.Wrap(err, errors.ERR_USECASE, "tasksRepo.Edit")
-				}
-
-				err = stream.ProcessTask(task)
-				if err != nil {
-					return errors.Wrap(err, errors.ERR_USECASE, "ProcessTask")
-				}
-
+			if task.Status != entities.TaskStatusQueued {
 				sendForProcessing = true
-
 				return nil
+			}
+
+			err = u.tasksRepo.Edit(ctx, &domain.EditTaskDto{
+				Id:     taskId,
+				Status: funcs.Ptr(entities.TaskStatusInProgress),
 			})
+			if err != nil {
+				return errors.Wrap(err, errors.ERR_USECASE, "tasksRepo.Edit")
+			}
+
+			err = stream.ProcessTask(task)
+			if err != nil {
+				return errors.Wrap(err, errors.ERR_USECASE, "ProcessTask")
+			}
+
+			sendForProcessing = true
+
+			return nil
+		})
 		if err != nil {
 			return errors.Wrap(err, errors.ERR_USECASE, "transactor.Transaction")
 		}
