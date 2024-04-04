@@ -3,8 +3,15 @@ package mappers
 import "github.com/BETEPOK3/tawt-scheduler/common/entities"
 
 var (
-	taskTypesMapToRest = map[entities.TaskType]int{
-		entities.TaskTypeGraphematical: 1,
-		entities.TaskTypeGama:          2,
+	taskTypesMapFromRest = map[int]entities.TaskType{
+		1: entities.TaskTypeGraphematical,
+		2: entities.TaskTypeGama,
 	}
 )
+
+func taskTypeFromRest(tp int) entities.TaskType {
+	if result, ok := taskTypesMapFromRest[tp]; ok {
+		return result
+	}
+	return entities.TaskTypeUnspecified
+}

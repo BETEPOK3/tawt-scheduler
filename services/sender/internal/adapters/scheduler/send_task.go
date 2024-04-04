@@ -14,8 +14,8 @@ func (a *Adapter) SendTask(ctx context.Context, dto *entities.CreateTaskDto) (uu
 	req := &schema.CreateTaskRequest{Dto: mappers.CreateTaskDtoToPb(dto)}
 
 	resp, err := a.client.CreateTask(ctx, req)
-	if err != nil {
-		return uuid.Nil(), errors.Wrap(err, errors.ERR_ADAPTER, "client.CreateTask")
+	if respErr := errors.ErrorFromResponse(err, resp); respErr != nil {
+		return uuid.Nil(), errors.Wrap(respErr, errors.ERR_ADAPTER, "client.CreateTask")
 	}
 
 	id := uuid.MustParse(resp.TaskId)

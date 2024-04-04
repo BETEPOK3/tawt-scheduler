@@ -36,5 +36,7 @@ func main() {
 
 	router := gin.Default()
 	router.GET("/task", tasksPreparerApi.GetTaskByIt)
+	router.POST("/task", tasksPreparerApi.PrepareTask)
+
 	log.Fatal(router.Run(fmt.Sprintf(":%d", cfg.Service.HttpEndpoint)))
 }
