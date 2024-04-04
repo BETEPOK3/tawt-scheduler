@@ -8,11 +8,9 @@ import (
 
 // CreateTaskDtoFromPb - преобразование DTO создания задачи в доменную сущность.
 func CreateTaskDtoFromPb(src *schema.CreateTask) *entities.CreateTaskDto {
-	tp, _ := mappers.TaskTypeFromPb(src.Type)
-
 	return &entities.CreateTaskDto{
-		Type:     tp,
-		Input:    []byte(src.Input),
+		Type:     mappers.TaskTypeFromPb(src.Type),
+		Input:    src.Input,
 		Priority: uint8(src.Priority),
 	}
 }

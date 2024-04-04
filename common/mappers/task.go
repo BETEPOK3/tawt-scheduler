@@ -6,8 +6,8 @@ import (
 )
 
 // TaskTypeToPb - преобразовать тип задачи в сущность схемы.
-func TaskTypeToPb(src *entities.Task) *schema.TaskType {
-	switch src.Type {
+func TaskTypeToPb(src entities.TaskType) *schema.TaskType {
+	switch src {
 	case entities.TaskTypeGraphematical:
 		return &schema.TaskType{
 			Specific: &schema.TaskType_Graphematical{Graphematical: &schema.TaskTypeGraphematical{}},
@@ -22,13 +22,13 @@ func TaskTypeToPb(src *entities.Task) *schema.TaskType {
 }
 
 // TaskTypeFromPb - преобразовать тип задачи в доменную сущность.
-func TaskTypeFromPb(src *schema.TaskType) (entities.TaskType, []byte) {
+func TaskTypeFromPb(src *schema.TaskType) entities.TaskType {
 	switch src.Specific.(type) {
 	case *schema.TaskType_Graphematical:
-		return entities.TaskTypeGraphematical, nil
+		return entities.TaskTypeGraphematical
 	case *schema.TaskType_Gama:
-		return entities.TaskTypeGama, nil
+		return entities.TaskTypeGama
 	default:
-		return entities.TaskTypeUnspecified, nil
+		return entities.TaskTypeUnspecified
 	}
 }

@@ -27,6 +27,9 @@ func (r *tasksRepo) GetById(ctx context.Context, id uuid.UUID) (*entities.Task, 
 
 	err := r.db.WithDefaultOptions(ctx).Take(task).Error
 	if err != nil {
+		if errors.IsGormNotFound(err) {
+			return nil, errors.Error(errors.ERR_NOT_FOUND, "task with id %s not found", id)
+		}
 		return nil, errors.Wrap(err, errors.ERR_DB, "get task with id %s", id)
 	}
 
@@ -41,6 +44,9 @@ func (r *tasksRepo) GetByIdWithLock(ctx context.Context, id uuid.UUID) (*entitie
 		Clauses(clause.Locking{Strength: "UPDATE"}).
 		Take(task).Error
 	if err != nil {
+		if errors.IsGormNotFound(err) {
+			return nil, errors.Error(errors.ERR_NOT_FOUND, "task with id %s not found", id)
+		}
 		return nil, errors.Wrap(err, errors.ERR_DB, "get task with id %s", id)
 	}
 

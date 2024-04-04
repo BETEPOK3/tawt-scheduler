@@ -1,0 +1,17 @@
+# Конфигурация точки доступа.
+service:
+  http_endpoint: 8808
+
+# Коэффициенты для расчета приоритетов задачи.
+priorities:
+  maximum_priority: 10
+  graphematical: 12994732
+  gama: 9194338
+  disambiguation_false: 9794660
+  disambiguation_true: 5921785
+  sp: 764555
+
+# Конфигурация подключения к планировщику.
+scheduler:
+  host: scheduler
+  port: 9808

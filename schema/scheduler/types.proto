@@ -64,7 +64,7 @@ message CreateTask {
     // type - тип задачи с параметрами.
     TaskType type = 1;
     // input - входные данные задачи (в формате JSON).
-    string input = 2;
+    bytes input = 2;
     // priority - приоритет задачи.
     uint32 priority = 3;
 }

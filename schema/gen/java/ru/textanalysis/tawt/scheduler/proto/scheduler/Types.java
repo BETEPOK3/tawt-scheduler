@@ -85,7 +85,7 @@ public final class Types {
       "scheduler.TaskTypeGamaH\000R\004gamaB\n\n\010specif" +
       "ic\"\027\n\025TaskTypeGraphematical\"\016\n\014TaskTypeG" +
       "ama\"g\n\nCreateTask\022\'\n\004type\030\001 \001(\0132\023.schedu" +
-      "ler.TaskTypeR\004type\022\024\n\005input\030\002 \001(\tR\005input" +
+      "ler.TaskTypeR\004type\022\024\n\005input\030\002 \001(\014R\005input" +
       "\022\032\n\010priority\030\003 \001(\rR\010priority\"h\n\016TaskStre" +
       "amData\022\027\n\007task_id\030\001 \001(\tR\006taskId\022\'\n\004type\030" +
       "\002 \001(\0132\023.scheduler.TaskTypeR\004type\022\024\n\005inpu" +

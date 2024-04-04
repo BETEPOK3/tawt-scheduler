@@ -1,74 +1,40 @@
 package main
 
 import (
-	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/adapters/rabbit"
-	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/infra"
-	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/repo"
-	tasks_usecase "github.com/BETEPOK3/tawt-scheduler/scheduler/internal/usecase/tasks"
-	"github.com/BETEPOK3/tawt-scheduler/sender/internal/api/tasks"
-	"github.com/gofiber/fiber/v2/middleware/logger"
+	"context"
+	"flag"
+	"fmt"
+	conf "github.com/BETEPOK3/tawt-scheduler/common/config"
+	"github.com/BETEPOK3/tawt-scheduler/sender/internal/api/tasks_preparer"
+	"github.com/BETEPOK3/tawt-scheduler/sender/internal/config"
+	"github.com/BETEPOK3/tawt-scheduler/sender/internal/infra"
+	"github.com/gin-gonic/gin"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
-	"github.com/rabbitmq/amqp091-go"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
 	"log"
-	"os"
 )
 
 func main() {
-	postgresDsn := os.Getenv("POSTGRES_DSN")
-	amqpServerURL := os.Getenv("AMQP_SERVER_URL")
-	amqpQueueName := os.Getenv("AMQP_QUEUE_NAME")
+	configFile := flag.String("c", "config.template.yaml", "configuration file")
+	flag.Parse()
 
-	// Подключение к БД.
-	db, err := gorm.Open(postgres.Open(postgresDsn), &gorm.Config{})
-	if err != nil {
-		log.Fatal(err)
+	var cfg *config.Config
+	if err := conf.ReadAndValidate(*configFile, &cfg); err != nil {
+		log.Fatalf("error reading config file: %v", err)
 	}
 
-	// Накатывание миграций.
-	err = infra.MigrateAll(db)
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	builder := infra.NewBuilder(ctx, cfg)
+
+	tasksPreparerUsecase, err := builder.BuildTasksPreparerUsecase()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("error building tasksPreparerUsecase: %v", err)
 	}
 
-	// Подключение к сервису RabbitMQ.
-	connection, err := amqp091.Dial(amqpServerURL)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer connection.Close()
+	tasksPreparerApi := tasks_preparer.NewTaskPreparersApi(tasksPreparerUsecase)
 
-	// Создание канала с RabbitMQ.
-	channel, err := connection.Channel()
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer channel.Close()
-
-	// Объявление очереди для отправки запросов RabbitMQ.
-	queueSend, err := channel.QueueDeclare(
-		amqpQueueName,
-		false,
-		false,
-		false,
-		false,
-		amqp091.Table{"x-max-priority": 10},
-	)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Подготовка структур.
-	rabbitAdapter := rabbit.NewRabbitAdapter(channel, queueSend)
-	tasksRepo := repo.NewTasksRepo(db)
-	tasksUsecase := tasks_usecase.NewTasksUsecase(tasksRepo, rabbitAdapter)
-	tasksApi := tasks.NewTasksApi(tasksUsecase)
-
-	// Создание сервиса.
-	app := fiber.New()
-	app.Use(logger.New())
-	app.Post("/graph", tasksApi.DoGraphematicTask)
-
-	log.Fatal(app.Listen(":8080"))
+	router := gin.Default()
+	router.GET("/task", tasksPreparerApi.GetTaskByIt)
+	log.Fatal(router.Run(fmt.Sprintf(":%d", cfg.Service.HttpEndpoint)))
 }

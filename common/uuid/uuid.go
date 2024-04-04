@@ -8,7 +8,7 @@ import (
 // UUID - обёртка вокруг google uuid.UUID.
 type UUID = uuid.UUID
 
-// UUIDs - коллекция UUID.
+// UUIDs - список UUID.
 type UUIDs []UUID
 
 // NewRandom - генерация UUIDv4. Паника в случае ошибки.

@@ -10,7 +10,7 @@ import (
 func TaskStreamDataToPb(src *entities.Task) *schema.TaskStreamData {
 	return &schema.TaskStreamData{
 		TaskId: src.Id.String(),
-		Type:   mappers.TaskTypeToPb(src),
+		Type:   mappers.TaskTypeToPb(src.Type),
 		Input:  string(src.Input),
 	}
 }

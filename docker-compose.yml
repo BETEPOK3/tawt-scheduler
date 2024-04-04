@@ -47,6 +47,21 @@ services:
     networks:
       - dev-network
 
+  # Сервис отправки задач в планировщика.
+  sender:
+    container_name: sender
+    ports:
+      - "8808:8808"
+    build:
+      context: .
+      dockerfile: services/sender/build/Dockerfile
+    restart: no
+    depends_on:
+      - postgres
+      - message-broker
+    networks:
+      - dev-network
+
 networks:
   dev-network:
     driver: bridge

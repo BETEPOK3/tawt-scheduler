@@ -12,7 +12,7 @@ import (
 func TaskEntityToPb(src *entities.Task) *schema.Task {
 	result := &schema.Task{
 		Id:         src.Id.String(),
-		Type:       mappers.TaskTypeToPb(src),
+		Type:       mappers.TaskTypeToPb(src.Type),
 		Input:      string(src.Input),
 		CreatedAt:  utils.TimeToPb(src.CreatedAt),
 		FinishedAt: utils.PtrTimeToPb(src.FinishedAt),

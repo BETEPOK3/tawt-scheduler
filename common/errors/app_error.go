@@ -1,8 +1,8 @@
 package errors
 
 import (
+	"errors"
 	"fmt"
-	"github.com/pkg/errors"
 )
 
 // AppError - данные об ошибке.
@@ -19,7 +19,18 @@ func (e *AppError) Error() string {
 	return fmt.Sprintf("[%s] %s", e.Type.String(), e.Message)
 }
 
-// Wrap - обернуть ошибку другим типом ошибки.
+func (e *AppError) Is(target error) bool {
+	var ex *AppError
+	if errors.As(target, &ex) && ex.Type == e.Type {
+		return true
+	}
+	return false
+}
+
+func (e *AppError) Unwrap() error {
+	return e.Err
+}
+
 func Wrap(err error, tp ErrorType, msg string, a ...interface{}) *AppError {
 	if err == nil {
 		panic("wrap nil error")
@@ -36,7 +47,6 @@ func Wrap(err error, tp ErrorType, msg string, a ...interface{}) *AppError {
 	}
 }
 
-// Error - создать ошибку.
 func Error(tp ErrorType, msg string, a ...interface{}) *AppError {
 	if len(a) > 0 {
 		msg = fmt.Sprintf(msg, a)
@@ -48,7 +58,6 @@ func Error(tp ErrorType, msg string, a ...interface{}) *AppError {
 	}
 }
 
-// Is - имеется ли в цепочке ошибок err ошибка target.
 func Is(err, target error) bool {
 	return errors.Is(err, target)
 }

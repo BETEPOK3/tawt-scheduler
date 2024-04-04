@@ -12,7 +12,7 @@ require (
 	github.com/golang-migrate/migrate/v4 v4.17.0
 	github.com/rabbitmq/amqp091-go v1.9.0
 	google.golang.org/grpc v1.62.1
-	gorm.io/gorm v1.25.8
+	gorm.io/gorm v1.25.9
 )
 
 require (
