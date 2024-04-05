@@ -4,21 +4,17 @@ import "github.com/BETEPOK3/tawt-scheduler/common/errors"
 
 // QueuesConfig - конфигурация с названиями очередей.
 type QueuesConfig struct {
-	Slow string `json:"slow" yaml:"slow"`
-	Fast string `json:"fast" yaml:"fast"`
-	Dlx  string `json:"dlx" yaml:"dlx"`
+	SlowQueue       string `json:"slow_queue" yaml:"slow_queue"`
+	FastQueuePrefix string `json:"fast_queue_prefix" yaml:"fast_queue_prefix"`
 }
 
 // Validate - валидация QueuesConfig.
 func (c *QueuesConfig) Validate() error {
-	if c.Slow == "" {
-		return errors.Error(errors.ERR_SYSTEM, "Slow required")
+	if c.SlowQueue == "" {
+		return errors.Error(errors.ERR_SYSTEM, "SlowQueue required")
 	}
-	if c.Fast == "" {
-		return errors.Error(errors.ERR_SYSTEM, "Fast required")
-	}
-	if c.Dlx == "" {
-		return errors.Error(errors.ERR_SYSTEM, "Dlx required")
+	if c.FastQueuePrefix == "" {
+		return errors.Error(errors.ERR_SYSTEM, "FastQueuePrefix required")
 	}
 
 	return nil

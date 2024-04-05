@@ -25,7 +25,7 @@ type TasksClient interface {
 	// GetTaskById - получить задачу по идентификатору.
 	GetTaskById(ctx context.Context, in *GetTaskByIdRequest, opts ...grpc.CallOption) (*GetTaskByIdResponse, error)
 	// GetTaskStream - получить поток задач на обработку.
-	GetTaskStream(ctx context.Context, in *GetTaskStreamRequest, opts ...grpc.CallOption) (Tasks_GetTaskStreamClient, error)
+	GetTaskStream(ctx context.Context, opts ...grpc.CallOption) (Tasks_GetTaskStreamClient, error)
 	// CreateTask - создать задачу.
 	CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*CreateTaskResponse, error)
 	// FinishTask - завершить задачу.
@@ -49,28 +49,27 @@ func (c *tasksClient) GetTaskById(ctx context.Context, in *GetTaskByIdRequest, o
 	return out, nil
 }
 
-func (c *tasksClient) GetTaskStream(ctx context.Context, in *GetTaskStreamRequest, opts ...grpc.CallOption) (Tasks_GetTaskStreamClient, error) {
+func (c *tasksClient) GetTaskStream(ctx context.Context, opts ...grpc.CallOption) (Tasks_GetTaskStreamClient, error) {
 	stream, err := c.cc.NewStream(ctx, &Tasks_ServiceDesc.Streams[0], "/scheduler.Tasks/GetTaskStream", opts...)
 	if err != nil {
 		return nil, err
 	}
 	x := &tasksGetTaskStreamClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
 	return x, nil
 }
 
 type Tasks_GetTaskStreamClient interface {
+	Send(*GetTaskStreamRequest) error
 	Recv() (*GetTaskStreamResponse, error)
 	grpc.ClientStream
 }
 
 type tasksGetTaskStreamClient struct {
 	grpc.ClientStream
+}
+
+func (x *tasksGetTaskStreamClient) Send(m *GetTaskStreamRequest) error {
+	return x.ClientStream.SendMsg(m)
 }
 
 func (x *tasksGetTaskStreamClient) Recv() (*GetTaskStreamResponse, error) {
@@ -106,7 +105,7 @@ type TasksServer interface {
 	// GetTaskById - получить задачу по идентификатору.
 	GetTaskById(context.Context, *GetTaskByIdRequest) (*GetTaskByIdResponse, error)
 	// GetTaskStream - получить поток задач на обработку.
-	GetTaskStream(*GetTaskStreamRequest, Tasks_GetTaskStreamServer) error
+	GetTaskStream(Tasks_GetTaskStreamServer) error
 	// CreateTask - создать задачу.
 	CreateTask(context.Context, *CreateTaskRequest) (*CreateTaskResponse, error)
 	// FinishTask - завершить задачу.
@@ -120,7 +119,7 @@ type UnimplementedTasksServer struct {
 func (UnimplementedTasksServer) GetTaskById(context.Context, *GetTaskByIdRequest) (*GetTaskByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTaskById not implemented")
 }
-func (UnimplementedTasksServer) GetTaskStream(*GetTaskStreamRequest, Tasks_GetTaskStreamServer) error {
+func (UnimplementedTasksServer) GetTaskStream(Tasks_GetTaskStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method GetTaskStream not implemented")
 }
 func (UnimplementedTasksServer) CreateTask(context.Context, *CreateTaskRequest) (*CreateTaskResponse, error) {
@@ -160,15 +159,12 @@ func _Tasks_GetTaskById_Handler(srv interface{}, ctx context.Context, dec func(i
 }
 
 func _Tasks_GetTaskStream_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(GetTaskStreamRequest)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
-	}
-	return srv.(TasksServer).GetTaskStream(m, &tasksGetTaskStreamServer{stream})
+	return srv.(TasksServer).GetTaskStream(&tasksGetTaskStreamServer{stream})
 }
 
 type Tasks_GetTaskStreamServer interface {
 	Send(*GetTaskStreamResponse) error
+	Recv() (*GetTaskStreamRequest, error)
 	grpc.ServerStream
 }
 
@@ -178,6 +174,14 @@ type tasksGetTaskStreamServer struct {
 
 func (x *tasksGetTaskStreamServer) Send(m *GetTaskStreamResponse) error {
 	return x.ServerStream.SendMsg(m)
+}
+
+func (x *tasksGetTaskStreamServer) Recv() (*GetTaskStreamRequest, error) {
+	m := new(GetTaskStreamRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
 }
 
 func _Tasks_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -241,6 +245,7 @@ var Tasks_ServiceDesc = grpc.ServiceDesc{
 			StreamName:    "GetTaskStream",
 			Handler:       _Tasks_GetTaskStream_Handler,
 			ServerStreams: true,
+			ClientStreams: true,
 		},
 	},
 	Metadata: "scheduler/tasks.proto",

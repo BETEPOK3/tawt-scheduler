@@ -92,10 +92,12 @@ public final class Types {
       "t\030\003 \001(\tR\005input\"r\n\nFinishTask\022\027\n\007task_id\030" +
       "\001 \001(\tR\006taskId\022\033\n\006output\030\002 \001(\tH\000R\006output\210" +
       "\001\001\022\031\n\005error\030\003 \001(\tH\001R\005error\210\001\001B\t\n\007_output" +
-      "B\010\n\006_errorBx\n.ru.textanalysis.tawt.sched" +
-      "uler.proto.schedulerP\001ZDgithub.com/BETEP" +
-      "OK3/tawt-scheduler/schema/gen/go/schedul" +
-      "er;schedulerb\006proto3"
+      "B\010\n\006_error*;\n\tQueueType\022\032\n\026QUEUE_TYPE_UN" +
+      "SPECIFIED\020\000\022\010\n\004SLOW\020\001\022\010\n\004FAST\020\002Bx\n.ru.te" +
+      "xtanalysis.tawt.scheduler.proto.schedule" +
+      "rP\001ZDgithub.com/BETEPOK3/tawt-scheduler/" +
+      "schema/gen/go/scheduler;schedulerb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

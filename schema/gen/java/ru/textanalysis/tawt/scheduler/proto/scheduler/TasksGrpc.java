@@ -56,7 +56,7 @@ public final class TasksGrpc {
       fullMethodName = SERVICE_NAME + '/' + "GetTaskStream",
       requestType = ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest.class,
       responseType = ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
   public static io.grpc.MethodDescriptor<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest,
       ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse> getGetTaskStreamMethod() {
     io.grpc.MethodDescriptor<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest, ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse> getGetTaskStreamMethod;
@@ -65,7 +65,7 @@ public final class TasksGrpc {
         if ((getGetTaskStreamMethod = TasksGrpc.getGetTaskStreamMethod) == null) {
           TasksGrpc.getGetTaskStreamMethod = getGetTaskStreamMethod =
               io.grpc.MethodDescriptor.<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest, ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetTaskStream"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
@@ -208,9 +208,9 @@ public final class TasksGrpc {
      * GetTaskStream - получить поток задач на обработку.
      * </pre>
      */
-    default void getTaskStream(ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest request,
+    default io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest> getTaskStream(
         io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTaskStreamMethod(), responseObserver);
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getGetTaskStreamMethod(), responseObserver);
     }
 
     /**
@@ -283,10 +283,10 @@ public final class TasksGrpc {
      * GetTaskStream - получить поток задач на обработку.
      * </pre>
      */
-    public void getTaskStream(ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest request,
+    public io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest> getTaskStream(
         io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
-          getChannel().newCall(getGetTaskStreamMethod(), getCallOptions()), request, responseObserver);
+      return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
+          getChannel().newCall(getGetTaskStreamMethod(), getCallOptions()), responseObserver);
     }
 
     /**
@@ -339,17 +339,6 @@ public final class TasksGrpc {
     public ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskByIdResponse getTaskById(ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskByIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetTaskByIdMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * GetTaskStream - получить поток задач на обработку.
-     * </pre>
-     */
-    public java.util.Iterator<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse> getTaskStream(
-        ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest request) {
-      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
-          getChannel(), getGetTaskStreamMethod(), getCallOptions(), request);
     }
 
     /**
@@ -427,9 +416,9 @@ public final class TasksGrpc {
   }
 
   private static final int METHODID_GET_TASK_BY_ID = 0;
-  private static final int METHODID_GET_TASK_STREAM = 1;
-  private static final int METHODID_CREATE_TASK = 2;
-  private static final int METHODID_FINISH_TASK = 3;
+  private static final int METHODID_CREATE_TASK = 1;
+  private static final int METHODID_FINISH_TASK = 2;
+  private static final int METHODID_GET_TASK_STREAM = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -452,10 +441,6 @@ public final class TasksGrpc {
           serviceImpl.getTaskById((ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskByIdRequest) request,
               (io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskByIdResponse>) responseObserver);
           break;
-        case METHODID_GET_TASK_STREAM:
-          serviceImpl.getTaskStream((ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest) request,
-              (io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse>) responseObserver);
-          break;
         case METHODID_CREATE_TASK:
           serviceImpl.createTask((ru.textanalysis.tawt.scheduler.proto.scheduler.CreateTaskRequest) request,
               (io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.CreateTaskResponse>) responseObserver);
@@ -474,6 +459,9 @@ public final class TasksGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_GET_TASK_STREAM:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.getTaskStream(
+              (io.grpc.stub.StreamObserver<ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -491,7 +479,7 @@ public final class TasksGrpc {
                 service, METHODID_GET_TASK_BY_ID)))
         .addMethod(
           getGetTaskStreamMethod(),
-          io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+          io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
             new MethodHandlers<
               ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamRequest,
               ru.textanalysis.tawt.scheduler.proto.scheduler.GetTaskStreamResponse>(

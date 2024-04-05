@@ -10,21 +10,20 @@ public interface GetTaskStreamRequestOrBuilder extends
 
   /**
    * <pre>
-   * queue_name - имя очереди.
+   * queue_type - тип очереди.
    * </pre>
    *
-   * <code>string queue_name = 1 [json_name = "queueName"];</code>
-   * @return The queueName.
+   * <code>.scheduler.QueueType queue_type = 1 [json_name = "queueType"];</code>
+   * @return The enum numeric value on the wire for queueType.
    */
-  java.lang.String getQueueName();
+  int getQueueTypeValue();
   /**
    * <pre>
-   * queue_name - имя очереди.
+   * queue_type - тип очереди.
    * </pre>
    *
-   * <code>string queue_name = 1 [json_name = "queueName"];</code>
-   * @return The bytes for queueName.
+   * <code>.scheduler.QueueType queue_type = 1 [json_name = "queueType"];</code>
+   * @return The queueType.
    */
-  com.google.protobuf.ByteString
-      getQueueNameBytes();
+  ru.textanalysis.tawt.scheduler.proto.scheduler.QueueType getQueueType();
 }

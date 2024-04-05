@@ -17,7 +17,7 @@
       {
         "x-dead-letter-exchange": "",
         "x-dead-letter-routing-key": "tawt_queue_fast_02",
-        "x-message-ttl": 15000
+        "x-message-ttl": 15000000
       }
     },
     {
@@ -25,7 +25,7 @@
       {
         "x-dead-letter-exchange": "",
         "x-dead-letter-routing-key": "tawt_queue_fast_03",
-        "x-message-ttl": 15000
+        "x-message-ttl": 15000000
       }
     },
     {
@@ -33,7 +33,7 @@
       {
         "x-dead-letter-exchange": "",
         "x-dead-letter-routing-key": "tawt_queue_fast_04",
-        "x-message-ttl": 15000
+        "x-message-ttl": 15000000
       }
     },
     {
@@ -41,7 +41,7 @@
       {
         "x-dead-letter-exchange": "",
         "x-dead-letter-routing-key": "tawt_queue_fast_05",
-        "x-message-ttl": 15000
+        "x-message-ttl": 15000000
       }
     },
     {
@@ -49,7 +49,7 @@
       {
         "x-dead-letter-exchange": "",
         "x-dead-letter-routing-key": "tawt_queue_fast_06",
-        "x-message-ttl": 15000
+        "x-message-ttl": 15000000
       }
     },
     {
@@ -57,7 +57,7 @@
       {
         "x-dead-letter-exchange": "",
         "x-dead-letter-routing-key": "tawt_queue_fast_07",
-        "x-message-ttl": 15000
+        "x-message-ttl": 15000000
       }
     },
     {
@@ -65,7 +65,7 @@
       {
         "x-dead-letter-exchange": "",
         "x-dead-letter-routing-key": "tawt_queue_fast_08",
-        "x-message-ttl": 15000
+        "x-message-ttl": 15000000
       }
     },
     {
@@ -73,7 +73,7 @@
       {
         "x-dead-letter-exchange": "",
         "x-dead-letter-routing-key": "tawt_queue_fast_09",
-        "x-message-ttl": 15000
+        "x-message-ttl": 15000000
       }
     },
     {
@@ -81,7 +81,7 @@
       {
         "x-dead-letter-exchange": "",
         "x-dead-letter-routing-key": "tawt_queue_fast_10",
-        "x-message-ttl": 15000
+        "x-message-ttl": 15000000
       }
     },
     {
@@ -91,17 +91,6 @@
       "vhost": "/",
       "durable": true,
       "auto_delete": false,
-      "arguments": {}
-    }
-  ],
-  "exchanges": [
-    {
-      "name": "exchange_dlx",
-      "vhost": "/",
-      "type": "direct",
-      "durable": true,
-      "auto_delete": false,
-      "internal": false,
       "arguments": {}
     }
   ]

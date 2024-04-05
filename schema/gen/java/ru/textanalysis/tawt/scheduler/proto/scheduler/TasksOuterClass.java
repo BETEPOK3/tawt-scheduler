@@ -82,25 +82,26 @@ public final class TasksOuterClass {
       "equest\022\'\n\003dto\030\001 \001(\0132\025.scheduler.CreateTa" +
       "skR\003dto\"U\n\022CreateTaskResponse\022&\n\006status\030" +
       "\001 \001(\0132\016.common.StatusR\006status\022\027\n\007task_id" +
-      "\030\002 \001(\tR\006taskId\"5\n\024GetTaskStreamRequest\022\035" +
-      "\n\nqueue_name\030\001 \001(\tR\tqueueName\"n\n\025GetTask" +
-      "StreamResponse\022&\n\006status\030\001 \001(\0132\016.common." +
-      "StatusR\006status\022-\n\004task\030\002 \001(\0132\031.scheduler" +
-      ".TaskStreamDataR\004task\"<\n\021FinishTaskReque" +
-      "st\022\'\n\003dto\030\001 \001(\0132\025.scheduler.FinishTaskR\003" +
-      "dto\"<\n\022FinishTaskResponse\022&\n\006status\030\001 \001(" +
-      "\0132\016.common.StatusR\006status2\301\002\n\005Tasks\022L\n\013G" +
-      "etTaskById\022\035.scheduler.GetTaskByIdReques" +
-      "t\032\036.scheduler.GetTaskByIdResponse\022T\n\rGet" +
-      "TaskStream\022\037.scheduler.GetTaskStreamRequ" +
-      "est\032 .scheduler.GetTaskStreamResponse0\001\022" +
-      "I\n\nCreateTask\022\034.scheduler.CreateTaskRequ" +
-      "est\032\035.scheduler.CreateTaskResponse\022I\n\nFi" +
-      "nishTask\022\034.scheduler.FinishTaskRequest\032\035" +
-      ".scheduler.FinishTaskResponseBx\n.ru.text" +
-      "analysis.tawt.scheduler.proto.schedulerP" +
-      "\001ZDgithub.com/BETEPOK3/tawt-scheduler/sc" +
-      "hema/gen/go/scheduler;schedulerb\006proto3"
+      "\030\002 \001(\tR\006taskId\"K\n\024GetTaskStreamRequest\0223" +
+      "\n\nqueue_type\030\001 \001(\0162\024.scheduler.QueueType" +
+      "R\tqueueType\"n\n\025GetTaskStreamResponse\022&\n\006" +
+      "status\030\001 \001(\0132\016.common.StatusR\006status\022-\n\004" +
+      "task\030\002 \001(\0132\031.scheduler.TaskStreamDataR\004t" +
+      "ask\"<\n\021FinishTaskRequest\022\'\n\003dto\030\001 \001(\0132\025." +
+      "scheduler.FinishTaskR\003dto\"<\n\022FinishTaskR" +
+      "esponse\022&\n\006status\030\001 \001(\0132\016.common.StatusR" +
+      "\006status2\303\002\n\005Tasks\022L\n\013GetTaskById\022\035.sched" +
+      "uler.GetTaskByIdRequest\032\036.scheduler.GetT" +
+      "askByIdResponse\022V\n\rGetTaskStream\022\037.sched" +
+      "uler.GetTaskStreamRequest\032 .scheduler.Ge" +
+      "tTaskStreamResponse(\0010\001\022I\n\nCreateTask\022\034." +
+      "scheduler.CreateTaskRequest\032\035.scheduler." +
+      "CreateTaskResponse\022I\n\nFinishTask\022\034.sched" +
+      "uler.FinishTaskRequest\032\035.scheduler.Finis" +
+      "hTaskResponseBx\n.ru.textanalysis.tawt.sc" +
+      "heduler.proto.schedulerP\001ZDgithub.com/BE" +
+      "TEPOK3/tawt-scheduler/schema/gen/go/sche" +
+      "duler;schedulerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -137,7 +138,7 @@ public final class TasksOuterClass {
     internal_static_scheduler_GetTaskStreamRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_GetTaskStreamRequest_descriptor,
-        new java.lang.String[] { "QueueName", });
+        new java.lang.String[] { "QueueType", });
     internal_static_scheduler_GetTaskStreamResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_scheduler_GetTaskStreamResponse_fieldAccessorTable = new

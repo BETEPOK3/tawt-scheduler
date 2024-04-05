@@ -19,6 +19,5 @@ rabbitmq:
 
 # Перечисление названий очередей.
 queues:
-  slow: tawt_queue_slow
-  fast: tawt_queue_fast
-  dlx: tawt_dlx
+  slow_queue: tawt_queue_slow
+  fast_queue_prefix: tawt_queue_fast

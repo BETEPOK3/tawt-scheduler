@@ -88,3 +88,13 @@ message FinishTask {
     // error - сообщение об ошибке.
     optional string error = 3;
 }
+
+// QueueType - тип очереди.
+enum QueueType {
+    // QUEUE_TYPE_UNSPECIFIED - тип очереди не определён.
+    QUEUE_TYPE_UNSPECIFIED = 0;
+    // SLOW - очередь для медленных задач.
+    SLOW = 1;
+    // FAST - очередь для быстрых задач.
+    FAST = 2;
+}

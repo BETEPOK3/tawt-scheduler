@@ -47,8 +47,8 @@ func (u *usecase) Create(ctx context.Context, dto *entities.CreateTaskDto) (uuid
 // chooseQueue - выбор очереди в зависимости от приоритета.
 func (u *usecase) chooseQueue(priority uint8) string {
 	if priority == 0 {
-		return u.queuesConfig.Slow
+		return u.queuesConfig.SlowQueue
 	}
 
-	return fmt.Sprintf("%s_%02d", u.queuesConfig.Fast, priority)
+	return fmt.Sprintf("%s_%02d", u.queuesConfig.FastQueuePrefix, priority)
 }
