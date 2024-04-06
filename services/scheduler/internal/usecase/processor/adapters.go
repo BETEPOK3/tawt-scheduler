@@ -9,5 +9,5 @@ import (
 // RabbitAdapter - интерфейс адаптера RabbitMQ.
 type RabbitAdapter interface {
 	SendTask(ctx context.Context, dto *domain.SendTaskMessageDto) error
-	GetTaskStream(ctx context.Context, queueName string) (<-chan amqp091.Delivery, error)
+	GetMessage(ctx context.Context, queueName string) (*amqp091.Delivery, error)
 }

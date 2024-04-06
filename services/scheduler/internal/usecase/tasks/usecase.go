@@ -4,6 +4,7 @@ import (
 	"github.com/BETEPOK3/tawt-scheduler/common/transactions"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/config"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/domain"
+	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/usecase/tasks/fast"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/usecase/tasks/interfaces"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/usecase/tasks/slow"
 )
@@ -35,6 +36,7 @@ func NewTasksUsecase(
 
 	uc.factory = factory{
 		domain.QueueTypeSlow: slow.NewTasksSlowUsecase(uc, tasksRepo, transactor, rabbitAdapter, queuesConfig),
+		domain.QueueTypeFast: fast.NewTasksFastUsecase(uc, tasksRepo, transactor, rabbitAdapter, queuesConfig),
 	}
 
 	return uc

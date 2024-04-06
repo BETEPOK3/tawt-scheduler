@@ -12,7 +12,7 @@ type usecase struct {
 	tasksRepo     interfaces.TasksRepository
 	transactor    transactions.Transactor
 	rabbitAdapter interfaces.RabbitAdapter
-	queuesConfig  *config.QueuesConfig
+	slowQueueName string
 }
 
 // NewTasksSlowUsecase - конструктор usecase.
@@ -28,6 +28,6 @@ func NewTasksSlowUsecase(
 		tasksRepo:     tasksRepo,
 		transactor:    transactor,
 		rabbitAdapter: rabbitAdapter,
-		queuesConfig:  queuesConfig,
+		slowQueueName: queuesConfig.SlowQueue,
 	}
 }

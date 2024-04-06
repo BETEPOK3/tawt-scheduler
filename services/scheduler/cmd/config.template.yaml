@@ -15,9 +15,9 @@ postgres:
 rabbitmq:
   url: amqp://guest:guest@message-broker:5672/
   reconnect_delay: 3000
-  max_priority: 10
 
 # Перечисление названий очередей.
 queues:
   slow_queue: tawt_queue_slow
   fast_queue_prefix: tawt_queue_fast
+  max_priority: 10

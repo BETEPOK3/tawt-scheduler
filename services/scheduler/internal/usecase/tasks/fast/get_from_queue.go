@@ -1,4 +1,4 @@
-package slow
+package fast
 
 import (
 	"context"
@@ -7,13 +7,15 @@ import (
 	"github.com/BETEPOK3/tawt-scheduler/common/funcs"
 	"github.com/BETEPOK3/tawt-scheduler/common/uuid"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/domain"
+	"github.com/rabbitmq/amqp091-go"
+	"time"
 )
 
 // GetFromQueue - получить задачу из медленной очереди.
 func (u *usecase) GetFromQueue(ctx context.Context, stream domain.TaskStreamInterface) error {
-	msg, err := u.rabbitAdapter.GetMessage(ctx, u.slowQueueName)
+	msg, err := u.getTask(ctx)
 	if err != nil {
-		return errors.Wrap(err, errors.ERR_USECASE, "rabbitAdapter.GetMessage")
+		return errors.Wrap(err, errors.ERR_USECASE, "getTask")
 	}
 
 	sendForProcessing := false
@@ -57,4 +59,49 @@ func (u *usecase) GetFromQueue(ctx context.Context, stream domain.TaskStreamInte
 	}
 
 	return nil
+}
+
+func (u *usecase) getTask(ctx context.Context) (*amqp091.Delivery, error) {
+	rabbitCtx, cancel := context.WithCancel(ctx)
+	defer cancel()
+
+	var msg *amqp091.Delivery
+	msgs := make(chan *amqp091.Delivery)
+	errs := make(chan error)
+
+	for _, queueName := range u.fastQueueNames {
+		go func(ctx context.Context, queueName string) {
+			msg, err := u.rabbitAdapter.GetMessage(ctx, queueName)
+			if err != nil {
+				errs <- err
+			}
+			if msg != nil {
+				msgs <- msg
+			}
+		}(rabbitCtx, queueName)
+		time.Sleep(time.Millisecond)
+	}
+
+	msg = <-msgs
+	cancel()
+
+	u.nackMessages(msgs)
+
+	select {
+	case err := <-errs:
+		return nil, err
+	default:
+		return msg, nil
+	}
+}
+
+func (u *usecase) nackMessages(msgs chan *amqp091.Delivery) {
+	for {
+		select {
+		case nackMsg := <-msgs:
+			_ = nackMsg.Nack(false, true)
+		default:
+			return
+		}
+	}
 }

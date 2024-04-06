@@ -8,8 +8,6 @@ type RabbitMQConfig struct {
 	Url string `json:"url" yaml:"url"`
 	// ReconnectDelay - время ожидания переподключения (мс.).
 	ReconnectDelay int `json:"reconnect_delay" yaml:"reconnect_delay"`
-	// MaxPriority - максимальный приоритет сообщения.
-	MaxPriority uint8 `json:"max_priority" yaml:"max_priority"`
 }
 
 // Validate - валидация RabbitMQConfig.
@@ -19,9 +17,6 @@ func (c *RabbitMQConfig) Validate() error {
 	}
 	if c.ReconnectDelay == 0 {
 		return errors.Error(errors.ERR_SYSTEM, "ReconnectDelay required")
-	}
-	if c.MaxPriority == 0 {
-		return errors.Error(errors.ERR_SYSTEM, "MaxPriority required")
 	}
 
 	return nil
