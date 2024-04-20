@@ -32,10 +32,10 @@ public class Main {
                 builder.buildProcessorGama()
         );
 
-        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        ScheduledExecutorService executorServiceSlow = Executors.newScheduledThreadPool(2);
 
-        //executorService.scheduleAtFixedRate(() -> task(QueueType.SLOW), 0, 3, TimeUnit.SECONDS);
-        executorService.scheduleAtFixedRate(() -> task(QueueType.FAST), 0, 3, TimeUnit.SECONDS);
+        executorServiceSlow.scheduleAtFixedRate(() -> task(QueueType.SLOW), 0, 3, TimeUnit.SECONDS);
+        executorServiceSlow.scheduleAtFixedRate(() -> task(QueueType.FAST), 0, 3, TimeUnit.SECONDS);
     }
 
     private static void task(QueueType queueType) {

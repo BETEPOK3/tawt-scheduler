@@ -8,7 +8,6 @@ import (
 	"github.com/BETEPOK3/tawt-scheduler/common/uuid"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/domain"
 	"github.com/rabbitmq/amqp091-go"
-	"log"
 	"sync"
 	"time"
 )
@@ -80,18 +79,14 @@ func (u *usecase) getTask(ctx context.Context) (*amqp091.Delivery, error) {
 			defer wg.Done()
 
 			thisMsg, err := u.rabbitAdapter.GetMessage(ctx, queueName)
-			log.Println(queueName)
 
 			if err != nil {
 				errs <- err
 			}
-			log.Println(queueName)
 
 			if thisMsg != nil {
 				msgs <- thisMsg
 			}
-
-			log.Println(queueName)
 		}(subCtx, queueName)
 		time.Sleep(time.Millisecond)
 	}

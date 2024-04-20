@@ -48,7 +48,7 @@ func NewDBCreateTask(dto *entities.CreateTaskDto) *DBCreateTask {
 		Id:     uuid.NewULID(),
 		Input:  dto.Input,
 		Type:   string(dto.Type),
-		Status: string(entities.TaskStatusQueued),
+		Status: string(entities.TaskStatusCreated),
 	}
 }
 
