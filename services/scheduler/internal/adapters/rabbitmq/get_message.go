@@ -45,8 +45,13 @@ func (a *Adapter) GetMessage(ctx context.Context, queueName string) (*amqp091.De
 
 		cancel()
 
-		for msg := range msgs {
-			_ = msg.Nack(false, false)
+		for len(msgs) > 0 {
+			nackMsg, ok := <-msgs
+			if ok {
+				_ = nackMsg.Nack(false, true)
+			} else {
+				break
+			}
 		}
 	}
 

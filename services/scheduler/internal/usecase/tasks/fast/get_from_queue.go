@@ -8,6 +8,8 @@ import (
 	"github.com/BETEPOK3/tawt-scheduler/common/uuid"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/domain"
 	"github.com/rabbitmq/amqp091-go"
+	"log"
+	"sync"
 	"time"
 )
 
@@ -65,25 +67,38 @@ func (u *usecase) getTask(ctx context.Context) (*amqp091.Delivery, error) {
 	subCtx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
-	var msg *amqp091.Delivery
-	msgs := make(chan *amqp091.Delivery)
-	errs := make(chan error)
+	var (
+		msg *amqp091.Delivery
+		wg  sync.WaitGroup
+	)
+	msgs := make(chan *amqp091.Delivery, len(u.fastQueueNames))
+	errs := make(chan error, len(u.fastQueueNames))
+	wg.Add(len(u.fastQueueNames))
 
 	for _, queueName := range u.fastQueueNames {
 		go func(ctx context.Context, queueName string) {
-			msg, err := u.rabbitAdapter.GetMessage(ctx, queueName)
+			defer wg.Done()
+
+			thisMsg, err := u.rabbitAdapter.GetMessage(ctx, queueName)
+			log.Println(queueName)
+
 			if err != nil {
 				errs <- err
 			}
-			if msg != nil {
-				msgs <- msg
+			log.Println(queueName)
+
+			if thisMsg != nil {
+				msgs <- thisMsg
 			}
+
+			log.Println(queueName)
 		}(subCtx, queueName)
 		time.Sleep(time.Millisecond)
 	}
 
 	msg = <-msgs
 	cancel()
+	wg.Wait()
 
 	u.nackMessages(msgs)
 
