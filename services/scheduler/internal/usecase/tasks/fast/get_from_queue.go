@@ -62,7 +62,7 @@ func (u *usecase) GetFromQueue(ctx context.Context, stream domain.TaskStreamInte
 }
 
 func (u *usecase) getTask(ctx context.Context) (*amqp091.Delivery, error) {
-	rabbitCtx, cancel := context.WithCancel(ctx)
+	subCtx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
 	var msg *amqp091.Delivery
@@ -78,7 +78,7 @@ func (u *usecase) getTask(ctx context.Context) (*amqp091.Delivery, error) {
 			if msg != nil {
 				msgs <- msg
 			}
-		}(rabbitCtx, queueName)
+		}(subCtx, queueName)
 		time.Sleep(time.Millisecond)
 	}
 

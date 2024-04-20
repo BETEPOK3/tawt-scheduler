@@ -11,7 +11,10 @@ import (
 
 // GetFromQueue - получить задачу из медленной очереди.
 func (u *usecase) GetFromQueue(ctx context.Context, stream domain.TaskStreamInterface) error {
-	msg, err := u.rabbitAdapter.GetMessage(ctx, u.slowQueueName)
+	subCtx, cancel := context.WithCancel(ctx)
+	defer cancel()
+
+	msg, err := u.rabbitAdapter.GetMessage(subCtx, u.slowQueueName)
 	if err != nil {
 		return errors.Wrap(err, errors.ERR_USECASE, "rabbitAdapter.GetMessage")
 	}

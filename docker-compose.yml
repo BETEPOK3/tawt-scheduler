@@ -57,10 +57,11 @@ services:
       dockerfile: services/sender/build/Dockerfile
     restart: no
     depends_on:
-      - postgres
-      - message-broker
+      - scheduler
     networks:
       - dev-network
+
+
 
 networks:
   dev-network:

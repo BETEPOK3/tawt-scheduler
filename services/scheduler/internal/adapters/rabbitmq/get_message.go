@@ -2,7 +2,6 @@ package rabbitmq
 
 import (
 	"context"
-	"fmt"
 	"github.com/BETEPOK3/tawt-scheduler/common/errors"
 	"github.com/rabbitmq/amqp091-go"
 )
@@ -19,8 +18,11 @@ func (a *Adapter) GetMessage(ctx context.Context, queueName string) (*amqp091.De
 		return nil, errors.Wrap(err, errors.ERR_ADAPTER, "rabbitMqChannel.Consume")
 	}
 	if !ok {
+		subCtx, cancel := context.WithCancel(ctx)
+		defer cancel()
+
 		msgs, err := channel.ConsumeWithContext(
-			ctx,
+			subCtx,
 			queueName,
 			"",
 			false,
@@ -29,7 +31,7 @@ func (a *Adapter) GetMessage(ctx context.Context, queueName string) (*amqp091.De
 			false,
 			nil,
 		)
-		if err != nil && !errors.Is(err, ctx.Err()) {
+		if err != nil && !errors.Is(err, subCtx.Err()) {
 			return nil, errors.Wrap(err, errors.ERR_ADAPTER, "rabbitMqChannel.Consume")
 		}
 
@@ -38,12 +40,15 @@ func (a *Adapter) GetMessage(ctx context.Context, queueName string) (*amqp091.De
 			if !ok {
 				return nil, errors.Wrap(err, errors.ERR_ADAPTER, "get message from channel")
 			}
-		case <-ctx.Done():
-			return nil, nil
+		case <-subCtx.Done():
+		}
+
+		cancel()
+
+		for msg := range msgs {
+			_ = msg.Nack(false, false)
 		}
 	}
-
-	fmt.Println(queueName)
 
 	return &msg, nil
 }
