@@ -26,6 +26,8 @@ const (
 	ERR_BUSINESS
 	// ERR_NOT_IMPLEMENTED - ошибка отсутствия реализации.
 	ERR_NOT_IMPLEMENTED
+	// ERR_BAD_REQUEST - ошибка в запросе.
+	ERR_BAD_REQUEST
 )
 
 var (
