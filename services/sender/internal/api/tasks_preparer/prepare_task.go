@@ -16,9 +16,15 @@ func (a *api) PrepareTask(ctx *gin.Context) {
 		return
 	}
 
+	err = a.validator.ValidatePrepareTaskRequest(req)
+	if err != nil {
+		ctx.AbortWithStatus(400)
+		return
+	}
+
 	dto := mappers.PrepareTaskDtoFromRest(req)
 
-	taskId, err := a.tasksPreparerUsecase.Prepare(ctx, dto)
+	taskId, err := a.usecase.Prepare(ctx, dto)
 	if err != nil {
 		ctx.AbortWithStatus(500)
 		return

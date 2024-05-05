@@ -32,10 +32,10 @@ func main() {
 		log.Fatalf("error building tasksPreparerUsecase: %v", err)
 	}
 
-	tasksPreparerApi := tasks_preparer.NewTaskPreparersApi(tasksPreparerUsecase)
+	tasksPreparerApi := tasks_preparer.NewTaskPreparersApi(tasksPreparerUsecase, infra.TasksPreparerValidator)
 
 	router := gin.Default()
-	router.GET("/task", tasksPreparerApi.GetTaskByIt)
+	router.GET("/task", tasksPreparerApi.GetTaskById)
 	router.POST("/task", tasksPreparerApi.PrepareTask)
 
 	log.Fatal(router.Run(fmt.Sprintf(":%d", cfg.Service.HttpEndpoint)))

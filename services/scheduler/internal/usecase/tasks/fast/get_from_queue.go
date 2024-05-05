@@ -88,7 +88,7 @@ func (u *usecase) getTask(ctx context.Context) (*amqp091.Delivery, error) {
 				msgs <- thisMsg
 			}
 		}(subCtx, queueName)
-		time.Sleep(time.Millisecond)
+		time.Sleep(10)
 	}
 
 	msg = <-msgs

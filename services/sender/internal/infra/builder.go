@@ -11,6 +11,13 @@ import (
 	"github.com/BETEPOK3/tawt-scheduler/sender/internal/usecase/tasks_preparer"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+
+	tasks_preparer_validator "github.com/BETEPOK3/tawt-scheduler/sender/internal/api/tasks_preparer/validator"
+)
+
+var (
+	// TasksPreparerValidator - валидатор запросов на подготовку задач.
+	TasksPreparerValidator = tasks_preparer_validator.NewValidator()
 )
 
 type builder struct {

@@ -8,15 +8,21 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// GetTaskByIt - получить задачу по идентификатору.
-func (a *api) GetTaskByIt(ctx *gin.Context) {
+// GetTaskById - получить задачу по идентификатору.
+func (a *api) GetTaskById(ctx *gin.Context) {
 	req := &requests.GetTaskByIdRequest{
 		Id: ctx.Query("id"),
 	}
 
+	err := a.validator.ValidateGetTaskByIdRequest(req)
+	if err != nil {
+		ctx.AbortWithStatus(400)
+		return
+	}
+
 	id := uuid.MustParse(req.Id)
 
-	task, err := a.tasksPreparerUsecase.GetById(ctx, id)
+	task, err := a.usecase.GetById(ctx, id)
 	if err != nil {
 		if errors.Is(err, errors.ErrNotFound) {
 			ctx.AbortWithStatus(404)

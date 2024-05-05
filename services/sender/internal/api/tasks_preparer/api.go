@@ -5,14 +5,17 @@ import (
 )
 
 type api struct {
-	tasksPreparerUsecase domain.TasksPreparerUsecase
+	usecase   domain.TasksPreparerUsecase
+	validator Validator
 }
 
 // NewTaskPreparersApi - конструктор api.
 func NewTaskPreparersApi(
-	tasksPreparerUsecase domain.TasksPreparerUsecase,
+	usecase domain.TasksPreparerUsecase,
+	validator Validator,
 ) *api {
 	return &api{
-		tasksPreparerUsecase: tasksPreparerUsecase,
+		usecase:   usecase,
+		validator: validator,
 	}
 }
