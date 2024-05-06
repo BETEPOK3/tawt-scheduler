@@ -6,6 +6,8 @@ var (
 	taskTypesMapFromRest = map[int]entities.TaskType{
 		1: entities.TaskTypeGraphematical,
 		2: entities.TaskTypeGama,
+		3: entities.TaskTypeDisambiguationFalse,
+		4: entities.TaskTypeDisambiguationTrue,
 	}
 )
 

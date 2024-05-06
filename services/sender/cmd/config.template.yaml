@@ -5,11 +5,17 @@ service:
 # Коэффициенты для расчета приоритетов задачи.
 priorities:
   maximum_priority: 10
-  graphematical: 12994732
-  gama: 9194338
-  disambiguation_false: 9794660
-  disambiguation_true: 5921785
-  sp: 764555
+  upper_time: 10000
+  graphematical_a: 0.00069
+  graphematical_b: 3.13863
+  gama_a: 0.00098
+  gama_b: -7.97249
+  disambiguation_false_a: 0.00092
+  disambiguation_false_b: 1.06121
+  disambiguation_true_a: 0.00152
+  disambiguation_true_b: -10.10585
+  sp_a: 0.01100
+  sp_b: -0.01851
 
 # Конфигурация подключения к планировщику.
 scheduler:

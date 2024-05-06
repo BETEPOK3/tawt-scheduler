@@ -29,7 +29,9 @@ public class Main {
         Builder builder = new Builder(target);
         pool = new ProcessorPool(
                 builder.buildProcessorGraphematical(),
-                builder.buildProcessorGama()
+                builder.buildProcessorGama(),
+                builder.buildProcessorDisambiguationFalse(),
+                builder.buildProcessorDisambiguationTrue()
         );
 
         ScheduledExecutorService executorServiceSlow = Executors.newScheduledThreadPool(2);

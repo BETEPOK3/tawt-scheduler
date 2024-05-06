@@ -10,4 +10,5 @@ import (
 type TasksPreparerUsecase interface {
 	GetById(ctx context.Context, id uuid.UUID) (*entities.Task, error)
 	Prepare(ctx context.Context, dto *PrepareTaskDto) (uuid.UUID, error)
+	GetStrategy(tp entities.TaskType) TasksPreparerUsecase
 }

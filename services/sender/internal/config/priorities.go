@@ -4,30 +4,51 @@ import "github.com/BETEPOK3/tawt-scheduler/common/errors"
 
 // PrioritiesConfig - конфигурация точек доступа сервиса.
 type PrioritiesConfig struct {
-	MaximumPriority     int `json:"maximum_priority" yaml:"maximum_priority"`
-	Graphematical       int `json:"graphematical" yaml:"graphematical"`
-	Gama                int `json:"gama" yaml:"gama"`
-	DisambiguationFalse int `json:"disambiguation_false" yaml:"disambiguation_false"`
-	DisambiguationTrue  int `json:"disambiguation_true" yaml:"disambiguation_true"`
-	Sp                  int `json:"sp" yaml:"sp"`
+	MaximumPriority      uint8   `json:"maximum_priority" yaml:"maximum_priority"`
+	UpperTime            float64 `json:"upper_time" yaml:"upper_time"`
+	GraphematicalA       float64 `json:"graphematical_a" yaml:"graphematical_a"`
+	GraphematicalB       float64 `json:"graphematical_b" yaml:"graphematical_b"`
+	GamaA                float64 `json:"gama_a" yaml:"gama_a"`
+	GamaB                float64 `json:"gama_b" yaml:"gama_b"`
+	DisambiguationFalseA float64 `json:"disambiguation_false_a" yaml:"disambiguation_false_a"`
+	DisambiguationFalseB float64 `json:"disambiguation_false_b" yaml:"disambiguation_false_b"`
+	DisambiguationTrueA  float64 `json:"disambiguation_true_a" yaml:"disambiguation_true_a"`
+	DisambiguationTrueB  float64 `json:"disambiguation_true_b" yaml:"disambiguation_true_b"`
+	SpA                  float64 `json:"sp_a" yaml:"sp_a"`
+	SpB                  float64 `json:"sp_b" yaml:"sp_b"`
 }
 
 // Validate - валидация QueuesConfig.
 func (c *PrioritiesConfig) Validate() error {
-	if c.Graphematical == 0 {
-		return errors.Error(errors.ERR_SYSTEM, "Graphematical required")
+	if c.GraphematicalA == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "GraphematicalA required")
 	}
-	if c.Gama == 0 {
-		return errors.Error(errors.ERR_SYSTEM, "Gama required")
+	if c.GraphematicalB == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "GraphematicalB required")
 	}
-	if c.DisambiguationFalse == 0 {
-		return errors.Error(errors.ERR_SYSTEM, "DisambiguationFalse required")
+	if c.GamaA == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "GamaA required")
 	}
-	if c.DisambiguationTrue == 0 {
-		return errors.Error(errors.ERR_SYSTEM, "DisambiguationTrue required")
+	if c.GamaB == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "GamaB required")
 	}
-	if c.Sp == 0 {
-		return errors.Error(errors.ERR_SYSTEM, "Sp required")
+	if c.DisambiguationFalseA == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "DisambiguationFalseA required")
+	}
+	if c.DisambiguationFalseB == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "DisambiguationFalseB required")
+	}
+	if c.DisambiguationTrueA == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "DisambiguationTrueA required")
+	}
+	if c.DisambiguationTrueB == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "DisambiguationTrueB required")
+	}
+	if c.SpA == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "SpA required")
+	}
+	if c.SpB == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "SpB required")
 	}
 
 	return nil

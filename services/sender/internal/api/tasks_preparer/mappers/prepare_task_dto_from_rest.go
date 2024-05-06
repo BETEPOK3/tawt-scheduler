@@ -9,6 +9,6 @@ import (
 func PrepareTaskDtoFromRest(src *requests.PrepareTaskRequest) *domain.PrepareTaskDto {
 	return &domain.PrepareTaskDto{
 		Type: taskTypeFromRest(src.Type),
-		Text: src.Text,
+		Text: domain.InputText(src.Text),
 	}
 }

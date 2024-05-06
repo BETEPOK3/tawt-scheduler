@@ -24,7 +24,7 @@ func (a *api) PrepareTask(ctx *gin.Context) {
 
 	dto := mappers.PrepareTaskDtoFromRest(req)
 
-	taskId, err := a.usecase.Prepare(ctx, dto)
+	taskId, err := a.usecase.GetStrategy(dto.Type).Prepare(ctx, dto)
 	if err != nil {
 		ctx.AbortWithStatus(500)
 		return

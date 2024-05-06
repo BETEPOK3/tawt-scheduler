@@ -16,6 +16,18 @@ func TaskTypeToPb(src entities.TaskType) *schema.TaskType {
 		return &schema.TaskType{
 			Specific: &schema.TaskType_Gama{Gama: &schema.TaskTypeGama{}},
 		}
+	case entities.TaskTypeDisambiguationFalse:
+		return &schema.TaskType{
+			Specific: &schema.TaskType_DisambiguationFalse{DisambiguationFalse: &schema.TaskTypeDisambiguationFalse{}},
+		}
+	case entities.TaskTypeDisambiguationTrue:
+		return &schema.TaskType{
+			Specific: &schema.TaskType_DisambiguationTrue{DisambiguationTrue: &schema.TaskTypeDisambiguationTrue{}},
+		}
+	case entities.TaskTypeSyntax:
+		return &schema.TaskType{
+			Specific: &schema.TaskType_Syntax{Syntax: &schema.TaskTypeSyntax{}},
+		}
 	default:
 		return nil
 	}
@@ -28,6 +40,12 @@ func TaskTypeFromPb(src *schema.TaskType) entities.TaskType {
 		return entities.TaskTypeGraphematical
 	case *schema.TaskType_Gama:
 		return entities.TaskTypeGama
+	case *schema.TaskType_DisambiguationFalse:
+		return entities.TaskTypeDisambiguationFalse
+	case *schema.TaskType_DisambiguationTrue:
+		return entities.TaskTypeDisambiguationTrue
+	case *schema.TaskType_Syntax:
+		return entities.TaskTypeSyntax
 	default:
 		return entities.TaskTypeUnspecified
 	}

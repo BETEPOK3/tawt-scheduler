@@ -31,6 +31,8 @@ public class TasksStreamObserverImpl implements StreamObserver<GetTaskStreamResp
         int taskType = task.getType().getSpecificCase().getNumber();
         String result;
 
+        logger.log(Level.INFO, "Start processing task with type: {0}", task.getType().getSpecificCase().toString());
+
         try {
             result = processorPool.processTask(task.getInput(), taskType);
         } catch (Exception e) {

@@ -11,7 +11,7 @@ func (v *validatorImpl) ValidatePrepareTaskRequest(msg *requests.PrepareTaskRequ
 		return errors.Error(errors.ERR_BAD_REQUEST, "msg.Text required")
 	}
 
-	if msg.Type < 1 || msg.Type > 2 {
+	if msg.Type < 1 || msg.Type > 4 {
 		return errors.Error(errors.ERR_BAD_REQUEST, "invalid msg.Type")
 	}
 

@@ -9,7 +9,9 @@ import ru.textanalysis.tawt.gama.GamaImpl;
 import ru.textanalysis.tawt.graphematic.parser.text.GParserImpl;
 import ru.textanalysis.tawt.graphematic.parser.text.GraphematicParser;
 import ru.textanalysis.tawt.scheduler.adapters.TasksClient;
+import ru.textanalysis.tawt.scheduler.mappers.MapperTransportGama;
 import ru.textanalysis.tawt.scheduler.processors.Processor;
+import ru.textanalysis.tawt.scheduler.processors.ProcessorDisambiguation;
 import ru.textanalysis.tawt.scheduler.processors.ProcessorGama;
 import ru.textanalysis.tawt.scheduler.processors.ProcessorGraphematical;
 
@@ -21,17 +23,37 @@ public class Builder {
     }
 
     public Processor buildProcessorGraphematical() {
-        GraphematicParser parser = new GParserImpl();
+        GParserImpl parser = new GParserImpl();
         ObjectMapper mapper = new ObjectMapper();
 
         return new ProcessorGraphematical(parser, mapper);
     }
 
     public Processor buildProcessorGama() {
-        Gama gama = new GamaImpl();
+        GamaImpl gama = new GamaImpl();
+        gama.init();
         ObjectMapper mapper = new ObjectMapper();
+        MapperTransportGama mapperTransportGama = new MapperTransportGama();
 
-        return new ProcessorGama(gama, mapper);
+        return new ProcessorGama(gama, mapper, mapperTransportGama);
+    }
+
+    public Processor buildProcessorDisambiguationFalse() {
+        GamaImpl gama = new GamaImpl();
+        gama.init(false);
+        ObjectMapper mapper = new ObjectMapper();
+        MapperTransportGama mapperTransportGama = new MapperTransportGama();
+
+        return new ProcessorDisambiguation(gama, mapper, mapperTransportGama);
+    }
+
+    public Processor buildProcessorDisambiguationTrue() {
+        GamaImpl gama = new GamaImpl();
+        gama.init(true);
+        ObjectMapper mapper = new ObjectMapper();
+        MapperTransportGama mapperTransportGama = new MapperTransportGama();
+
+        return new ProcessorDisambiguation(gama, mapper, mapperTransportGama);
     }
 
     public TasksClient buildTasksClient() {

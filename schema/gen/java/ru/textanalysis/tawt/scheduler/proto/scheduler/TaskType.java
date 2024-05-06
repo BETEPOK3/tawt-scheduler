@@ -53,6 +53,9 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     GRAPHEMATICAL(1),
     GAMA(2),
+    DISAMBIGUATION_FALSE(3),
+    DISAMBIGUATION_TRUE(4),
+    SYNTAX(5),
     SPECIFIC_NOT_SET(0);
     private final int value;
     private SpecificCase(int value) {
@@ -72,6 +75,9 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 1: return GRAPHEMATICAL;
         case 2: return GAMA;
+        case 3: return DISAMBIGUATION_FALSE;
+        case 4: return DISAMBIGUATION_TRUE;
+        case 5: return SYNTAX;
         case 0: return SPECIFIC_NOT_SET;
         default: return null;
       }
@@ -173,6 +179,135 @@ private static final long serialVersionUID = 0L;
     return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama.getDefaultInstance();
   }
 
+  public static final int DISAMBIGUATION_FALSE_FIELD_NUMBER = 3;
+  /**
+   * <pre>
+   * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+   * @return Whether the disambiguationFalse field is set.
+   */
+  @java.lang.Override
+  public boolean hasDisambiguationFalse() {
+    return specificCase_ == 3;
+  }
+  /**
+   * <pre>
+   * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+   * @return The disambiguationFalse.
+   */
+  @java.lang.Override
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse getDisambiguationFalse() {
+    if (specificCase_ == 3) {
+       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse) specific_;
+    }
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+   */
+  @java.lang.Override
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalseOrBuilder getDisambiguationFalseOrBuilder() {
+    if (specificCase_ == 3) {
+       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse) specific_;
+    }
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.getDefaultInstance();
+  }
+
+  public static final int DISAMBIGUATION_TRUE_FIELD_NUMBER = 4;
+  /**
+   * <pre>
+   * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+   * @return Whether the disambiguationTrue field is set.
+   */
+  @java.lang.Override
+  public boolean hasDisambiguationTrue() {
+    return specificCase_ == 4;
+  }
+  /**
+   * <pre>
+   * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+   * @return The disambiguationTrue.
+   */
+  @java.lang.Override
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue getDisambiguationTrue() {
+    if (specificCase_ == 4) {
+       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue) specific_;
+    }
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+   */
+  @java.lang.Override
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrueOrBuilder getDisambiguationTrueOrBuilder() {
+    if (specificCase_ == 4) {
+       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue) specific_;
+    }
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.getDefaultInstance();
+  }
+
+  public static final int SYNTAX_FIELD_NUMBER = 5;
+  /**
+   * <pre>
+   * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+   * @return Whether the syntax field is set.
+   */
+  @java.lang.Override
+  public boolean hasSyntax() {
+    return specificCase_ == 5;
+  }
+  /**
+   * <pre>
+   * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+   * @return The syntax.
+   */
+  @java.lang.Override
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax getSyntax() {
+    if (specificCase_ == 5) {
+       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax) specific_;
+    }
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+   */
+  @java.lang.Override
+  public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntaxOrBuilder getSyntaxOrBuilder() {
+    if (specificCase_ == 5) {
+       return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax) specific_;
+    }
+    return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -193,6 +328,15 @@ private static final long serialVersionUID = 0L;
     if (specificCase_ == 2) {
       output.writeMessage(2, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_);
     }
+    if (specificCase_ == 3) {
+      output.writeMessage(3, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse) specific_);
+    }
+    if (specificCase_ == 4) {
+      output.writeMessage(4, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue) specific_);
+    }
+    if (specificCase_ == 5) {
+      output.writeMessage(5, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax) specific_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -209,6 +353,18 @@ private static final long serialVersionUID = 0L;
     if (specificCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGama) specific_);
+    }
+    if (specificCase_ == 3) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse) specific_);
+    }
+    if (specificCase_ == 4) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue) specific_);
+    }
+    if (specificCase_ == 5) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax) specific_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -235,6 +391,18 @@ private static final long serialVersionUID = 0L;
         if (!getGama()
             .equals(other.getGama())) return false;
         break;
+      case 3:
+        if (!getDisambiguationFalse()
+            .equals(other.getDisambiguationFalse())) return false;
+        break;
+      case 4:
+        if (!getDisambiguationTrue()
+            .equals(other.getDisambiguationTrue())) return false;
+        break;
+      case 5:
+        if (!getSyntax()
+            .equals(other.getSyntax())) return false;
+        break;
       case 0:
       default:
     }
@@ -257,6 +425,18 @@ private static final long serialVersionUID = 0L;
       case 2:
         hash = (37 * hash) + GAMA_FIELD_NUMBER;
         hash = (53 * hash) + getGama().hashCode();
+        break;
+      case 3:
+        hash = (37 * hash) + DISAMBIGUATION_FALSE_FIELD_NUMBER;
+        hash = (53 * hash) + getDisambiguationFalse().hashCode();
+        break;
+      case 4:
+        hash = (37 * hash) + DISAMBIGUATION_TRUE_FIELD_NUMBER;
+        hash = (53 * hash) + getDisambiguationTrue().hashCode();
+        break;
+      case 5:
+        hash = (37 * hash) + SYNTAX_FIELD_NUMBER;
+        hash = (53 * hash) + getSyntax().hashCode();
         break;
       case 0:
       default:
@@ -402,6 +582,15 @@ private static final long serialVersionUID = 0L;
       if (gamaBuilder_ != null) {
         gamaBuilder_.clear();
       }
+      if (disambiguationFalseBuilder_ != null) {
+        disambiguationFalseBuilder_.clear();
+      }
+      if (disambiguationTrueBuilder_ != null) {
+        disambiguationTrueBuilder_.clear();
+      }
+      if (syntaxBuilder_ != null) {
+        syntaxBuilder_.clear();
+      }
       specificCase_ = 0;
       specific_ = null;
       return this;
@@ -451,6 +640,18 @@ private static final long serialVersionUID = 0L;
           gamaBuilder_ != null) {
         result.specific_ = gamaBuilder_.build();
       }
+      if (specificCase_ == 3 &&
+          disambiguationFalseBuilder_ != null) {
+        result.specific_ = disambiguationFalseBuilder_.build();
+      }
+      if (specificCase_ == 4 &&
+          disambiguationTrueBuilder_ != null) {
+        result.specific_ = disambiguationTrueBuilder_.build();
+      }
+      if (specificCase_ == 5 &&
+          syntaxBuilder_ != null) {
+        result.specific_ = syntaxBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -472,6 +673,18 @@ private static final long serialVersionUID = 0L;
         }
         case GAMA: {
           mergeGama(other.getGama());
+          break;
+        }
+        case DISAMBIGUATION_FALSE: {
+          mergeDisambiguationFalse(other.getDisambiguationFalse());
+          break;
+        }
+        case DISAMBIGUATION_TRUE: {
+          mergeDisambiguationTrue(other.getDisambiguationTrue());
+          break;
+        }
+        case SYNTAX: {
+          mergeSyntax(other.getSyntax());
           break;
         }
         case SPECIFIC_NOT_SET: {
@@ -518,6 +731,27 @@ private static final long serialVersionUID = 0L;
               specificCase_ = 2;
               break;
             } // case 18
+            case 26: {
+              input.readMessage(
+                  getDisambiguationFalseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specificCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDisambiguationTrueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specificCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSyntaxFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specificCase_ = 5;
+              break;
+            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -904,6 +1138,540 @@ private static final long serialVersionUID = 0L;
       specificCase_ = 2;
       onChanged();
       return gamaBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalseOrBuilder> disambiguationFalseBuilder_;
+    /**
+     * <pre>
+     * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+     * @return Whether the disambiguationFalse field is set.
+     */
+    @java.lang.Override
+    public boolean hasDisambiguationFalse() {
+      return specificCase_ == 3;
+    }
+    /**
+     * <pre>
+     * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+     * @return The disambiguationFalse.
+     */
+    @java.lang.Override
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse getDisambiguationFalse() {
+      if (disambiguationFalseBuilder_ == null) {
+        if (specificCase_ == 3) {
+          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse) specific_;
+        }
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.getDefaultInstance();
+      } else {
+        if (specificCase_ == 3) {
+          return disambiguationFalseBuilder_.getMessage();
+        }
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+     */
+    public Builder setDisambiguationFalse(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse value) {
+      if (disambiguationFalseBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        specific_ = value;
+        onChanged();
+      } else {
+        disambiguationFalseBuilder_.setMessage(value);
+      }
+      specificCase_ = 3;
+      return this;
+    }
+    /**
+     * <pre>
+     * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+     */
+    public Builder setDisambiguationFalse(
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.Builder builderForValue) {
+      if (disambiguationFalseBuilder_ == null) {
+        specific_ = builderForValue.build();
+        onChanged();
+      } else {
+        disambiguationFalseBuilder_.setMessage(builderForValue.build());
+      }
+      specificCase_ = 3;
+      return this;
+    }
+    /**
+     * <pre>
+     * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+     */
+    public Builder mergeDisambiguationFalse(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse value) {
+      if (disambiguationFalseBuilder_ == null) {
+        if (specificCase_ == 3 &&
+            specific_ != ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.getDefaultInstance()) {
+          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.newBuilder((ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse) specific_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          specific_ = value;
+        }
+        onChanged();
+      } else {
+        if (specificCase_ == 3) {
+          disambiguationFalseBuilder_.mergeFrom(value);
+        } else {
+          disambiguationFalseBuilder_.setMessage(value);
+        }
+      }
+      specificCase_ = 3;
+      return this;
+    }
+    /**
+     * <pre>
+     * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+     */
+    public Builder clearDisambiguationFalse() {
+      if (disambiguationFalseBuilder_ == null) {
+        if (specificCase_ == 3) {
+          specificCase_ = 0;
+          specific_ = null;
+          onChanged();
+        }
+      } else {
+        if (specificCase_ == 3) {
+          specificCase_ = 0;
+          specific_ = null;
+        }
+        disambiguationFalseBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+     */
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.Builder getDisambiguationFalseBuilder() {
+      return getDisambiguationFalseFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+     */
+    @java.lang.Override
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalseOrBuilder getDisambiguationFalseOrBuilder() {
+      if ((specificCase_ == 3) && (disambiguationFalseBuilder_ != null)) {
+        return disambiguationFalseBuilder_.getMessageOrBuilder();
+      } else {
+        if (specificCase_ == 3) {
+          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse) specific_;
+        }
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalseOrBuilder> 
+        getDisambiguationFalseFieldBuilder() {
+      if (disambiguationFalseBuilder_ == null) {
+        if (!(specificCase_ == 3)) {
+          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.getDefaultInstance();
+        }
+        disambiguationFalseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalseOrBuilder>(
+                (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse) specific_,
+                getParentForChildren(),
+                isClean());
+        specific_ = null;
+      }
+      specificCase_ = 3;
+      onChanged();
+      return disambiguationFalseBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrueOrBuilder> disambiguationTrueBuilder_;
+    /**
+     * <pre>
+     * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+     * @return Whether the disambiguationTrue field is set.
+     */
+    @java.lang.Override
+    public boolean hasDisambiguationTrue() {
+      return specificCase_ == 4;
+    }
+    /**
+     * <pre>
+     * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+     * @return The disambiguationTrue.
+     */
+    @java.lang.Override
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue getDisambiguationTrue() {
+      if (disambiguationTrueBuilder_ == null) {
+        if (specificCase_ == 4) {
+          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue) specific_;
+        }
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.getDefaultInstance();
+      } else {
+        if (specificCase_ == 4) {
+          return disambiguationTrueBuilder_.getMessage();
+        }
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+     */
+    public Builder setDisambiguationTrue(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue value) {
+      if (disambiguationTrueBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        specific_ = value;
+        onChanged();
+      } else {
+        disambiguationTrueBuilder_.setMessage(value);
+      }
+      specificCase_ = 4;
+      return this;
+    }
+    /**
+     * <pre>
+     * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+     */
+    public Builder setDisambiguationTrue(
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.Builder builderForValue) {
+      if (disambiguationTrueBuilder_ == null) {
+        specific_ = builderForValue.build();
+        onChanged();
+      } else {
+        disambiguationTrueBuilder_.setMessage(builderForValue.build());
+      }
+      specificCase_ = 4;
+      return this;
+    }
+    /**
+     * <pre>
+     * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+     */
+    public Builder mergeDisambiguationTrue(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue value) {
+      if (disambiguationTrueBuilder_ == null) {
+        if (specificCase_ == 4 &&
+            specific_ != ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.getDefaultInstance()) {
+          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.newBuilder((ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue) specific_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          specific_ = value;
+        }
+        onChanged();
+      } else {
+        if (specificCase_ == 4) {
+          disambiguationTrueBuilder_.mergeFrom(value);
+        } else {
+          disambiguationTrueBuilder_.setMessage(value);
+        }
+      }
+      specificCase_ = 4;
+      return this;
+    }
+    /**
+     * <pre>
+     * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+     */
+    public Builder clearDisambiguationTrue() {
+      if (disambiguationTrueBuilder_ == null) {
+        if (specificCase_ == 4) {
+          specificCase_ = 0;
+          specific_ = null;
+          onChanged();
+        }
+      } else {
+        if (specificCase_ == 4) {
+          specificCase_ = 0;
+          specific_ = null;
+        }
+        disambiguationTrueBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+     */
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.Builder getDisambiguationTrueBuilder() {
+      return getDisambiguationTrueFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+     */
+    @java.lang.Override
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrueOrBuilder getDisambiguationTrueOrBuilder() {
+      if ((specificCase_ == 4) && (disambiguationTrueBuilder_ != null)) {
+        return disambiguationTrueBuilder_.getMessageOrBuilder();
+      } else {
+        if (specificCase_ == 4) {
+          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue) specific_;
+        }
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrueOrBuilder> 
+        getDisambiguationTrueFieldBuilder() {
+      if (disambiguationTrueBuilder_ == null) {
+        if (!(specificCase_ == 4)) {
+          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.getDefaultInstance();
+        }
+        disambiguationTrueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrueOrBuilder>(
+                (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue) specific_,
+                getParentForChildren(),
+                isClean());
+        specific_ = null;
+      }
+      specificCase_ = 4;
+      onChanged();
+      return disambiguationTrueBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilder<
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntaxOrBuilder> syntaxBuilder_;
+    /**
+     * <pre>
+     * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+     * @return Whether the syntax field is set.
+     */
+    @java.lang.Override
+    public boolean hasSyntax() {
+      return specificCase_ == 5;
+    }
+    /**
+     * <pre>
+     * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+     * @return The syntax.
+     */
+    @java.lang.Override
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax getSyntax() {
+      if (syntaxBuilder_ == null) {
+        if (specificCase_ == 5) {
+          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax) specific_;
+        }
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.getDefaultInstance();
+      } else {
+        if (specificCase_ == 5) {
+          return syntaxBuilder_.getMessage();
+        }
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+     */
+    public Builder setSyntax(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax value) {
+      if (syntaxBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        specific_ = value;
+        onChanged();
+      } else {
+        syntaxBuilder_.setMessage(value);
+      }
+      specificCase_ = 5;
+      return this;
+    }
+    /**
+     * <pre>
+     * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+     */
+    public Builder setSyntax(
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.Builder builderForValue) {
+      if (syntaxBuilder_ == null) {
+        specific_ = builderForValue.build();
+        onChanged();
+      } else {
+        syntaxBuilder_.setMessage(builderForValue.build());
+      }
+      specificCase_ = 5;
+      return this;
+    }
+    /**
+     * <pre>
+     * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+     */
+    public Builder mergeSyntax(ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax value) {
+      if (syntaxBuilder_ == null) {
+        if (specificCase_ == 5 &&
+            specific_ != ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.getDefaultInstance()) {
+          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.newBuilder((ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax) specific_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          specific_ = value;
+        }
+        onChanged();
+      } else {
+        if (specificCase_ == 5) {
+          syntaxBuilder_.mergeFrom(value);
+        } else {
+          syntaxBuilder_.setMessage(value);
+        }
+      }
+      specificCase_ = 5;
+      return this;
+    }
+    /**
+     * <pre>
+     * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+     */
+    public Builder clearSyntax() {
+      if (syntaxBuilder_ == null) {
+        if (specificCase_ == 5) {
+          specificCase_ = 0;
+          specific_ = null;
+          onChanged();
+        }
+      } else {
+        if (specificCase_ == 5) {
+          specificCase_ = 0;
+          specific_ = null;
+        }
+        syntaxBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+     */
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.Builder getSyntaxBuilder() {
+      return getSyntaxFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+     */
+    @java.lang.Override
+    public ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntaxOrBuilder getSyntaxOrBuilder() {
+      if ((specificCase_ == 5) && (syntaxBuilder_ != null)) {
+        return syntaxBuilder_.getMessageOrBuilder();
+      } else {
+        if (specificCase_ == 5) {
+          return (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax) specific_;
+        }
+        return ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+     * </pre>
+     *
+     * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntaxOrBuilder> 
+        getSyntaxFieldBuilder() {
+      if (syntaxBuilder_ == null) {
+        if (!(specificCase_ == 5)) {
+          specific_ = ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.getDefaultInstance();
+        }
+        syntaxBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax.Builder, ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntaxOrBuilder>(
+                (ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax) specific_,
+                getParentForChildren(),
+                isClean());
+        specific_ = null;
+      }
+      specificCase_ = 5;
+      onChanged();
+      return syntaxBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:scheduler.TaskType)

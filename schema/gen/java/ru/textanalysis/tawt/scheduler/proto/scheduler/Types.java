@@ -45,6 +45,21 @@ public final class Types {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_scheduler_TaskTypeGama_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_scheduler_TaskTypeDisambiguationFalse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_scheduler_TaskTypeDisambiguationFalse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_scheduler_TaskTypeDisambiguationTrue_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_scheduler_TaskTypeDisambiguationTrue_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_scheduler_TaskTypeSyntax_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_scheduler_TaskTypeSyntax_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_scheduler_CreateTask_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -79,25 +94,32 @@ public final class Types {
       "or\210\001\001\"\\\n\006Status\022\033\n\027TASK_STATUS_UNSPECIFI" +
       "ED\020\000\022\n\n\006QUEUED\020\001\022\017\n\013IN_PROGRESS\020\002\022\r\n\tCOM" +
       "PLETED\020\003\022\t\n\005ERROR\020\004B\t\n\007_outputB\016\n\014_finis" +
-      "hed_atB\010\n\006_error\"\217\001\n\010TaskType\022H\n\rgraphem" +
+      "hed_atB\010\n\006_error\"\373\002\n\010TaskType\022H\n\rgraphem" +
       "atical\030\001 \001(\0132 .scheduler.TaskTypeGraphem" +
       "aticalH\000R\rgraphematical\022-\n\004gama\030\002 \001(\0132\027." +
-      "scheduler.TaskTypeGamaH\000R\004gamaB\n\n\010specif" +
-      "ic\"\027\n\025TaskTypeGraphematical\"\016\n\014TaskTypeG" +
-      "ama\"g\n\nCreateTask\022\'\n\004type\030\001 \001(\0132\023.schedu" +
-      "ler.TaskTypeR\004type\022\024\n\005input\030\002 \001(\014R\005input" +
-      "\022\032\n\010priority\030\003 \001(\rR\010priority\"h\n\016TaskStre" +
-      "amData\022\027\n\007task_id\030\001 \001(\tR\006taskId\022\'\n\004type\030" +
-      "\002 \001(\0132\023.scheduler.TaskTypeR\004type\022\024\n\005inpu" +
-      "t\030\003 \001(\tR\005input\"r\n\nFinishTask\022\027\n\007task_id\030" +
-      "\001 \001(\tR\006taskId\022\033\n\006output\030\002 \001(\tH\000R\006output\210" +
-      "\001\001\022\031\n\005error\030\003 \001(\tH\001R\005error\210\001\001B\t\n\007_output" +
-      "B\010\n\006_error*;\n\tQueueType\022\032\n\026QUEUE_TYPE_UN" +
-      "SPECIFIED\020\000\022\010\n\004SLOW\020\001\022\010\n\004FAST\020\002Bx\n.ru.te" +
-      "xtanalysis.tawt.scheduler.proto.schedule" +
-      "rP\001ZDgithub.com/BETEPOK3/tawt-scheduler/" +
-      "schema/gen/go/scheduler;schedulerb\006proto" +
-      "3"
+      "scheduler.TaskTypeGamaH\000R\004gama\022[\n\024disamb" +
+      "iguation_false\030\003 \001(\0132&.scheduler.TaskTyp" +
+      "eDisambiguationFalseH\000R\023disambiguationFa" +
+      "lse\022X\n\023disambiguation_true\030\004 \001(\0132%.sched" +
+      "uler.TaskTypeDisambiguationTrueH\000R\022disam" +
+      "biguationTrue\0223\n\006syntax\030\005 \001(\0132\031.schedule" +
+      "r.TaskTypeSyntaxH\000R\006syntaxB\n\n\010specific\"\027" +
+      "\n\025TaskTypeGraphematical\"\016\n\014TaskTypeGama\"" +
+      "\035\n\033TaskTypeDisambiguationFalse\"\034\n\032TaskTy" +
+      "peDisambiguationTrue\"\020\n\016TaskTypeSyntax\"g" +
+      "\n\nCreateTask\022\'\n\004type\030\001 \001(\0132\023.scheduler.T" +
+      "askTypeR\004type\022\024\n\005input\030\002 \001(\014R\005input\022\032\n\010p" +
+      "riority\030\003 \001(\rR\010priority\"h\n\016TaskStreamDat" +
+      "a\022\027\n\007task_id\030\001 \001(\tR\006taskId\022\'\n\004type\030\002 \001(\013" +
+      "2\023.scheduler.TaskTypeR\004type\022\024\n\005input\030\003 \001" +
+      "(\tR\005input\"r\n\nFinishTask\022\027\n\007task_id\030\001 \001(\t" +
+      "R\006taskId\022\033\n\006output\030\002 \001(\tH\000R\006output\210\001\001\022\031\n" +
+      "\005error\030\003 \001(\tH\001R\005error\210\001\001B\t\n\007_outputB\010\n\006_" +
+      "error*;\n\tQueueType\022\032\n\026QUEUE_TYPE_UNSPECI" +
+      "FIED\020\000\022\010\n\004SLOW\020\001\022\010\n\004FAST\020\002Bx\n.ru.textana" +
+      "lysis.tawt.scheduler.proto.schedulerP\001ZD" +
+      "github.com/BETEPOK3/tawt-scheduler/schem" +
+      "a/gen/go/scheduler;schedulerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -115,7 +137,7 @@ public final class Types {
     internal_static_scheduler_TaskType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_TaskType_descriptor,
-        new java.lang.String[] { "Graphematical", "Gama", "Specific", });
+        new java.lang.String[] { "Graphematical", "Gama", "DisambiguationFalse", "DisambiguationTrue", "Syntax", "Specific", });
     internal_static_scheduler_TaskTypeGraphematical_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_scheduler_TaskTypeGraphematical_fieldAccessorTable = new
@@ -128,20 +150,38 @@ public final class Types {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_TaskTypeGama_descriptor,
         new java.lang.String[] { });
-    internal_static_scheduler_CreateTask_descriptor =
+    internal_static_scheduler_TaskTypeDisambiguationFalse_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_scheduler_TaskTypeDisambiguationFalse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_scheduler_TaskTypeDisambiguationFalse_descriptor,
+        new java.lang.String[] { });
+    internal_static_scheduler_TaskTypeDisambiguationTrue_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_scheduler_TaskTypeDisambiguationTrue_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_scheduler_TaskTypeDisambiguationTrue_descriptor,
+        new java.lang.String[] { });
+    internal_static_scheduler_TaskTypeSyntax_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_scheduler_TaskTypeSyntax_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_scheduler_TaskTypeSyntax_descriptor,
+        new java.lang.String[] { });
+    internal_static_scheduler_CreateTask_descriptor =
+      getDescriptor().getMessageTypes().get(7);
     internal_static_scheduler_CreateTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_CreateTask_descriptor,
         new java.lang.String[] { "Type", "Input", "Priority", });
     internal_static_scheduler_TaskStreamData_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_scheduler_TaskStreamData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_TaskStreamData_descriptor,
         new java.lang.String[] { "TaskId", "Type", "Input", });
     internal_static_scheduler_FinishTask_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_scheduler_FinishTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_scheduler_FinishTask_descriptor,

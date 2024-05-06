@@ -39,11 +39,13 @@ func (u *usecase) GetFromQueue(ctx context.Context, stream domain.TaskStreamInte
 			Status: funcs.Ptr(entities.TaskStatusInProgress),
 		})
 		if err != nil {
+			_ = msg.Nack(false, true)
 			return errors.Wrap(err, errors.ERR_USECASE, "tasksRepo.Edit")
 		}
 
 		err = stream.ProcessTasks(entities.TaskList{task})
 		if err != nil {
+			_ = msg.Nack(false, true)
 			return errors.Wrap(err, errors.ERR_USECASE, "ProcessTasks")
 		}
 

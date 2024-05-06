@@ -2,7 +2,7 @@ package ru.textanalysis.tawt.scheduler.processors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ru.textanalysis.tawt.graphematic.parser.text.GraphematicParser;
-import ru.textanalysis.tawt.scheduler.entities.TextRequest;
+import ru.textanalysis.tawt.scheduler.requests.TextRequest;
 
 public class ProcessorGraphematical implements Processor {
     private final GraphematicParser parser;

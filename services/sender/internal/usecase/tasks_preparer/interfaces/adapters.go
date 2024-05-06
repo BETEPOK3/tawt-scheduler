@@ -1,4 +1,4 @@
-package tasks_preparer
+package interfaces
 
 import (
 	"context"

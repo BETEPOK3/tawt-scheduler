@@ -50,6 +50,12 @@ message TaskType {
         TaskTypeGraphematical graphematical = 1;
         // gama - тип задачи "граф. + морфологический анализ".
         TaskTypeGama gama = 2;
+        // disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+        TaskTypeDisambiguationFalse disambiguation_false = 3;
+        // disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+        TaskTypeDisambiguationTrue disambiguation_true = 4;
+        // syntax - тип задачи "граф. + морф. + синтаксический анализ".
+        TaskTypeSyntax syntax = 5;
     }
 }
 
@@ -58,6 +64,15 @@ message TaskTypeGraphematical {}
 
 // TaskTypeGama - тип задачи "граф. + морфологический анализ".
 message TaskTypeGama {}
+
+// TaskTypeDisambiguationFalse - тип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+message TaskTypeDisambiguationFalse {}
+
+// TaskTypeDisambiguationTrue - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+message TaskTypeDisambiguationTrue {}
+
+// TaskTypeSyntax - тип задачи "граф. + морф. + синтаксический анализ".
+message TaskTypeSyntax {}
 
 // CreateTask - DTO создания задачи.
 message CreateTask {

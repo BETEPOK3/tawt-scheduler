@@ -62,5 +62,86 @@ public interface TaskTypeOrBuilder extends
    */
   ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeGamaOrBuilder getGamaOrBuilder();
 
+  /**
+   * <pre>
+   * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+   * @return Whether the disambiguationFalse field is set.
+   */
+  boolean hasDisambiguationFalse();
+  /**
+   * <pre>
+   * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+   * @return The disambiguationFalse.
+   */
+  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalse getDisambiguationFalse();
+  /**
+   * <pre>
+   * disambiguation_false - ип задачи "граф. + морфологический анализ + устранение неоднозначностей".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationFalse disambiguation_false = 3 [json_name = "disambiguationFalse"];</code>
+   */
+  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationFalseOrBuilder getDisambiguationFalseOrBuilder();
+
+  /**
+   * <pre>
+   * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+   * @return Whether the disambiguationTrue field is set.
+   */
+  boolean hasDisambiguationTrue();
+  /**
+   * <pre>
+   * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+   * @return The disambiguationTrue.
+   */
+  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrue getDisambiguationTrue();
+  /**
+   * <pre>
+   * disambiguation_true - тип задачи "граф. + морфологический анализ + устранение неоднозначностей с использованием статистического анализа".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeDisambiguationTrue disambiguation_true = 4 [json_name = "disambiguationTrue"];</code>
+   */
+  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeDisambiguationTrueOrBuilder getDisambiguationTrueOrBuilder();
+
+  /**
+   * <pre>
+   * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+   * @return Whether the syntax field is set.
+   */
+  boolean hasSyntax();
+  /**
+   * <pre>
+   * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+   * @return The syntax.
+   */
+  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntax getSyntax();
+  /**
+   * <pre>
+   * syntax - тип задачи "граф. + морф. + синтаксический анализ".
+   * </pre>
+   *
+   * <code>.scheduler.TaskTypeSyntax syntax = 5 [json_name = "syntax"];</code>
+   */
+  ru.textanalysis.tawt.scheduler.proto.scheduler.TaskTypeSyntaxOrBuilder getSyntaxOrBuilder();
+
   ru.textanalysis.tawt.scheduler.proto.scheduler.TaskType.SpecificCase getSpecificCase();
 }
