@@ -14,8 +14,8 @@ priorities:
   disambiguation_false_b: 1.06121
   disambiguation_true_a: 0.00152
   disambiguation_true_b: -10.10585
-  sp_a: 0.01100
-  sp_b: -0.01851
+  syntax_a: 0.01100
+  syntax_b: -0.01851
 
 # Конфигурация подключения к планировщику.
 scheduler:

@@ -9,6 +9,7 @@ import (
 	"github.com/BETEPOK3/tawt-scheduler/sender/internal/usecase/tasks_preparer/gama"
 	"github.com/BETEPOK3/tawt-scheduler/sender/internal/usecase/tasks_preparer/graphematical"
 	"github.com/BETEPOK3/tawt-scheduler/sender/internal/usecase/tasks_preparer/interfaces"
+	"github.com/BETEPOK3/tawt-scheduler/sender/internal/usecase/tasks_preparer/syntax"
 )
 
 type factory map[entities.TaskType]domain.TasksPreparerUsecase
@@ -34,6 +35,7 @@ func NewTasksPreparerUsecase(
 		entities.TaskTypeGama:                gama.NewTasksPreparerUsecaseGama(uc, schedulerAdapter, cfg),
 		entities.TaskTypeDisambiguationFalse: disambiguation_false.NewTasksPreparerUsecaseDisambiguationFalse(uc, schedulerAdapter, cfg),
 		entities.TaskTypeDisambiguationTrue:  disambiguation_true.NewTasksPreparerUsecaseDisambiguationTrue(uc, schedulerAdapter, cfg),
+		entities.TaskTypeSyntax:              syntax.NewTasksPreparerUsecaseSyntax(uc, schedulerAdapter, cfg),
 	}
 
 	return uc

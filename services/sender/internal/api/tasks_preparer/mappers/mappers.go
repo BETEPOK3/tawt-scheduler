@@ -8,6 +8,7 @@ var (
 		2: entities.TaskTypeGama,
 		3: entities.TaskTypeDisambiguationFalse,
 		4: entities.TaskTypeDisambiguationTrue,
+		5: entities.TaskTypeSyntax,
 	}
 )
 

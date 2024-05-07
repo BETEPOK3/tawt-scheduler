@@ -31,7 +31,8 @@ public class Main {
                 builder.buildProcessorGraphematical(),
                 builder.buildProcessorGama(),
                 builder.buildProcessorDisambiguationFalse(),
-                builder.buildProcessorDisambiguationTrue()
+                builder.buildProcessorDisambiguationTrue(),
+                builder.buildProcessorSyntax()
         );
 
         ScheduledExecutorService executorServiceSlow = Executors.newScheduledThreadPool(2);

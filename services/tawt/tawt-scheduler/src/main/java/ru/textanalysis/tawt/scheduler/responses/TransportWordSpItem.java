@@ -1,17 +1,19 @@
 package ru.textanalysis.tawt.scheduler.responses;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class TransportWordSpItem {
-    private Map<Integer, TransportOmoFormSPItem> omoForms = new HashMap<>();
+    private List<TransportOmoFormSPItem> omoForms = new LinkedList<>();
     private Integer omoFormSPListHashcode;
 
-    public Map<Integer, TransportOmoFormSPItem> getOmoForms() {
+    public List<TransportOmoFormSPItem> getOmoForms() {
         return omoForms;
     }
 
-    public void setOmoForms(Map<Integer, TransportOmoFormSPItem> omoForms) {
+    public void setOmoForms(List<TransportOmoFormSPItem> omoForms) {
         this.omoForms = omoForms;
     }
 

@@ -28,7 +28,7 @@ services:
     volumes:
       - ${HOME}/dev-rabbitmq/data/:/var/lib/rabbitmq
       - ${HOME}/dev-rabbitmq/log/:/var/log/rabbitmq
-    restart: no
+    restart: always
     networks:
       - dev-network
 
@@ -40,7 +40,7 @@ services:
     build:
       context: .
       dockerfile: services/scheduler/build/Dockerfile
-    restart: no
+    restart: always
     depends_on:
       - postgres
       - message-broker
@@ -55,7 +55,7 @@ services:
     build:
       context: .
       dockerfile: services/sender/build/Dockerfile
-    restart: no
+    restart: always
     depends_on:
       - scheduler
     networks:
@@ -69,7 +69,7 @@ services:
     build:
       context: .
       dockerfile: services/tawt/build/Dockerfile
-    restart: no
+    restart: always
     depends_on:
       - scheduler
     networks:

@@ -14,8 +14,8 @@ type PrioritiesConfig struct {
 	DisambiguationFalseB float64 `json:"disambiguation_false_b" yaml:"disambiguation_false_b"`
 	DisambiguationTrueA  float64 `json:"disambiguation_true_a" yaml:"disambiguation_true_a"`
 	DisambiguationTrueB  float64 `json:"disambiguation_true_b" yaml:"disambiguation_true_b"`
-	SpA                  float64 `json:"sp_a" yaml:"sp_a"`
-	SpB                  float64 `json:"sp_b" yaml:"sp_b"`
+	SyntaxA              float64 `json:"syntax_a" yaml:"syntax_a"`
+	SyntaxB              float64 `json:"syntax_b" yaml:"syntax_b"`
 }
 
 // Validate - валидация QueuesConfig.
@@ -44,11 +44,11 @@ func (c *PrioritiesConfig) Validate() error {
 	if c.DisambiguationTrueB == 0 {
 		return errors.Error(errors.ERR_SYSTEM, "DisambiguationTrueB required")
 	}
-	if c.SpA == 0 {
-		return errors.Error(errors.ERR_SYSTEM, "SpA required")
+	if c.SyntaxA == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "SyntaxA required")
 	}
-	if c.SpB == 0 {
-		return errors.Error(errors.ERR_SYSTEM, "SpB required")
+	if c.SyntaxB == 0 {
+		return errors.Error(errors.ERR_SYSTEM, "SyntaxB required")
 	}
 
 	return nil
