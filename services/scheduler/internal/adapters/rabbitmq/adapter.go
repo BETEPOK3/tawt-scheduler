@@ -1,23 +1,37 @@
 package rabbitmq
 
 import (
-	"github.com/BETEPOK3/tawt-scheduler/common/config"
+	"fmt"
+	"github.com/BETEPOK3/tawt-scheduler/common/errors"
+	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/config"
 	"github.com/rabbitmq/amqp091-go"
 )
 
+type factory map[string]*amqp091.Channel
+
 // Adapter - структура для доступа к брокеру очередей RabbitMQ.
 type Adapter struct {
-	cfg                *config.RabbitMQConfig
-	rabbitMqConnection *amqp091.Connection
+	factory factory
 }
 
 // NewRabbitAdapter - конструктор Adapter.
 func NewRabbitAdapter(
-	cfg *config.RabbitMQConfig,
+	queuesCfg *config.QueuesConfig,
 	rabbitMqConnection *amqp091.Connection,
-) *Adapter {
-	return &Adapter{
-		cfg:                cfg,
-		rabbitMqConnection: rabbitMqConnection,
+) (*Adapter, error) {
+	fact := make(factory)
+	for i := uint8(1); i <= queuesCfg.MaxPriority; i++ {
+		queueName := fmt.Sprintf("%s_%02d", queuesCfg.FastQueuePrefix, i)
+		ch, err := rabbitMqConnection.Channel()
+		if err != nil {
+			return nil, errors.Wrap(err, errors.ERR_INFRA, "new channel")
+		}
+		fact[queueName] = ch
 	}
+	ch, err := rabbitMqConnection.Channel()
+	if err != nil {
+		return nil, errors.Wrap(err, errors.ERR_INFRA, "new channel")
+	}
+	fact[queuesCfg.SlowQueue] = ch
+	return &Adapter{factory: fact}, nil
 }

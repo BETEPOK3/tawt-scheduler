@@ -9,12 +9,12 @@ import (
 
 // SendTask - отправить задачу в очередь.
 func (a *Adapter) SendTask(ctx context.Context, dto *domain.SendTaskMessageDto) error {
-	channel, err := a.newChannel()
-	if err != nil {
-		return err
+	channel, ok := a.factory[dto.QueueName]
+	if !ok {
+		return errors.Error(errors.ERR_ADAPTER, "queue %s doesn't exist", dto.QueueName)
 	}
 
-	err = channel.PublishWithContext(ctx,
+	err := channel.PublishWithContext(ctx,
 		"",
 		dto.QueueName,
 		false,

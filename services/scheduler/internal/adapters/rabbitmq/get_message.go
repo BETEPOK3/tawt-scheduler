@@ -8,9 +8,9 @@ import (
 
 // GetMessage - получить сообщение.
 func (a *Adapter) GetMessage(ctx context.Context, queueName string) (*amqp091.Delivery, error) {
-	channel, err := a.newChannel()
-	if err != nil {
-		return nil, err
+	channel, ok := a.factory[queueName]
+	if !ok {
+		return nil, errors.Error(errors.ERR_ADAPTER, "queue %s doesn't exist", queueName)
 	}
 
 	msg, ok, err := channel.Get(queueName, false)

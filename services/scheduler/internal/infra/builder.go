@@ -83,7 +83,7 @@ func (b *builder) BuildRabbitmqAdapter() (*rabbitmq_adapter.Adapter, error) {
 		return nil, errors.Wrap(err, errors.ERR_INFRA, "RabbitmqConnection")
 	}
 
-	return rabbitmq_adapter.NewRabbitAdapter(b.cfg.RabbitMQ, rabbitmqConn), nil
+	return rabbitmq_adapter.NewRabbitAdapter(b.cfg.Queues, rabbitmqConn)
 }
 
 // RabbitmqConnection - подключится к RabbitMQ или вернуть текущее подключение.
