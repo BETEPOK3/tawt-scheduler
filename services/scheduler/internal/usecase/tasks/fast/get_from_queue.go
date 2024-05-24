@@ -108,12 +108,12 @@ func (u *usecase) getTask(ctx context.Context) (*amqp091.Delivery, error) {
 }
 
 func (u *usecase) nackMessages(msgs chan *amqp091.Delivery) {
-	for {
-		select {
-		case nackMsg := <-msgs:
+	for len(msgs) > 0 {
+		nackMsg, ok := <-msgs
+		if ok {
 			_ = nackMsg.Nack(false, true)
-		default:
-			return
+		} else {
+			break
 		}
 	}
 }

@@ -38,7 +38,7 @@ func (a *Adapter) GetMessage(ctx context.Context, queueName string) (*amqp091.De
 		select {
 		case msg, ok = <-msgs:
 			if !ok {
-				return nil, errors.Wrap(err, errors.ERR_ADAPTER, "get message from channel")
+				return nil, errors.Error(errors.ERR_ADAPTER, "get message from channel")
 			}
 		case <-subCtx.Done():
 		}

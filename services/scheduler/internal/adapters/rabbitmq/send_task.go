@@ -14,6 +14,7 @@ func (a *Adapter) SendTask(ctx context.Context, dto *domain.SendTaskMessageDto) 
 		return errors.Error(errors.ERR_ADAPTER, "queue %s doesn't exist", dto.QueueName)
 	}
 
+	a.mu.Lock()
 	err := channel.PublishWithContext(ctx,
 		"",
 		dto.QueueName,
@@ -25,6 +26,7 @@ func (a *Adapter) SendTask(ctx context.Context, dto *domain.SendTaskMessageDto) 
 			DeliveryMode: amqp091.Persistent,
 		},
 	)
+	a.mu.Unlock()
 	if err != nil {
 		return errors.Wrap(err, errors.ERR_ADAPTER, "rabbitMqConnection.PublishWithContext")
 	}

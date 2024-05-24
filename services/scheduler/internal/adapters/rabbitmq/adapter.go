@@ -5,12 +5,14 @@ import (
 	"github.com/BETEPOK3/tawt-scheduler/common/errors"
 	"github.com/BETEPOK3/tawt-scheduler/scheduler/internal/config"
 	"github.com/rabbitmq/amqp091-go"
+	"sync"
 )
 
 type factory map[string]*amqp091.Channel
 
 // Adapter - структура для доступа к брокеру очередей RabbitMQ.
 type Adapter struct {
+	mu      sync.Mutex
 	factory factory
 }
 
@@ -33,5 +35,5 @@ func NewRabbitAdapter(
 		return nil, errors.Wrap(err, errors.ERR_INFRA, "new channel")
 	}
 	fact[queuesCfg.SlowQueue] = ch
-	return &Adapter{factory: fact}, nil
+	return &Adapter{mu: sync.Mutex{}, factory: fact}, nil
 }
